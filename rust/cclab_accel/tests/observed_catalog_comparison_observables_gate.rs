@@ -1,7 +1,9 @@
 use cclab_accel::{
-    paper9_skeleton_marker, Paper9SkeletonCertificate, Paper9UpstreamBinding, PAPER1_FROZEN_COMMIT,
-    PAPER2_FROZEN_COMMIT, PAPER3_FROZEN_COMMIT, PAPER4_FROZEN_COMMIT, PAPER5_FROZEN_COMMIT,
-    PAPER6_FROZEN_COMMIT, PAPER7_FROZEN_COMMIT, PAPER8_FINAL_CERTIFICATE, PAPER8_FROZEN_COMMIT,
+    occ002_finite_external_catalog_descriptor_marker, paper9_skeleton_marker,
+    FiniteExternalCatalogDescriptorObservable, Paper9SkeletonCertificate, Paper9UpstreamBinding,
+    PAPER1_FROZEN_COMMIT, PAPER2_FROZEN_COMMIT, PAPER3_FROZEN_COMMIT, PAPER4_FROZEN_COMMIT,
+    PAPER5_FROZEN_COMMIT, PAPER6_FROZEN_COMMIT, PAPER7_FROZEN_COMMIT, PAPER8_FINAL_CERTIFICATE,
+    PAPER8_FROZEN_COMMIT,
 };
 use std::fs;
 use std::path::{Path, PathBuf};
@@ -145,6 +147,106 @@ fn initial_skeleton_does_not_close_paper9_theorem() {
 }
 
 #[test]
+fn occ002_finite_external_catalog_descriptor_closes_only_descriptor_rung() {
+    let descriptor = FiniteExternalCatalogDescriptorObservable::canonical_occ002();
+
+    assert!(descriptor.occ001_upstream_binding_closed);
+    assert!(descriptor.closes_occ002());
+    assert!(descriptor.occupied_catalog_label_count <= descriptor.catalog_label_bound);
+    assert!(descriptor.occupied_observable_key_count <= descriptor.observable_key_bound);
+    assert!(descriptor.occupied_tolerance_metadata_count <= descriptor.tolerance_metadata_bound);
+    assert!(descriptor.occupied_provenance_tag_count <= descriptor.provenance_tag_bound);
+    assert!(descriptor.local_comparison_domain_size <= descriptor.finite_capacity_bound);
+    assert!(descriptor.descriptor_readout_boundary_size <= descriptor.local_comparison_domain_size);
+    assert!(descriptor.bounded_transfer_bound <= descriptor.finite_capacity_bound);
+    assert!(descriptor.paper8_candidate_sector_family_rows_compatible);
+    assert!(descriptor.paper8_candidate_interaction_family_rows_compatible);
+    assert!(descriptor.finite_local_capacity_compatible);
+    assert!(descriptor.bounded_transfer_compatible);
+    assert!(!descriptor.observed_particle_catalog_recovery_import);
+    assert!(!descriptor.physical_standard_model_content_import);
+    assert!(!descriptor.physical_particle_excitation_import);
+    assert!(!descriptor.continuum_qft_import);
+    assert_eq!(
+        occ002_finite_external_catalog_descriptor_marker(),
+        "occ002-finite-external-catalog-descriptor-observable-closed"
+    );
+
+    let certificate = Paper9SkeletonCertificate::with_occ002_descriptor_closed();
+    assert!(certificate.occ001_upstream_binding_closed);
+    assert!(certificate.occ002_finite_external_catalog_descriptor_closed);
+    assert!(!certificate.occ003_finite_candidate_to_catalog_comparison_map_closed);
+    assert!(!certificate.occ008_final_conditional_certificate_closed);
+    assert!(!certificate.paper9_theorem_closed);
+    assert!(!certificate.closes_paper9_theorem());
+}
+
+#[test]
+fn occ002_descriptor_fails_closed_on_nonfinite_or_imported_structure() {
+    let descriptor = FiniteExternalCatalogDescriptorObservable::canonical_occ002();
+
+    let missing_occ001 = FiniteExternalCatalogDescriptorObservable {
+        occ001_upstream_binding_closed: false,
+        ..descriptor
+    };
+    assert!(!missing_occ001.closes_occ002());
+
+    let zero_catalog_bound = FiniteExternalCatalogDescriptorObservable {
+        catalog_label_bound: 0,
+        ..descriptor
+    };
+    assert!(!zero_catalog_bound.closes_occ002());
+
+    let label_count_exceeds_bound = FiniteExternalCatalogDescriptorObservable {
+        occupied_catalog_label_count: descriptor.catalog_label_bound + 1,
+        ..descriptor
+    };
+    assert!(!label_count_exceeds_bound.closes_occ002());
+
+    let readout_exceeds_domain = FiniteExternalCatalogDescriptorObservable {
+        descriptor_readout_boundary_size: descriptor.local_comparison_domain_size + 1,
+        ..descriptor
+    };
+    assert!(!readout_exceeds_domain.closes_occ002());
+
+    let missing_paper8_sector_rows = FiniteExternalCatalogDescriptorObservable {
+        paper8_candidate_sector_family_rows_compatible: false,
+        ..descriptor
+    };
+    assert!(!missing_paper8_sector_rows.closes_occ002());
+
+    let missing_paper8_interaction_rows = FiniteExternalCatalogDescriptorObservable {
+        paper8_candidate_interaction_family_rows_compatible: false,
+        ..descriptor
+    };
+    assert!(!missing_paper8_interaction_rows.closes_occ002());
+
+    let hidden_observed_recovery = FiniteExternalCatalogDescriptorObservable {
+        observed_particle_catalog_recovery_import: true,
+        ..descriptor
+    };
+    assert!(!hidden_observed_recovery.closes_occ002());
+
+    let hidden_physical_standard_model = FiniteExternalCatalogDescriptorObservable {
+        physical_standard_model_content_import: true,
+        ..descriptor
+    };
+    assert!(!hidden_physical_standard_model.closes_occ002());
+
+    let hidden_physical_particle = FiniteExternalCatalogDescriptorObservable {
+        physical_particle_excitation_import: true,
+        ..descriptor
+    };
+    assert!(!hidden_physical_particle.closes_occ002());
+
+    let fit_only = FiniteExternalCatalogDescriptorObservable {
+        fit_only_calibration: true,
+        ..descriptor
+    };
+    assert!(!fit_only.closes_occ002());
+}
+
+#[test]
 fn upstream_json_records_paper8_certificate_and_nonpromotion() {
     let root = project_root();
     let upstream = read(&root, "UPSTREAM-PAPERS.json");
@@ -158,6 +260,11 @@ fn upstream_json_records_paper8_certificate_and_nonpromotion() {
     assert_contains(&upstream, PAPER7_FROZEN_COMMIT, "UPSTREAM-PAPERS.json");
     assert_contains(&upstream, PAPER8_FROZEN_COMMIT, "UPSTREAM-PAPERS.json");
     assert_contains(&upstream, PAPER8_FINAL_CERTIFICATE, "UPSTREAM-PAPERS.json");
+    assert_contains(
+        &upstream,
+        "\"occ002_finite_external_catalog_descriptor_closed\": true",
+        "UPSTREAM-PAPERS.json",
+    );
     assert_contains(
         &upstream,
         "\"observed_catalog_comparison_observables_theorem_closed\": false",
@@ -197,6 +304,7 @@ fn docs_keep_occ002_active_and_physical_claims_false() {
     ] {
         assert_contains(artifact.1, "OCC-001", artifact.0);
         assert_contains(artifact.1, "OCC-002", artifact.0);
+        assert_contains(artifact.1, "OCC-003", artifact.0);
         assert_contains(artifact.1, "observed particle catalog recovery", artifact.0);
         assert_contains(artifact.1, "physical Standard Model", artifact.0);
         assert_contains(artifact.1, "fit-only", artifact.0);

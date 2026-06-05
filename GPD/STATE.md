@@ -2,11 +2,12 @@
 
 ## Current Position
 
-**Current Phase:** 2
-**Current Phase Name:** Define Finite External-Catalog Descriptor Observable
+**Current Phase:** 3
+**Current Phase Name:** Define Finite Candidate-To-Catalog Comparison Map
 **Status:** `OCC-001` upstream binding and claim-boundary scaffold closed;
-`OCC-002` finite external-catalog descriptor observable is open; physical
-promotion remains false
+`OCC-002` finite external-catalog descriptor observable closed; `OCC-003`
+finite candidate-to-catalog comparison map is open; physical promotion
+remains false
 
 Closed rung summary: `OCC-001` records the upstream binding through the
 closed Paper 8 conditional Standard-Model-candidate observables theorem at
@@ -39,14 +40,21 @@ higher-dimensional geometry theorem at commit
 conditional theorem commit `3a9637c65f783ca35e77118f83560290f42f3085`.
 
 The repo is non-promoting. `OCC-001` records the upstream binding and claim
-boundary only.
+boundary. `OCC-002` adds finite external comparison-target descriptor rows
+with bounded catalog labels, observable keys, tolerance metadata, provenance
+tags, local comparison domains, descriptor readout boundaries, Paper 8
+candidate-sector and interaction-family compatibility, finite local capacity,
+and bounded transfer, without importing observed particle catalog recovery,
+physical Standard Model content, physical particle excitations, external
+matter fields, external gauge fields, continuum QFT, background Hilbert
+bundles, simulation-only promotion, fit-only calibration, physical
+promotion, or unified-field promotion.
 
-Next stable target phrase: `OCC-002`: define a finite external-catalog
-descriptor observable without importing observed particle catalog recovery,
-physical Standard Model content, physical particle excitations, continuum
-quantum field theory, external Hilbert bundles, physical matter fields,
-physical gauge fields, physical quantum dynamics, simulation-only promotion,
-fit-only calibration, or unified-field promotion.
+Next stable target phrase: `OCC-003`: define a finite candidate-to-catalog
+comparison map from Paper 8 candidate rows to finite external descriptor rows
+without fit-only calibration, physical identification, observed-catalog
+recovery, continuum QFT, simulation-only promotion, physical promotion, or
+unified-field promotion.
 
 Stable nonpromotion tokens: observed particle catalog recovery; physical
 Standard Model content; physical particle excitations; physical matter fields;
@@ -62,27 +70,32 @@ promotion.
   observed-recovery, physical Standard Model, physical-particle, QFT,
   simulation-only, fit-only, physical-nature, and unified-field promotion
   flags false.
+- `OCC-002` rows define finite external-catalog descriptor observables by
+  requiring nonzero bounded catalog-label, observable-key,
+  uncertainty/tolerance, provenance-tag, local-domain, readout-boundary, and
+  transfer rows, plus Paper 8 sector-family and interaction-family
+  compatibility and explicit non-import guards.
 
 ## Open Questions
 
-- `OCC-002`: What finite external-catalog descriptor observable can be
-  defined using only Paper 8 finite Standard-Model-candidate observables plus
-  explicit finite comparison metadata, without importing observed particle
-  catalog recovery, physical Standard Model content, continuum QFT,
-  external-field premises, simulation-only promotion, or fit-only
-  calibration?
+- `OCC-003`: What finite comparison-map observable can connect Paper 8
+  candidate rows to finite external descriptor rows without fit-only
+  calibration, physical identification, observed-catalog recovery, continuum
+  QFT, simulation-only promotion, physical promotion, or unified-field
+  promotion?
 
 ## Pending Todos
 
-- Define finite catalog-label, observable-key, uncertainty/tolerance, and
-  provenance-tag data for `OCC-002`.
-- Add Rust and Lean fail-closed checks for `OCC-002`.
-- Update theorem docs, proof log, and publication skeleton after `OCC-002`
+- Define finite comparison-map rows for `OCC-003`.
+- Add Rust and Lean fail-closed checks for `OCC-003`.
+- Update theorem docs, proof log, and publication skeleton after `OCC-003`
   closes.
 
 ## Blockers/Concerns
 
 - `OCC-001` is an upstream-binding and claim-boundary contract only.
+- `OCC-002` defines finite descriptors only; it does not identify observed
+  particle catalog entries or physical Standard Model content.
 - Observed-catalog comparison observable recovery remains open.
 - Observed particle catalog recovery, physical Standard Model content,
   physical particle excitations, physical matter fields, physical gauge

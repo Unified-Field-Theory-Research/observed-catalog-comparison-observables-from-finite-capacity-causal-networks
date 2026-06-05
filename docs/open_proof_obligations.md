@@ -7,9 +7,9 @@ recorded Paper 8 final conditional Standard-Model-candidate observables
 certificate. It does not prove any Paper 9 observed-catalog comparison
 observable theorem.
 
-## Active Obligation
+## Closed Dependencies: OCC-002
 
-`OCC-002` is open.
+`OCC-002` closes the finite external-catalog descriptor observable rung.
 
 Required row shape:
 
@@ -36,11 +36,46 @@ Required row shape:
 - no physical promotion;
 - no unified-field promotion.
 
+The rung defines finite descriptor rows only. It does not prove
+candidate-to-catalog comparison maps, observed-catalog comparison observable
+recovery, observed particle catalog recovery, physical Standard Model content,
+physical particle excitations, continuum QFT, physical quantum dynamics,
+physical nature promotion, or unified-field promotion.
+
+## Active Obligation
+
+`OCC-003` is open.
+
+Required row shape:
+
+- closed `OCC-001` upstream binding;
+- closed `OCC-002` finite external-catalog descriptor observable;
+- finite Paper 8 candidate row-key bound;
+- finite external descriptor row-key bound;
+- finite comparison-map edge/support bound;
+- finite score/tolerance channel bound;
+- finite local comparison neighborhood;
+- finite comparison readout boundary;
+- compatibility with descriptor observable support;
+- compatibility with Paper 8 candidate sector-family rows;
+- compatibility with Paper 8 candidate interaction-family rows;
+- compatibility with finite capacity and bounded transfer;
+- no physical identification map;
+- no fit-only calibration;
+- no observed-catalog recovery import;
+- no observed particle catalog recovery;
+- no physical Standard Model content;
+- no physical particle-excitation import;
+- no external matter field;
+- no external gauge field;
+- no continuum QFT import;
+- no background Hilbert bundle import;
+- no simulation-only promotion;
+- no physical promotion;
+- no unified-field promotion.
+
 ## Future Obligations
 
-- `OCC-003`: finite candidate-to-catalog comparison map without fit-only
-  calibration, physical identification, observed-catalog recovery, continuum
-  QFT, simulation-only, physical, or unified-field imports.
 - `OCC-004`: compatibility with closed Paper 8 Standard-Model-candidate rows.
 - `OCC-005`: comparison stability and intrinsic coarse-graining stability.
 - `OCC-006`: Paper 8 regime consistency and no upstream bypass.

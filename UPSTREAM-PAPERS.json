@@ -142,7 +142,7 @@
   "paper9_dependency_policy": "Paper 9 depends on the recorded Paper 8 commit and its recorded Paper 7/Paper 6/Paper 5/Paper 4/Paper 3/Paper 2/Paper 1 upstream bindings unless an explicit upstream revision is approved and recorded.",
   "paper9_current_claims": {
     "occ001_upstream_binding_closed": true,
-    "occ002_finite_external_catalog_descriptor_closed": false,
+    "occ002_finite_external_catalog_descriptor_closed": true,
     "occ003_finite_candidate_to_catalog_comparison_map_closed": false,
     "occ004_standard_model_candidate_compatibility_closed": false,
     "occ005_comparison_coarse_graining_stability_closed": false,

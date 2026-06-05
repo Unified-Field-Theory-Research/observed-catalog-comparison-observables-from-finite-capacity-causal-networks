@@ -9,6 +9,7 @@ particle excitations, physical matter fields, physical gauge fields,
 continuum QFT, physical quantum dynamics, simulation-only promotion,
 fit-only calibration, or unified-field promotion.
 
-The current closed rung is `OCC-001`: upstream binding and claim boundary.
-The current active obligation is `OCC-002`: define a finite external-catalog
-descriptor observable.
+The current closed rungs are `OCC-001`: upstream binding and claim boundary,
+and `OCC-002`: finite external-catalog descriptor observable. The current
+active obligation is `OCC-003`: define a finite candidate-to-catalog
+comparison map.

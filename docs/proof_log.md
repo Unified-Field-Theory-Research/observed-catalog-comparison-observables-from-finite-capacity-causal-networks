@@ -55,10 +55,66 @@ physical gauge fields, physical quantum dynamics, continuum quantum field
 theory, simulation-only promotion, fit-only calibration, a physical
 nature-level claim, or a unified field theory.
 
+## OCC-002: Finite External-Catalog Descriptor Observable
+
+Status: closed as a finite descriptor-row observable contract.
+
+Artifacts:
+
+- `README.md`
+- `UPSTREAM-PAPERS.json`
+- `GPD/PROJECT.md`
+- `GPD/ROADMAP.md`
+- `GPD/STATE.md`
+- `GPD/state.json`
+- `docs/observed_catalog_comparison_observables_theorem.md`
+- `docs/open_proof_obligations.md`
+- `docs/proof_log.md`
+- `GPD/formal/FiniteCapacity/ObservedCatalogComparisonObservables.lean`
+- `rust/cclab_accel/src/lib.rs`
+- `rust/cclab_accel/tests/observed_catalog_comparison_observables_gate.rs`
+
+Rust anchors:
+
+- `FiniteExternalCatalogDescriptorObservable`
+- `FiniteExternalCatalogDescriptorObservable::canonical_occ002`
+- `FiniteExternalCatalogDescriptorObservable::closes_occ002`
+- `Paper9SkeletonCertificate::with_occ002_descriptor_closed`
+- `occ002_finite_external_catalog_descriptor_marker`
+
+Lean anchors:
+
+- `OCC002FiniteExternalCatalogDescriptorObservableContract`
+- `OCC002FiniteExternalCatalogDescriptorObservableContract.closed`
+- `occ002_finite_external_catalog_descriptor_closed_from_fields`
+- `occ002_missing_catalog_label_bound_not_closed`
+- `occ002_missing_paper8_sector_rows_not_closed`
+- `occ002_observed_particle_catalog_recovery_import_not_closed`
+- `occ002_fit_only_calibration_not_closed`
+- `occ002_canonical_finite_external_catalog_descriptor_closed`
+
+Verification:
+
+- `make test-fast`
+- `make lean-build`
+
+Boundary:
+
+`OCC-002` defines finite external comparison-target descriptor rows with
+finite catalog-label, observable-key, uncertainty/tolerance metadata,
+provenance-tag, local comparison-domain, descriptor-readout, Paper 8
+candidate-sector-family compatibility, Paper 8 candidate-interaction-family
+compatibility, finite local capacity, and bounded-transfer gates. It does not
+prove candidate-to-catalog comparison maps, observed-catalog comparison
+observable recovery, observed particle catalog recovery, physical Standard
+Model content, physical particle excitations, physical matter fields,
+physical gauge fields, physical quantum dynamics, continuum quantum field
+theory, simulation-only promotion, fit-only calibration, a physical
+nature-level claim, or a unified field theory.
+
 ## Active Next Obligation
 
-`OCC-002`: define a finite external-catalog descriptor observable without
-importing observed particle catalog recovery, physical Standard Model content,
-physical particle excitations, continuum QFT, external Hilbert bundles,
-simulation-only promotion, fit-only calibration, physical quantum dynamics,
-or unified-field promotion.
+`OCC-003`: define a finite candidate-to-catalog comparison map without
+fit-only calibration, physical identification, observed-catalog recovery,
+continuum QFT, external Hilbert bundles, simulation-only promotion, physical
+promotion, or unified-field promotion.

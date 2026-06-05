@@ -20,7 +20,7 @@ paper-specific certificate explicitly closes them.
   isolated repo, manuscript skeleton, upstream binding, Lean scaffold, and
   Rust nonpromotion gate. `OCC-001` records the upstream binding and claim
   boundary through the closed Paper 8 result.
-- [ ] **Phase 2: Define Finite External-Catalog Descriptor Observable** -
+- [x] **Phase 2: Define Finite External-Catalog Descriptor Observable** -
   `OCC-002` should define finite external comparison-target descriptor rows
   with finite catalog labels, finite observable-key support, finite uncertainty
   or tolerance metadata, finite provenance tags, and no observed-catalog

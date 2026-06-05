@@ -150,6 +150,199 @@ theorem occ001_canonical_upstream_binding_closed :
   unfold occ001CanonicalUpstreamBindingContract
   simp
 
+structure OCC002FiniteExternalCatalogDescriptorObservableContract where
+  occ001UpstreamBindingClosed : Prop
+  catalogLabelBound : Nat
+  occupiedCatalogLabelCount : Nat
+  observableKeyBound : Nat
+  occupiedObservableKeyCount : Nat
+  toleranceMetadataBound : Nat
+  occupiedToleranceMetadataCount : Nat
+  provenanceTagBound : Nat
+  occupiedProvenanceTagCount : Nat
+  localComparisonDomainSize : Nat
+  descriptorReadoutBoundarySize : Nat
+  finiteCapacityBound : Nat
+  boundedTransferBound : Nat
+  paper8CandidateSectorFamilyRowsCompatible : Prop
+  paper8CandidateInteractionFamilyRowsCompatible : Prop
+  finiteLocalCapacityCompatible : Prop
+  boundedTransferCompatible : Prop
+  observedParticleCatalogRecoveryImport : Prop
+  physicalStandardModelContentImport : Prop
+  physicalParticleExcitationImport : Prop
+  externalMatterFieldImport : Prop
+  externalGaugeFieldImport : Prop
+  continuumQFTImport : Prop
+  backgroundHilbertBundleImport : Prop
+  simulationOnlyPromotion : Prop
+  fitOnlyCalibration : Prop
+  physicalPromotion : Prop
+  unifiedFieldPromotion : Prop
+
+def OCC002FiniteExternalCatalogDescriptorObservableContract.closed
+    (c : OCC002FiniteExternalCatalogDescriptorObservableContract) : Prop :=
+  c.occ001UpstreamBindingClosed ∧
+  0 < c.catalogLabelBound ∧
+  0 < c.occupiedCatalogLabelCount ∧
+  c.occupiedCatalogLabelCount ≤ c.catalogLabelBound ∧
+  0 < c.observableKeyBound ∧
+  0 < c.occupiedObservableKeyCount ∧
+  c.occupiedObservableKeyCount ≤ c.observableKeyBound ∧
+  0 < c.toleranceMetadataBound ∧
+  0 < c.occupiedToleranceMetadataCount ∧
+  c.occupiedToleranceMetadataCount ≤ c.toleranceMetadataBound ∧
+  0 < c.provenanceTagBound ∧
+  0 < c.occupiedProvenanceTagCount ∧
+  c.occupiedProvenanceTagCount ≤ c.provenanceTagBound ∧
+  0 < c.localComparisonDomainSize ∧
+  c.localComparisonDomainSize ≤ c.finiteCapacityBound ∧
+  0 < c.descriptorReadoutBoundarySize ∧
+  c.descriptorReadoutBoundarySize ≤ c.localComparisonDomainSize ∧
+  0 < c.boundedTransferBound ∧
+  c.boundedTransferBound ≤ c.finiteCapacityBound ∧
+  c.paper8CandidateSectorFamilyRowsCompatible ∧
+  c.paper8CandidateInteractionFamilyRowsCompatible ∧
+  c.finiteLocalCapacityCompatible ∧
+  c.boundedTransferCompatible ∧
+  ¬ c.observedParticleCatalogRecoveryImport ∧
+  ¬ c.physicalStandardModelContentImport ∧
+  ¬ c.physicalParticleExcitationImport ∧
+  ¬ c.externalMatterFieldImport ∧
+  ¬ c.externalGaugeFieldImport ∧
+  ¬ c.continuumQFTImport ∧
+  ¬ c.backgroundHilbertBundleImport ∧
+  ¬ c.simulationOnlyPromotion ∧
+  ¬ c.fitOnlyCalibration ∧
+  ¬ c.physicalPromotion ∧
+  ¬ c.unifiedFieldPromotion
+
+theorem occ002_finite_external_catalog_descriptor_closed_from_fields
+    (c : OCC002FiniteExternalCatalogDescriptorObservableContract)
+    (hOCC001 : c.occ001UpstreamBindingClosed)
+    (hCatalogBoundPositive : 0 < c.catalogLabelBound)
+    (hCatalogCountPositive : 0 < c.occupiedCatalogLabelCount)
+    (hCatalogCountLeBound : c.occupiedCatalogLabelCount ≤ c.catalogLabelBound)
+    (hKeyBoundPositive : 0 < c.observableKeyBound)
+    (hKeyCountPositive : 0 < c.occupiedObservableKeyCount)
+    (hKeyCountLeBound : c.occupiedObservableKeyCount ≤ c.observableKeyBound)
+    (hToleranceBoundPositive : 0 < c.toleranceMetadataBound)
+    (hToleranceCountPositive : 0 < c.occupiedToleranceMetadataCount)
+    (hToleranceCountLeBound :
+      c.occupiedToleranceMetadataCount ≤ c.toleranceMetadataBound)
+    (hProvenanceBoundPositive : 0 < c.provenanceTagBound)
+    (hProvenanceCountPositive : 0 < c.occupiedProvenanceTagCount)
+    (hProvenanceCountLeBound :
+      c.occupiedProvenanceTagCount ≤ c.provenanceTagBound)
+    (hDomainPositive : 0 < c.localComparisonDomainSize)
+    (hDomainLeCapacity : c.localComparisonDomainSize ≤ c.finiteCapacityBound)
+    (hReadoutPositive : 0 < c.descriptorReadoutBoundarySize)
+    (hReadoutLeDomain : c.descriptorReadoutBoundarySize ≤ c.localComparisonDomainSize)
+    (hTransferPositive : 0 < c.boundedTransferBound)
+    (hTransferLeCapacity : c.boundedTransferBound ≤ c.finiteCapacityBound)
+    (hPaper8Sector : c.paper8CandidateSectorFamilyRowsCompatible)
+    (hPaper8Interaction : c.paper8CandidateInteractionFamilyRowsCompatible)
+    (hFiniteCapacity : c.finiteLocalCapacityCompatible)
+    (hBoundedTransfer : c.boundedTransferCompatible)
+    (hNoObservedRecovery : ¬ c.observedParticleCatalogRecoveryImport)
+    (hNoPhysicalSM : ¬ c.physicalStandardModelContentImport)
+    (hNoPhysicalParticle : ¬ c.physicalParticleExcitationImport)
+    (hNoMatter : ¬ c.externalMatterFieldImport)
+    (hNoGauge : ¬ c.externalGaugeFieldImport)
+    (hNoQFT : ¬ c.continuumQFTImport)
+    (hNoHilbert : ¬ c.backgroundHilbertBundleImport)
+    (hNoSimulation : ¬ c.simulationOnlyPromotion)
+    (hNoFit : ¬ c.fitOnlyCalibration)
+    (hNoPhysicalPromotion : ¬ c.physicalPromotion)
+    (hNoUnified : ¬ c.unifiedFieldPromotion) :
+    c.closed := by
+  exact ⟨hOCC001, hCatalogBoundPositive, hCatalogCountPositive,
+    hCatalogCountLeBound, hKeyBoundPositive, hKeyCountPositive,
+    hKeyCountLeBound, hToleranceBoundPositive, hToleranceCountPositive,
+    hToleranceCountLeBound, hProvenanceBoundPositive,
+    hProvenanceCountPositive, hProvenanceCountLeBound, hDomainPositive,
+    hDomainLeCapacity, hReadoutPositive, hReadoutLeDomain,
+    hTransferPositive, hTransferLeCapacity, hPaper8Sector,
+    hPaper8Interaction, hFiniteCapacity, hBoundedTransfer,
+    hNoObservedRecovery, hNoPhysicalSM, hNoPhysicalParticle, hNoMatter,
+    hNoGauge, hNoQFT, hNoHilbert, hNoSimulation, hNoFit,
+    hNoPhysicalPromotion, hNoUnified⟩
+
+theorem occ002_missing_catalog_label_bound_not_closed
+    (c : OCC002FiniteExternalCatalogDescriptorObservableContract)
+    (hClosed : c.closed)
+    (hMissingCatalogBound : ¬ 0 < c.catalogLabelBound) :
+    False := by
+  rcases hClosed with ⟨_, hCatalogBound, _⟩
+  exact hMissingCatalogBound hCatalogBound
+
+theorem occ002_missing_paper8_sector_rows_not_closed
+    (c : OCC002FiniteExternalCatalogDescriptorObservableContract)
+    (hClosed : c.closed)
+    (hMissingPaper8Sector : ¬ c.paper8CandidateSectorFamilyRowsCompatible) :
+    False := by
+  rcases hClosed with
+    ⟨_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _,
+      hPaper8Sector, _⟩
+  exact hMissingPaper8Sector hPaper8Sector
+
+theorem occ002_observed_particle_catalog_recovery_import_not_closed
+    (c : OCC002FiniteExternalCatalogDescriptorObservableContract)
+    (hClosed : c.closed)
+    (hObservedRecovery : c.observedParticleCatalogRecoveryImport) :
+    False := by
+  rcases hClosed with
+    ⟨_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _,
+      hNoObservedRecovery, _⟩
+  exact hNoObservedRecovery hObservedRecovery
+
+theorem occ002_fit_only_calibration_not_closed
+    (c : OCC002FiniteExternalCatalogDescriptorObservableContract)
+    (hClosed : c.closed)
+    (hFitOnly : c.fitOnlyCalibration) :
+    False := by
+  rcases hClosed with
+    ⟨_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _,
+      _, _, _, _, _, _, _, _, hNoFit, _⟩
+  exact hNoFit hFitOnly
+
+def occ002CanonicalFiniteExternalCatalogDescriptorObservableContract :
+    OCC002FiniteExternalCatalogDescriptorObservableContract :=
+  { occ001UpstreamBindingClosed := True,
+    catalogLabelBound := 16,
+    occupiedCatalogLabelCount := 4,
+    observableKeyBound := 16,
+    occupiedObservableKeyCount := 6,
+    toleranceMetadataBound := 8,
+    occupiedToleranceMetadataCount := 3,
+    provenanceTagBound := 8,
+    occupiedProvenanceTagCount := 3,
+    localComparisonDomainSize := 6,
+    descriptorReadoutBoundarySize := 2,
+    finiteCapacityBound := 16,
+    boundedTransferBound := 4,
+    paper8CandidateSectorFamilyRowsCompatible := True,
+    paper8CandidateInteractionFamilyRowsCompatible := True,
+    finiteLocalCapacityCompatible := True,
+    boundedTransferCompatible := True,
+    observedParticleCatalogRecoveryImport := False,
+    physicalStandardModelContentImport := False,
+    physicalParticleExcitationImport := False,
+    externalMatterFieldImport := False,
+    externalGaugeFieldImport := False,
+    continuumQFTImport := False,
+    backgroundHilbertBundleImport := False,
+    simulationOnlyPromotion := False,
+    fitOnlyCalibration := False,
+    physicalPromotion := False,
+    unifiedFieldPromotion := False }
+
+theorem occ002_canonical_finite_external_catalog_descriptor_closed :
+    occ002CanonicalFiniteExternalCatalogDescriptorObservableContract.closed := by
+  unfold OCC002FiniteExternalCatalogDescriptorObservableContract.closed
+  unfold occ002CanonicalFiniteExternalCatalogDescriptorObservableContract
+  simp
+
 structure Paper9ObservedCatalogComparisonObservablesTheoremContract where
   occ001UpstreamBindingClosed : Prop
   occ002FiniteExternalCatalogDescriptorClosed : Prop

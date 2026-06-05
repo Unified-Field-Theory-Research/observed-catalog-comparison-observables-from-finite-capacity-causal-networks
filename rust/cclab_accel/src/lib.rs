@@ -114,6 +114,111 @@ impl Paper9UpstreamBinding {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct FiniteExternalCatalogDescriptorObservable {
+    pub occ001_upstream_binding_closed: bool,
+    pub catalog_label_bound: u32,
+    pub occupied_catalog_label_count: u32,
+    pub observable_key_bound: u32,
+    pub occupied_observable_key_count: u32,
+    pub tolerance_metadata_bound: u32,
+    pub occupied_tolerance_metadata_count: u32,
+    pub provenance_tag_bound: u32,
+    pub occupied_provenance_tag_count: u32,
+    pub local_comparison_domain_size: u32,
+    pub descriptor_readout_boundary_size: u32,
+    pub finite_capacity_bound: u32,
+    pub bounded_transfer_bound: u32,
+    pub paper8_candidate_sector_family_rows_compatible: bool,
+    pub paper8_candidate_interaction_family_rows_compatible: bool,
+    pub finite_local_capacity_compatible: bool,
+    pub bounded_transfer_compatible: bool,
+    pub observed_particle_catalog_recovery_import: bool,
+    pub physical_standard_model_content_import: bool,
+    pub physical_particle_excitation_import: bool,
+    pub external_matter_field_import: bool,
+    pub external_gauge_field_import: bool,
+    pub continuum_qft_import: bool,
+    pub background_hilbert_bundle_import: bool,
+    pub simulation_only_promotion: bool,
+    pub fit_only_calibration: bool,
+    pub physical_promotion: bool,
+    pub unified_field_promotion: bool,
+}
+
+impl FiniteExternalCatalogDescriptorObservable {
+    pub fn canonical_occ002() -> Self {
+        Self {
+            occ001_upstream_binding_closed: Paper9UpstreamBinding::canonical_occ001()
+                .closes_occ001(),
+            catalog_label_bound: 16,
+            occupied_catalog_label_count: 4,
+            observable_key_bound: 16,
+            occupied_observable_key_count: 6,
+            tolerance_metadata_bound: 8,
+            occupied_tolerance_metadata_count: 3,
+            provenance_tag_bound: 8,
+            occupied_provenance_tag_count: 3,
+            local_comparison_domain_size: 6,
+            descriptor_readout_boundary_size: 2,
+            finite_capacity_bound: 16,
+            bounded_transfer_bound: 4,
+            paper8_candidate_sector_family_rows_compatible: true,
+            paper8_candidate_interaction_family_rows_compatible: true,
+            finite_local_capacity_compatible: true,
+            bounded_transfer_compatible: true,
+            observed_particle_catalog_recovery_import: false,
+            physical_standard_model_content_import: false,
+            physical_particle_excitation_import: false,
+            external_matter_field_import: false,
+            external_gauge_field_import: false,
+            continuum_qft_import: false,
+            background_hilbert_bundle_import: false,
+            simulation_only_promotion: false,
+            fit_only_calibration: false,
+            physical_promotion: false,
+            unified_field_promotion: false,
+        }
+    }
+
+    pub fn closes_occ002(&self) -> bool {
+        self.occ001_upstream_binding_closed
+            && self.catalog_label_bound > 0
+            && self.occupied_catalog_label_count > 0
+            && self.occupied_catalog_label_count <= self.catalog_label_bound
+            && self.observable_key_bound > 0
+            && self.occupied_observable_key_count > 0
+            && self.occupied_observable_key_count <= self.observable_key_bound
+            && self.tolerance_metadata_bound > 0
+            && self.occupied_tolerance_metadata_count > 0
+            && self.occupied_tolerance_metadata_count <= self.tolerance_metadata_bound
+            && self.provenance_tag_bound > 0
+            && self.occupied_provenance_tag_count > 0
+            && self.occupied_provenance_tag_count <= self.provenance_tag_bound
+            && self.local_comparison_domain_size > 0
+            && self.local_comparison_domain_size <= self.finite_capacity_bound
+            && self.descriptor_readout_boundary_size > 0
+            && self.descriptor_readout_boundary_size <= self.local_comparison_domain_size
+            && self.bounded_transfer_bound > 0
+            && self.bounded_transfer_bound <= self.finite_capacity_bound
+            && self.paper8_candidate_sector_family_rows_compatible
+            && self.paper8_candidate_interaction_family_rows_compatible
+            && self.finite_local_capacity_compatible
+            && self.bounded_transfer_compatible
+            && !self.observed_particle_catalog_recovery_import
+            && !self.physical_standard_model_content_import
+            && !self.physical_particle_excitation_import
+            && !self.external_matter_field_import
+            && !self.external_gauge_field_import
+            && !self.continuum_qft_import
+            && !self.background_hilbert_bundle_import
+            && !self.simulation_only_promotion
+            && !self.fit_only_calibration
+            && !self.physical_promotion
+            && !self.unified_field_promotion
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct Paper9SkeletonCertificate {
     pub occ001_upstream_binding_closed: bool,
     pub occ002_finite_external_catalog_descriptor_closed: bool,
@@ -164,6 +269,33 @@ impl Paper9SkeletonCertificate {
         }
     }
 
+    pub fn with_occ002_descriptor_closed() -> Self {
+        let binding = Paper9UpstreamBinding::canonical_occ001();
+        let descriptor = FiniteExternalCatalogDescriptorObservable::canonical_occ002();
+        Self {
+            occ001_upstream_binding_closed: binding.closes_occ001(),
+            occ002_finite_external_catalog_descriptor_closed: descriptor.closes_occ002(),
+            occ003_finite_candidate_to_catalog_comparison_map_closed: false,
+            occ004_standard_model_candidate_compatibility_closed: false,
+            occ005_comparison_coarse_graining_stability_closed: false,
+            occ006_paper8_regime_consistency_closed: false,
+            occ007_no_hidden_observed_recovery_fit_audit_closed: false,
+            occ008_final_conditional_certificate_closed: false,
+            paper9_theorem_closed: false,
+            physical_nature_claim: false,
+            observed_particle_catalog_recovery_claim: false,
+            physical_standard_model_claim: false,
+            physical_particle_excitation_claim: false,
+            physical_matter_fields_claim: false,
+            physical_gauge_fields_claim: false,
+            physical_quantum_dynamics_claim: false,
+            continuum_qft_claim: false,
+            simulation_only_promotion: false,
+            fit_only_calibration_claim: false,
+            unified_field_theory_claim: false,
+        }
+    }
+
     pub fn closes_paper9_theorem(&self) -> bool {
         self.occ001_upstream_binding_closed
             && self.occ002_finite_external_catalog_descriptor_closed
@@ -190,4 +322,8 @@ impl Paper9SkeletonCertificate {
 
 pub fn paper9_skeleton_marker() -> &'static str {
     "paper9-observed-catalog-comparison-observables-occ001-nonpromoting-skeleton"
+}
+
+pub fn occ002_finite_external_catalog_descriptor_marker() -> &'static str {
+    "occ002-finite-external-catalog-descriptor-observable-closed"
 }

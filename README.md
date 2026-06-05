@@ -35,10 +35,14 @@ This repo is intentionally separate from the upstream theorem repositories:
   `../standard-model-candidate-observables-from-finite-capacity-causal-networks`
 - Upstream binding file: `UPSTREAM-PAPERS.json`
 
-The current theorem package is an initial scaffold only. `OCC-001` records
-the upstream binding and claim boundary through the closed Paper 8 result. The
-next active obligation is `OCC-002`: define a finite external-catalog
-descriptor observable. This does not prove observed-catalog comparison
+The current theorem package has closed `OCC-001` and `OCC-002`. `OCC-001`
+records the upstream binding and claim boundary through the closed Paper 8
+result. `OCC-002` defines finite external-catalog descriptor observables with
+bounded labels, observable keys, tolerance metadata, provenance tags, local
+comparison domains, descriptor readout boundaries, Paper 8 candidate-row
+compatibility, finite local capacity, and bounded transfer. The next active
+obligation is `OCC-003`: define a finite candidate-to-catalog comparison map.
+This does not prove observed-catalog comparison
 observable recovery, observed particle catalog recovery, physical Standard
 Model content, physical particle excitations, physical matter fields,
 physical gauge fields, physical quantum dynamics, continuum quantum field

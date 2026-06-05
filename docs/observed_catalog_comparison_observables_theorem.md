@@ -18,13 +18,14 @@ Paper 9 aims at the following internal conditional theorem:
 
 ## Claim Boundary
 
-The theorem target is open. `OCC-001` closes only the upstream binding and
-claim-boundary scaffold. This is not observed particle catalog recovery, not
-physical Standard Model recovery, not a physical particle-excitation claim,
-not a physical matter-field claim, not a physical gauge-field claim, not
-physical quantum dynamics, not continuum quantum field theory, not
-simulation-only promotion, not fit-only calibration, and not a unified field
-theory.
+The theorem target is open. `OCC-001` closes the upstream binding and
+claim-boundary scaffold. `OCC-002` closes finite external-catalog descriptor
+rows. This is not observed-catalog comparison observable recovery, not
+observed particle catalog recovery, not physical Standard Model recovery, not
+a physical particle-excitation claim, not a physical matter-field claim, not a
+physical gauge-field claim, not physical quantum dynamics, not continuum
+quantum field theory, not simulation-only promotion, not fit-only
+calibration, and not a unified field theory.
 
 ## Upstream Binding
 
@@ -98,7 +99,7 @@ theory.
 
 ### OCC-002: Finite External-Catalog Descriptor Observable
 
-Status: open.
+Status: closed.
 
 Target: define finite external comparison-target descriptor rows with finite
 catalog labels, finite observable-key support, finite uncertainty/tolerance
@@ -111,9 +112,35 @@ QFT, external matter fields, external gauge fields, background Hilbert
 bundles, simulation-only promotion, fit-only calibration, physical promotion,
 and unified-field promotion.
 
+Rust anchors:
+
+- `FiniteExternalCatalogDescriptorObservable`
+- `FiniteExternalCatalogDescriptorObservable::canonical_occ002`
+- `FiniteExternalCatalogDescriptorObservable::closes_occ002`
+- `Paper9SkeletonCertificate::with_occ002_descriptor_closed`
+- `occ002_finite_external_catalog_descriptor_marker`
+
+Lean anchors:
+
+- `OCC002FiniteExternalCatalogDescriptorObservableContract`
+- `OCC002FiniteExternalCatalogDescriptorObservableContract.closed`
+- `occ002_finite_external_catalog_descriptor_closed_from_fields`
+- `occ002_missing_catalog_label_bound_not_closed`
+- `occ002_missing_paper8_sector_rows_not_closed`
+- `occ002_observed_particle_catalog_recovery_import_not_closed`
+- `occ002_fit_only_calibration_not_closed`
+- `occ002_canonical_finite_external_catalog_descriptor_closed`
+
+Boundary: `OCC-002` defines finite external descriptor rows only. It does not
+define a candidate-to-catalog comparison map and does not close observed
+catalog comparison observable recovery, observed particle catalog recovery,
+physical Standard Model content, physical particle excitations, continuum QFT,
+physical quantum dynamics, simulation-only promotion, fit-only calibration,
+physical promotion, or unified-field promotion.
+
 ### OCC-003: Finite Candidate-To-Catalog Comparison Map
 
-Status: planned.
+Status: open.
 
 ### OCC-004: Standard-Model-Candidate Compatibility
 

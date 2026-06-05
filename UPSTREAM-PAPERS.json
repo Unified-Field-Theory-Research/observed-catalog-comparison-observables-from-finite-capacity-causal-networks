@@ -143,7 +143,7 @@
   "paper9_current_claims": {
     "occ001_upstream_binding_closed": true,
     "occ002_finite_external_catalog_descriptor_closed": true,
-    "occ003_finite_candidate_to_catalog_comparison_map_closed": false,
+    "occ003_finite_candidate_to_catalog_comparison_map_closed": true,
     "occ004_standard_model_candidate_compatibility_closed": false,
     "occ005_comparison_coarse_graining_stability_closed": false,
     "occ006_paper8_regime_consistency_closed": false,

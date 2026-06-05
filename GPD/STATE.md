@@ -2,12 +2,13 @@
 
 ## Current Position
 
-**Current Phase:** 3
-**Current Phase Name:** Define Finite Candidate-To-Catalog Comparison Map
+**Current Phase:** 4
+**Current Phase Name:** Prove Standard-Model-Candidate Compatibility
 **Status:** `OCC-001` upstream binding and claim-boundary scaffold closed;
 `OCC-002` finite external-catalog descriptor observable closed; `OCC-003`
-finite candidate-to-catalog comparison map is open; physical promotion
-remains false
+finite candidate-to-catalog comparison map closed; `OCC-004`
+Standard-Model-candidate compatibility is open; physical promotion remains
+false
 
 Closed rung summary: `OCC-001` records the upstream binding through the
 closed Paper 8 conditional Standard-Model-candidate observables theorem at
@@ -49,12 +50,21 @@ physical Standard Model content, physical particle excitations, external
 matter fields, external gauge fields, continuum QFT, background Hilbert
 bundles, simulation-only promotion, fit-only calibration, physical
 promotion, or unified-field promotion.
+`OCC-003` adds finite comparison-map rows from Paper 8 candidate keys to
+finite external descriptor keys with bounded comparison edges,
+score/tolerance channels, local comparison neighborhoods, comparison readout
+boundaries, descriptor-support compatibility, Paper 8 sector-family and
+interaction-family compatibility, finite capacity, and bounded transfer,
+while rejecting physical identification maps, fit-only calibration,
+observed-catalog recovery imports, physical Standard Model content, physical
+particle-excitation imports, continuum QFT, simulation-only promotion,
+physical promotion, and unified-field promotion.
 
-Next stable target phrase: `OCC-003`: define a finite candidate-to-catalog
-comparison map from Paper 8 candidate rows to finite external descriptor rows
-without fit-only calibration, physical identification, observed-catalog
-recovery, continuum QFT, simulation-only promotion, physical promotion, or
-unified-field promotion.
+Next stable target phrase: `OCC-004`: prove compatibility with the closed
+Paper 8 Standard-Model-candidate rows, including candidate sector-family
+rows, interaction-family rows, conservation/coarse-graining rows, finite
+capacity, locality, bounded transfer, and causal-cone/no-signaling
+constraints, without observed-catalog recovery or physical-promotion imports.
 
 Stable nonpromotion tokens: observed particle catalog recovery; physical
 Standard Model content; physical particle excitations; physical matter fields;
@@ -75,20 +85,24 @@ promotion.
   uncertainty/tolerance, provenance-tag, local-domain, readout-boundary, and
   transfer rows, plus Paper 8 sector-family and interaction-family
   compatibility and explicit non-import guards.
+- `OCC-003` rows define finite candidate-to-catalog comparison maps by
+  requiring bounded candidate row keys, descriptor row keys, comparison edges,
+  score/tolerance channels, local comparison neighborhoods, readout
+  boundaries, Paper 8 compatibility, and no physical identification or
+  fit-only shortcuts.
 
 ## Open Questions
 
-- `OCC-003`: What finite comparison-map observable can connect Paper 8
-  candidate rows to finite external descriptor rows without fit-only
-  calibration, physical identification, observed-catalog recovery, continuum
-  QFT, simulation-only promotion, physical promotion, or unified-field
-  promotion?
+- `OCC-004`: Which compatibility witnesses are needed to show the descriptor
+  and comparison-map rows preserve the closed Paper 8 candidate sector,
+  interaction, conservation/coarse-graining, finite-capacity, locality,
+  bounded-transfer, and causal-cone/no-signaling rows?
 
 ## Pending Todos
 
-- Define finite comparison-map rows for `OCC-003`.
-- Add Rust and Lean fail-closed checks for `OCC-003`.
-- Update theorem docs, proof log, and publication skeleton after `OCC-003`
+- Define Paper 8 compatibility rows for `OCC-004`.
+- Add Rust and Lean fail-closed checks for `OCC-004`.
+- Update theorem docs, proof log, and publication skeleton after `OCC-004`
   closes.
 
 ## Blockers/Concerns
@@ -96,6 +110,8 @@ promotion.
 - `OCC-001` is an upstream-binding and claim-boundary contract only.
 - `OCC-002` defines finite descriptors only; it does not identify observed
   particle catalog entries or physical Standard Model content.
+- `OCC-003` defines finite comparison maps only; it does not turn comparison
+  rows into physical identifications or observed-catalog recovery.
 - Observed-catalog comparison observable recovery remains open.
 - Observed particle catalog recovery, physical Standard Model content,
   physical particle excitations, physical matter fields, physical gauge

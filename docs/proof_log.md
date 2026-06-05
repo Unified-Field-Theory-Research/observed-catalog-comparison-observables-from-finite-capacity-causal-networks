@@ -112,9 +112,66 @@ physical gauge fields, physical quantum dynamics, continuum quantum field
 theory, simulation-only promotion, fit-only calibration, a physical
 nature-level claim, or a unified field theory.
 
+## OCC-003: Finite Candidate-To-Catalog Comparison Map
+
+Status: closed as a finite comparison-map observable contract.
+
+Artifacts:
+
+- `README.md`
+- `UPSTREAM-PAPERS.json`
+- `GPD/PROJECT.md`
+- `GPD/ROADMAP.md`
+- `GPD/STATE.md`
+- `GPD/state.json`
+- `docs/observed_catalog_comparison_observables_theorem.md`
+- `docs/open_proof_obligations.md`
+- `docs/proof_log.md`
+- `GPD/formal/FiniteCapacity/ObservedCatalogComparisonObservables.lean`
+- `rust/cclab_accel/src/lib.rs`
+- `rust/cclab_accel/tests/observed_catalog_comparison_observables_gate.rs`
+
+Rust anchors:
+
+- `FiniteCandidateToCatalogComparisonMap`
+- `FiniteCandidateToCatalogComparisonMap::canonical_occ003`
+- `FiniteCandidateToCatalogComparisonMap::closes_occ003`
+- `Paper9SkeletonCertificate::with_occ003_comparison_map_closed`
+- `occ003_finite_candidate_to_catalog_comparison_map_marker`
+
+Lean anchors:
+
+- `OCC003FiniteCandidateToCatalogComparisonMapContract`
+- `OCC003FiniteCandidateToCatalogComparisonMapContract.closed`
+- `occ003_finite_candidate_to_catalog_comparison_map_closed_from_fields`
+- `occ003_missing_occ002_descriptor_not_closed`
+- `occ003_physical_identification_map_not_closed`
+- `occ003_fit_only_calibration_not_closed`
+- `occ003_canonical_finite_candidate_to_catalog_comparison_map_closed`
+
+Verification:
+
+- `make test-fast`
+- `make lean-build`
+
+Boundary:
+
+`OCC-003` defines finite candidate-to-catalog comparison-map rows from Paper 8
+candidate keys to finite `OCC-002` external descriptor keys. It requires
+finite comparison-edge support, score/tolerance channel support, local
+comparison neighborhoods, comparison readout boundaries, descriptor-support
+compatibility, Paper 8 candidate-sector-family compatibility, Paper 8
+candidate-interaction-family compatibility, finite capacity, and bounded
+transfer. It rejects physical identification maps, fit-only calibration,
+observed-catalog recovery imports, observed particle catalog recovery,
+physical Standard Model content, physical particle excitations, physical
+matter fields, physical gauge fields, physical quantum dynamics, continuum
+quantum field theory, simulation-only promotion, physical promotion, and
+unified-field promotion.
+
 ## Active Next Obligation
 
-`OCC-003`: define a finite candidate-to-catalog comparison map without
-fit-only calibration, physical identification, observed-catalog recovery,
-continuum QFT, external Hilbert bundles, simulation-only promotion, physical
-promotion, or unified-field promotion.
+`OCC-004`: prove compatibility with the closed Paper 8
+Standard-Model-candidate rows, including candidate sector-family rows,
+interaction-family rows, conservation/coarse-graining rows, finite capacity,
+locality, bounded transfer, and causal-cone/no-signaling constraints.

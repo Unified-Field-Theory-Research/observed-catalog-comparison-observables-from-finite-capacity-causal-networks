@@ -20,12 +20,13 @@ Paper 9 aims at the following internal conditional theorem:
 
 The theorem target is open. `OCC-001` closes the upstream binding and
 claim-boundary scaffold. `OCC-002` closes finite external-catalog descriptor
-rows. This is not observed-catalog comparison observable recovery, not
-observed particle catalog recovery, not physical Standard Model recovery, not
-a physical particle-excitation claim, not a physical matter-field claim, not a
-physical gauge-field claim, not physical quantum dynamics, not continuum
-quantum field theory, not simulation-only promotion, not fit-only
-calibration, and not a unified field theory.
+rows. `OCC-003` closes finite candidate-to-catalog comparison-map rows. This
+is not observed-catalog comparison observable recovery, not observed particle
+catalog recovery, not physical Standard Model recovery, not a physical
+particle-excitation claim, not a physical matter-field claim, not a physical
+gauge-field claim, not physical quantum dynamics, not continuum quantum field
+theory, not simulation-only promotion, not fit-only calibration, and not a
+unified field theory.
 
 ## Upstream Binding
 
@@ -140,11 +141,46 @@ physical promotion, or unified-field promotion.
 
 ### OCC-003: Finite Candidate-To-Catalog Comparison Map
 
-Status: open.
+Status: closed.
+
+Target: define finite comparison-map rows from Paper 8 candidate rows to
+finite external descriptor rows with finite candidate-key support, finite
+descriptor-key support, finite comparison-edge support, finite
+score/tolerance channel support, finite local comparison neighborhoods,
+finite comparison readout boundaries, descriptor-support compatibility, Paper
+8 sector-family and interaction-family compatibility, finite capacity, and
+bounded transfer, while rejecting physical identification maps, fit-only
+calibration, observed-catalog recovery imports, continuum QFT, simulation-only
+promotion, physical promotion, and unified-field promotion.
+
+Rust anchors:
+
+- `FiniteCandidateToCatalogComparisonMap`
+- `FiniteCandidateToCatalogComparisonMap::canonical_occ003`
+- `FiniteCandidateToCatalogComparisonMap::closes_occ003`
+- `Paper9SkeletonCertificate::with_occ003_comparison_map_closed`
+- `occ003_finite_candidate_to_catalog_comparison_map_marker`
+
+Lean anchors:
+
+- `OCC003FiniteCandidateToCatalogComparisonMapContract`
+- `OCC003FiniteCandidateToCatalogComparisonMapContract.closed`
+- `occ003_finite_candidate_to_catalog_comparison_map_closed_from_fields`
+- `occ003_missing_occ002_descriptor_not_closed`
+- `occ003_physical_identification_map_not_closed`
+- `occ003_fit_only_calibration_not_closed`
+- `occ003_canonical_finite_candidate_to_catalog_comparison_map_closed`
+
+Boundary: `OCC-003` defines finite comparison-map rows only. It does not
+prove Paper 8 compatibility, observed-catalog comparison observable recovery,
+observed particle catalog recovery, physical Standard Model content, physical
+particle excitations, physical quantum dynamics, continuum QFT,
+simulation-only promotion, fit-only calibration, physical promotion, or
+unified-field promotion.
 
 ### OCC-004: Standard-Model-Candidate Compatibility
 
-Status: planned.
+Status: open.
 
 ### OCC-005: Comparison Stability And Coarse-Graining Stability
 

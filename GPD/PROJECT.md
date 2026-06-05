@@ -10,6 +10,6 @@ continuum QFT, physical quantum dynamics, simulation-only promotion,
 fit-only calibration, or unified-field promotion.
 
 The current closed rungs are `OCC-001`: upstream binding and claim boundary,
-and `OCC-002`: finite external-catalog descriptor observable. The current
-active obligation is `OCC-003`: define a finite candidate-to-catalog
-comparison map.
+`OCC-002`: finite external-catalog descriptor observable, and `OCC-003`:
+finite candidate-to-catalog comparison map. The current active obligation is
+`OCC-004`: prove Standard-Model-candidate compatibility.

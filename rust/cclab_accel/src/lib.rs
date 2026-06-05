@@ -219,6 +219,124 @@ impl FiniteExternalCatalogDescriptorObservable {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct FiniteCandidateToCatalogComparisonMap {
+    pub occ001_upstream_binding_closed: bool,
+    pub occ002_finite_external_catalog_descriptor_closed: bool,
+    pub candidate_row_key_bound: u32,
+    pub occupied_candidate_row_key_count: u32,
+    pub descriptor_row_key_bound: u32,
+    pub occupied_descriptor_row_key_count: u32,
+    pub comparison_edge_bound: u32,
+    pub occupied_comparison_edge_count: u32,
+    pub score_channel_bound: u32,
+    pub occupied_score_channel_count: u32,
+    pub local_comparison_neighborhood_size: u32,
+    pub comparison_readout_boundary_size: u32,
+    pub finite_capacity_bound: u32,
+    pub bounded_transfer_bound: u32,
+    pub descriptor_support_compatible: bool,
+    pub paper8_candidate_sector_family_rows_compatible: bool,
+    pub paper8_candidate_interaction_family_rows_compatible: bool,
+    pub finite_capacity_compatible: bool,
+    pub bounded_transfer_compatible: bool,
+    pub physical_identification_map: bool,
+    pub fit_only_calibration: bool,
+    pub observed_catalog_recovery_import: bool,
+    pub observed_particle_catalog_recovery_import: bool,
+    pub physical_standard_model_content_import: bool,
+    pub physical_particle_excitation_import: bool,
+    pub external_matter_field_import: bool,
+    pub external_gauge_field_import: bool,
+    pub continuum_qft_import: bool,
+    pub background_hilbert_bundle_import: bool,
+    pub simulation_only_promotion: bool,
+    pub physical_promotion: bool,
+    pub unified_field_promotion: bool,
+}
+
+impl FiniteCandidateToCatalogComparisonMap {
+    pub fn canonical_occ003() -> Self {
+        Self {
+            occ001_upstream_binding_closed: Paper9UpstreamBinding::canonical_occ001()
+                .closes_occ001(),
+            occ002_finite_external_catalog_descriptor_closed:
+                FiniteExternalCatalogDescriptorObservable::canonical_occ002().closes_occ002(),
+            candidate_row_key_bound: 16,
+            occupied_candidate_row_key_count: 6,
+            descriptor_row_key_bound: 16,
+            occupied_descriptor_row_key_count: 4,
+            comparison_edge_bound: 24,
+            occupied_comparison_edge_count: 8,
+            score_channel_bound: 8,
+            occupied_score_channel_count: 3,
+            local_comparison_neighborhood_size: 7,
+            comparison_readout_boundary_size: 2,
+            finite_capacity_bound: 16,
+            bounded_transfer_bound: 4,
+            descriptor_support_compatible: true,
+            paper8_candidate_sector_family_rows_compatible: true,
+            paper8_candidate_interaction_family_rows_compatible: true,
+            finite_capacity_compatible: true,
+            bounded_transfer_compatible: true,
+            physical_identification_map: false,
+            fit_only_calibration: false,
+            observed_catalog_recovery_import: false,
+            observed_particle_catalog_recovery_import: false,
+            physical_standard_model_content_import: false,
+            physical_particle_excitation_import: false,
+            external_matter_field_import: false,
+            external_gauge_field_import: false,
+            continuum_qft_import: false,
+            background_hilbert_bundle_import: false,
+            simulation_only_promotion: false,
+            physical_promotion: false,
+            unified_field_promotion: false,
+        }
+    }
+
+    pub fn closes_occ003(&self) -> bool {
+        self.occ001_upstream_binding_closed
+            && self.occ002_finite_external_catalog_descriptor_closed
+            && self.candidate_row_key_bound > 0
+            && self.occupied_candidate_row_key_count > 0
+            && self.occupied_candidate_row_key_count <= self.candidate_row_key_bound
+            && self.descriptor_row_key_bound > 0
+            && self.occupied_descriptor_row_key_count > 0
+            && self.occupied_descriptor_row_key_count <= self.descriptor_row_key_bound
+            && self.comparison_edge_bound > 0
+            && self.occupied_comparison_edge_count > 0
+            && self.occupied_comparison_edge_count <= self.comparison_edge_bound
+            && self.score_channel_bound > 0
+            && self.occupied_score_channel_count > 0
+            && self.occupied_score_channel_count <= self.score_channel_bound
+            && self.local_comparison_neighborhood_size > 0
+            && self.local_comparison_neighborhood_size <= self.finite_capacity_bound
+            && self.comparison_readout_boundary_size > 0
+            && self.comparison_readout_boundary_size <= self.local_comparison_neighborhood_size
+            && self.bounded_transfer_bound > 0
+            && self.bounded_transfer_bound <= self.finite_capacity_bound
+            && self.descriptor_support_compatible
+            && self.paper8_candidate_sector_family_rows_compatible
+            && self.paper8_candidate_interaction_family_rows_compatible
+            && self.finite_capacity_compatible
+            && self.bounded_transfer_compatible
+            && !self.physical_identification_map
+            && !self.fit_only_calibration
+            && !self.observed_catalog_recovery_import
+            && !self.observed_particle_catalog_recovery_import
+            && !self.physical_standard_model_content_import
+            && !self.physical_particle_excitation_import
+            && !self.external_matter_field_import
+            && !self.external_gauge_field_import
+            && !self.continuum_qft_import
+            && !self.background_hilbert_bundle_import
+            && !self.simulation_only_promotion
+            && !self.physical_promotion
+            && !self.unified_field_promotion
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct Paper9SkeletonCertificate {
     pub occ001_upstream_binding_closed: bool,
     pub occ002_finite_external_catalog_descriptor_closed: bool,
@@ -296,6 +414,35 @@ impl Paper9SkeletonCertificate {
         }
     }
 
+    pub fn with_occ003_comparison_map_closed() -> Self {
+        let binding = Paper9UpstreamBinding::canonical_occ001();
+        let descriptor = FiniteExternalCatalogDescriptorObservable::canonical_occ002();
+        let comparison_map = FiniteCandidateToCatalogComparisonMap::canonical_occ003();
+        Self {
+            occ001_upstream_binding_closed: binding.closes_occ001(),
+            occ002_finite_external_catalog_descriptor_closed: descriptor.closes_occ002(),
+            occ003_finite_candidate_to_catalog_comparison_map_closed: comparison_map
+                .closes_occ003(),
+            occ004_standard_model_candidate_compatibility_closed: false,
+            occ005_comparison_coarse_graining_stability_closed: false,
+            occ006_paper8_regime_consistency_closed: false,
+            occ007_no_hidden_observed_recovery_fit_audit_closed: false,
+            occ008_final_conditional_certificate_closed: false,
+            paper9_theorem_closed: false,
+            physical_nature_claim: false,
+            observed_particle_catalog_recovery_claim: false,
+            physical_standard_model_claim: false,
+            physical_particle_excitation_claim: false,
+            physical_matter_fields_claim: false,
+            physical_gauge_fields_claim: false,
+            physical_quantum_dynamics_claim: false,
+            continuum_qft_claim: false,
+            simulation_only_promotion: false,
+            fit_only_calibration_claim: false,
+            unified_field_theory_claim: false,
+        }
+    }
+
     pub fn closes_paper9_theorem(&self) -> bool {
         self.occ001_upstream_binding_closed
             && self.occ002_finite_external_catalog_descriptor_closed
@@ -326,4 +473,8 @@ pub fn paper9_skeleton_marker() -> &'static str {
 
 pub fn occ002_finite_external_catalog_descriptor_marker() -> &'static str {
     "occ002-finite-external-catalog-descriptor-observable-closed"
+}
+
+pub fn occ003_finite_candidate_to_catalog_comparison_map_marker() -> &'static str {
+    "occ003-finite-candidate-to-catalog-comparison-map-closed"
 }

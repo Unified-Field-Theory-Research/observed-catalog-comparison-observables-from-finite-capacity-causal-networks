@@ -1,9 +1,10 @@
 use cclab_accel::{
-    occ002_finite_external_catalog_descriptor_marker, paper9_skeleton_marker,
-    FiniteExternalCatalogDescriptorObservable, Paper9SkeletonCertificate, Paper9UpstreamBinding,
-    PAPER1_FROZEN_COMMIT, PAPER2_FROZEN_COMMIT, PAPER3_FROZEN_COMMIT, PAPER4_FROZEN_COMMIT,
-    PAPER5_FROZEN_COMMIT, PAPER6_FROZEN_COMMIT, PAPER7_FROZEN_COMMIT, PAPER8_FINAL_CERTIFICATE,
-    PAPER8_FROZEN_COMMIT,
+    occ002_finite_external_catalog_descriptor_marker,
+    occ003_finite_candidate_to_catalog_comparison_map_marker, paper9_skeleton_marker,
+    FiniteCandidateToCatalogComparisonMap, FiniteExternalCatalogDescriptorObservable,
+    Paper9SkeletonCertificate, Paper9UpstreamBinding, PAPER1_FROZEN_COMMIT, PAPER2_FROZEN_COMMIT,
+    PAPER3_FROZEN_COMMIT, PAPER4_FROZEN_COMMIT, PAPER5_FROZEN_COMMIT, PAPER6_FROZEN_COMMIT,
+    PAPER7_FROZEN_COMMIT, PAPER8_FINAL_CERTIFICATE, PAPER8_FROZEN_COMMIT,
 };
 use std::fs;
 use std::path::{Path, PathBuf};
@@ -247,6 +248,114 @@ fn occ002_descriptor_fails_closed_on_nonfinite_or_imported_structure() {
 }
 
 #[test]
+fn occ003_finite_candidate_to_catalog_comparison_map_closes_only_map_rung() {
+    let comparison_map = FiniteCandidateToCatalogComparisonMap::canonical_occ003();
+
+    assert!(comparison_map.occ001_upstream_binding_closed);
+    assert!(comparison_map.occ002_finite_external_catalog_descriptor_closed);
+    assert!(comparison_map.closes_occ003());
+    assert!(
+        comparison_map.occupied_candidate_row_key_count <= comparison_map.candidate_row_key_bound
+    );
+    assert!(
+        comparison_map.occupied_descriptor_row_key_count <= comparison_map.descriptor_row_key_bound
+    );
+    assert!(comparison_map.occupied_comparison_edge_count <= comparison_map.comparison_edge_bound);
+    assert!(comparison_map.occupied_score_channel_count <= comparison_map.score_channel_bound);
+    assert!(
+        comparison_map.local_comparison_neighborhood_size <= comparison_map.finite_capacity_bound
+    );
+    assert!(
+        comparison_map.comparison_readout_boundary_size
+            <= comparison_map.local_comparison_neighborhood_size
+    );
+    assert!(comparison_map.bounded_transfer_bound <= comparison_map.finite_capacity_bound);
+    assert!(comparison_map.descriptor_support_compatible);
+    assert!(comparison_map.paper8_candidate_sector_family_rows_compatible);
+    assert!(comparison_map.paper8_candidate_interaction_family_rows_compatible);
+    assert!(comparison_map.finite_capacity_compatible);
+    assert!(comparison_map.bounded_transfer_compatible);
+    assert!(!comparison_map.physical_identification_map);
+    assert!(!comparison_map.fit_only_calibration);
+    assert!(!comparison_map.observed_catalog_recovery_import);
+    assert!(!comparison_map.observed_particle_catalog_recovery_import);
+    assert!(!comparison_map.physical_standard_model_content_import);
+    assert!(!comparison_map.continuum_qft_import);
+    assert_eq!(
+        occ003_finite_candidate_to_catalog_comparison_map_marker(),
+        "occ003-finite-candidate-to-catalog-comparison-map-closed"
+    );
+
+    let certificate = Paper9SkeletonCertificate::with_occ003_comparison_map_closed();
+    assert!(certificate.occ001_upstream_binding_closed);
+    assert!(certificate.occ002_finite_external_catalog_descriptor_closed);
+    assert!(certificate.occ003_finite_candidate_to_catalog_comparison_map_closed);
+    assert!(!certificate.occ004_standard_model_candidate_compatibility_closed);
+    assert!(!certificate.occ008_final_conditional_certificate_closed);
+    assert!(!certificate.paper9_theorem_closed);
+    assert!(!certificate.closes_paper9_theorem());
+}
+
+#[test]
+fn occ003_comparison_map_fails_closed_on_nonfinite_or_imported_structure() {
+    let comparison_map = FiniteCandidateToCatalogComparisonMap::canonical_occ003();
+
+    let missing_occ002 = FiniteCandidateToCatalogComparisonMap {
+        occ002_finite_external_catalog_descriptor_closed: false,
+        ..comparison_map
+    };
+    assert!(!missing_occ002.closes_occ003());
+
+    let zero_candidate_bound = FiniteCandidateToCatalogComparisonMap {
+        candidate_row_key_bound: 0,
+        ..comparison_map
+    };
+    assert!(!zero_candidate_bound.closes_occ003());
+
+    let edge_count_exceeds_bound = FiniteCandidateToCatalogComparisonMap {
+        occupied_comparison_edge_count: comparison_map.comparison_edge_bound + 1,
+        ..comparison_map
+    };
+    assert!(!edge_count_exceeds_bound.closes_occ003());
+
+    let readout_exceeds_neighborhood = FiniteCandidateToCatalogComparisonMap {
+        comparison_readout_boundary_size: comparison_map.local_comparison_neighborhood_size + 1,
+        ..comparison_map
+    };
+    assert!(!readout_exceeds_neighborhood.closes_occ003());
+
+    let missing_descriptor_support = FiniteCandidateToCatalogComparisonMap {
+        descriptor_support_compatible: false,
+        ..comparison_map
+    };
+    assert!(!missing_descriptor_support.closes_occ003());
+
+    let physical_identification = FiniteCandidateToCatalogComparisonMap {
+        physical_identification_map: true,
+        ..comparison_map
+    };
+    assert!(!physical_identification.closes_occ003());
+
+    let fit_only = FiniteCandidateToCatalogComparisonMap {
+        fit_only_calibration: true,
+        ..comparison_map
+    };
+    assert!(!fit_only.closes_occ003());
+
+    let hidden_observed_catalog_recovery = FiniteCandidateToCatalogComparisonMap {
+        observed_catalog_recovery_import: true,
+        ..comparison_map
+    };
+    assert!(!hidden_observed_catalog_recovery.closes_occ003());
+
+    let hidden_physical_standard_model = FiniteCandidateToCatalogComparisonMap {
+        physical_standard_model_content_import: true,
+        ..comparison_map
+    };
+    assert!(!hidden_physical_standard_model.closes_occ003());
+}
+
+#[test]
 fn upstream_json_records_paper8_certificate_and_nonpromotion() {
     let root = project_root();
     let upstream = read(&root, "UPSTREAM-PAPERS.json");
@@ -263,6 +372,11 @@ fn upstream_json_records_paper8_certificate_and_nonpromotion() {
     assert_contains(
         &upstream,
         "\"occ002_finite_external_catalog_descriptor_closed\": true",
+        "UPSTREAM-PAPERS.json",
+    );
+    assert_contains(
+        &upstream,
+        "\"occ003_finite_candidate_to_catalog_comparison_map_closed\": true",
         "UPSTREAM-PAPERS.json",
     );
     assert_contains(
@@ -305,6 +419,7 @@ fn docs_keep_occ002_active_and_physical_claims_false() {
         assert_contains(artifact.1, "OCC-001", artifact.0);
         assert_contains(artifact.1, "OCC-002", artifact.0);
         assert_contains(artifact.1, "OCC-003", artifact.0);
+        assert_contains(artifact.1, "OCC-004", artifact.0);
         assert_contains(artifact.1, "observed particle catalog recovery", artifact.0);
         assert_contains(artifact.1, "physical Standard Model", artifact.0);
         assert_contains(artifact.1, "fit-only", artifact.0);

@@ -26,7 +26,7 @@ paper-specific certificate explicitly closes them.
   or tolerance metadata, finite provenance tags, and no observed-catalog
   recovery, physical Standard Model, continuum QFT, simulation-only, fit-only,
   or physical-promotion imports.
-- [ ] **Phase 3: Define Finite Candidate-To-Catalog Comparison Map** -
+- [x] **Phase 3: Define Finite Candidate-To-Catalog Comparison Map** -
   `OCC-003` should define finite comparison-map rows from Paper 8 candidate
   families to finite external descriptor rows without using fit-only
   calibration, physical identification, observed-catalog recovery, or

@@ -40,9 +40,13 @@ records the upstream binding and claim boundary through the closed Paper 8
 result. `OCC-002` defines finite external-catalog descriptor observables with
 bounded labels, observable keys, tolerance metadata, provenance tags, local
 comparison domains, descriptor readout boundaries, Paper 8 candidate-row
-compatibility, finite local capacity, and bounded transfer. The next active
-obligation is `OCC-003`: define a finite candidate-to-catalog comparison map.
-This does not prove observed-catalog comparison
+compatibility, finite local capacity, and bounded transfer. `OCC-003` defines
+finite candidate-to-catalog comparison-map rows with bounded candidate keys,
+descriptor keys, comparison edges, score/tolerance channels, local
+neighborhoods, readout boundaries, and no physical-identification or fit-only
+shortcuts. The next active obligation is `OCC-004`: prove Paper 8
+Standard-Model-candidate compatibility. This does not prove observed-catalog
+comparison
 observable recovery, observed particle catalog recovery, physical Standard
 Model content, physical particle excitations, physical matter fields,
 physical gauge fields, physical quantum dynamics, continuum quantum field

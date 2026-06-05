@@ -42,9 +42,9 @@ recovery, observed particle catalog recovery, physical Standard Model content,
 physical particle excitations, continuum QFT, physical quantum dynamics,
 physical nature promotion, or unified-field promotion.
 
-## Active Obligation
+## Closed Dependencies: OCC-003
 
-`OCC-003` is open.
+`OCC-003` closes the finite candidate-to-catalog comparison-map rung.
 
 Required row shape:
 
@@ -74,9 +74,46 @@ Required row shape:
 - no physical promotion;
 - no unified-field promotion.
 
+The rung defines finite comparison-map rows only. It does not prove
+Standard-Model-candidate compatibility, observed-catalog comparison
+observable recovery, observed particle catalog recovery, physical Standard
+Model content, physical particle excitations, continuum QFT, physical
+quantum dynamics, physical nature promotion, or unified-field promotion.
+
+## Active Obligation
+
+`OCC-004` is open.
+
+Required row shape:
+
+- closed `OCC-001` upstream binding;
+- closed `OCC-002` finite external-catalog descriptor observable;
+- closed `OCC-003` finite candidate-to-catalog comparison map;
+- Paper 8 final Standard-Model-candidate certificate consumed;
+- Paper 8 candidate sector-family rows preserved;
+- Paper 8 candidate interaction-family rows preserved;
+- Paper 8 conservation/coarse-graining rows preserved;
+- Paper 8 finite capacity preserved;
+- Paper 8 locality preserved;
+- Paper 8 bounded transfer preserved;
+- Paper 8 causal-cone/no-signaling constraints preserved;
+- descriptor rows compatible with Paper 8 candidate rows;
+- comparison-map rows compatible with Paper 8 candidate rows;
+- no observed-catalog recovery import;
+- no observed particle catalog recovery;
+- no physical Standard Model content;
+- no physical particle-excitation import;
+- no external matter field;
+- no external gauge field;
+- no continuum QFT import;
+- no background Hilbert bundle import;
+- no simulation-only promotion;
+- no fit-only calibration;
+- no physical promotion;
+- no unified-field promotion.
+
 ## Future Obligations
 
-- `OCC-004`: compatibility with closed Paper 8 Standard-Model-candidate rows.
 - `OCC-005`: comparison stability and intrinsic coarse-graining stability.
 - `OCC-006`: Paper 8 regime consistency and no upstream bypass.
 - `OCC-007`: no-hidden-observed-recovery/fit-only import audit.

@@ -13,5 +13,6 @@ The current closed rungs are `OCC-001`: upstream binding and claim boundary,
 `OCC-002`: finite external-catalog descriptor observable, and `OCC-003`:
 finite candidate-to-catalog comparison map, and `OCC-004`:
 Standard-Model-candidate compatibility, and `OCC-005`: comparison stability
-and coarse-graining stability. The current active obligation is `OCC-006`:
-bind to the Paper 8 regime.
+and coarse-graining stability, and `OCC-006`: Paper 8 regime consistency.
+The current active obligation is `OCC-007`: close the no-hidden
+observed-recovery/fit-only import audit.

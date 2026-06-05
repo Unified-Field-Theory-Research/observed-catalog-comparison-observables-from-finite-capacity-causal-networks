@@ -38,7 +38,7 @@ paper-specific certificate explicitly closes them.
 - [x] **Phase 5: Prove Comparison Stability And Coarse-Graining Stability** -
   `OCC-005` should state finite comparison stability rows and show coherent
   transport under finite intrinsic coarse-graining.
-- [ ] **Phase 6: Bind To Paper 8 Regime** - `OCC-006` should consume the
+- [x] **Phase 6: Bind To Paper 8 Regime** - `OCC-006` should consume the
   recorded Paper 8 final conditional certificate and reject bypasses of Paper
   8, Paper 7, Paper 6, Paper 5, Paper 4, Paper 3, Paper 2, or Paper 1
   assumptions.

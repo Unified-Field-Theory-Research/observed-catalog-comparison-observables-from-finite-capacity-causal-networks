@@ -928,6 +928,204 @@ theorem occ005_canonical_comparison_coarse_graining_stability_closed :
   unfold occ005CanonicalComparisonCoarseGrainingStabilityContract
   simp
 
+structure OCC006Paper8RegimeConsistencyContract where
+  occ001UpstreamBindingClosed : Prop
+  occ002FiniteExternalCatalogDescriptorClosed : Prop
+  occ003FiniteCandidateToCatalogComparisonMapClosed : Prop
+  occ004StandardModelCandidateCompatibilityClosed : Prop
+  occ005ComparisonCoarseGrainingStabilityClosed : Prop
+  recordedPaper1CommitMatched : Prop
+  recordedPaper2CommitMatched : Prop
+  recordedPaper3CommitMatched : Prop
+  recordedPaper4CommitMatched : Prop
+  recordedPaper5CommitMatched : Prop
+  recordedPaper6CommitMatched : Prop
+  recordedPaper7CommitMatched : Prop
+  recordedPaper8CommitMatched : Prop
+  paper8FinalCertificateMatched : Prop
+  paper8FinalCertificateConsumed : Prop
+  paper8ConditionalStandardModelCandidateTheoremClosed : Prop
+  paper8RegimeAssumptionsNotBypassed : Prop
+  upstreamPaperChainNotBypassed : Prop
+  upstreamMutationAttempt : Prop
+  paper8BypassAttempt : Prop
+  upstreamChainBypassAttempt : Prop
+  unapprovedPaper8Revision : Prop
+  unrecordedUpstreamRevision : Prop
+  observedCatalogRecoveryImport : Prop
+  observedParticleCatalogRecoveryImport : Prop
+  physicalStandardModelContentImport : Prop
+  physicalParticleExcitationImport : Prop
+  externalMatterFieldImport : Prop
+  externalGaugeFieldImport : Prop
+  physicalQuantumDynamicsImport : Prop
+  continuumQFTImport : Prop
+  backgroundHilbertBundleImport : Prop
+  simulationOnlyPromotion : Prop
+  fitOnlyCalibration : Prop
+  physicalPromotion : Prop
+  unifiedFieldPromotion : Prop
+
+def OCC006Paper8RegimeConsistencyContract.closed
+    (c : OCC006Paper8RegimeConsistencyContract) : Prop :=
+  c.occ001UpstreamBindingClosed ∧
+  c.occ002FiniteExternalCatalogDescriptorClosed ∧
+  c.occ003FiniteCandidateToCatalogComparisonMapClosed ∧
+  c.occ004StandardModelCandidateCompatibilityClosed ∧
+  c.occ005ComparisonCoarseGrainingStabilityClosed ∧
+  c.recordedPaper1CommitMatched ∧
+  c.recordedPaper2CommitMatched ∧
+  c.recordedPaper3CommitMatched ∧
+  c.recordedPaper4CommitMatched ∧
+  c.recordedPaper5CommitMatched ∧
+  c.recordedPaper6CommitMatched ∧
+  c.recordedPaper7CommitMatched ∧
+  c.recordedPaper8CommitMatched ∧
+  c.paper8FinalCertificateMatched ∧
+  c.paper8FinalCertificateConsumed ∧
+  c.paper8ConditionalStandardModelCandidateTheoremClosed ∧
+  c.paper8RegimeAssumptionsNotBypassed ∧
+  c.upstreamPaperChainNotBypassed ∧
+  ¬ c.upstreamMutationAttempt ∧
+  ¬ c.paper8BypassAttempt ∧
+  ¬ c.upstreamChainBypassAttempt ∧
+  ¬ c.unapprovedPaper8Revision ∧
+  ¬ c.unrecordedUpstreamRevision ∧
+  ¬ c.observedCatalogRecoveryImport ∧
+  ¬ c.observedParticleCatalogRecoveryImport ∧
+  ¬ c.physicalStandardModelContentImport ∧
+  ¬ c.physicalParticleExcitationImport ∧
+  ¬ c.externalMatterFieldImport ∧
+  ¬ c.externalGaugeFieldImport ∧
+  ¬ c.physicalQuantumDynamicsImport ∧
+  ¬ c.continuumQFTImport ∧
+  ¬ c.backgroundHilbertBundleImport ∧
+  ¬ c.simulationOnlyPromotion ∧
+  ¬ c.fitOnlyCalibration ∧
+  ¬ c.physicalPromotion ∧
+  ¬ c.unifiedFieldPromotion
+
+theorem occ006_paper8_regime_consistency_closed_from_fields
+    (c : OCC006Paper8RegimeConsistencyContract)
+    (hOCC001 : c.occ001UpstreamBindingClosed)
+    (hOCC002 : c.occ002FiniteExternalCatalogDescriptorClosed)
+    (hOCC003 : c.occ003FiniteCandidateToCatalogComparisonMapClosed)
+    (hOCC004 : c.occ004StandardModelCandidateCompatibilityClosed)
+    (hOCC005 : c.occ005ComparisonCoarseGrainingStabilityClosed)
+    (hPaper1 : c.recordedPaper1CommitMatched)
+    (hPaper2 : c.recordedPaper2CommitMatched)
+    (hPaper3 : c.recordedPaper3CommitMatched)
+    (hPaper4 : c.recordedPaper4CommitMatched)
+    (hPaper5 : c.recordedPaper5CommitMatched)
+    (hPaper6 : c.recordedPaper6CommitMatched)
+    (hPaper7 : c.recordedPaper7CommitMatched)
+    (hPaper8 : c.recordedPaper8CommitMatched)
+    (hPaper8CertMatched : c.paper8FinalCertificateMatched)
+    (hPaper8CertConsumed : c.paper8FinalCertificateConsumed)
+    (hPaper8Closed : c.paper8ConditionalStandardModelCandidateTheoremClosed)
+    (hPaper8NotBypassed : c.paper8RegimeAssumptionsNotBypassed)
+    (hUpstreamNotBypassed : c.upstreamPaperChainNotBypassed)
+    (hNoUpstreamMutation : ¬ c.upstreamMutationAttempt)
+    (hNoPaper8Bypass : ¬ c.paper8BypassAttempt)
+    (hNoUpstreamChainBypass : ¬ c.upstreamChainBypassAttempt)
+    (hNoUnapprovedPaper8 : ¬ c.unapprovedPaper8Revision)
+    (hNoUnrecordedUpstream : ¬ c.unrecordedUpstreamRevision)
+    (hNoObservedCatalogRecovery : ¬ c.observedCatalogRecoveryImport)
+    (hNoObservedParticleRecovery : ¬ c.observedParticleCatalogRecoveryImport)
+    (hNoPhysicalSM : ¬ c.physicalStandardModelContentImport)
+    (hNoPhysicalParticle : ¬ c.physicalParticleExcitationImport)
+    (hNoMatter : ¬ c.externalMatterFieldImport)
+    (hNoGauge : ¬ c.externalGaugeFieldImport)
+    (hNoPhysicalQuantum : ¬ c.physicalQuantumDynamicsImport)
+    (hNoQFT : ¬ c.continuumQFTImport)
+    (hNoHilbert : ¬ c.backgroundHilbertBundleImport)
+    (hNoSimulation : ¬ c.simulationOnlyPromotion)
+    (hNoFit : ¬ c.fitOnlyCalibration)
+    (hNoPhysicalPromotion : ¬ c.physicalPromotion)
+    (hNoUnified : ¬ c.unifiedFieldPromotion) :
+    c.closed := by
+  exact ⟨hOCC001, hOCC002, hOCC003, hOCC004, hOCC005, hPaper1,
+    hPaper2, hPaper3, hPaper4, hPaper5, hPaper6, hPaper7, hPaper8,
+    hPaper8CertMatched, hPaper8CertConsumed, hPaper8Closed,
+    hPaper8NotBypassed, hUpstreamNotBypassed, hNoUpstreamMutation,
+    hNoPaper8Bypass, hNoUpstreamChainBypass, hNoUnapprovedPaper8,
+    hNoUnrecordedUpstream, hNoObservedCatalogRecovery,
+    hNoObservedParticleRecovery, hNoPhysicalSM, hNoPhysicalParticle,
+    hNoMatter, hNoGauge, hNoPhysicalQuantum, hNoQFT, hNoHilbert,
+    hNoSimulation, hNoFit, hNoPhysicalPromotion, hNoUnified⟩
+
+theorem occ006_missing_occ005_stability_not_closed
+    (c : OCC006Paper8RegimeConsistencyContract)
+    (hClosed : c.closed)
+    (hMissingOCC005 : ¬ c.occ005ComparisonCoarseGrainingStabilityClosed) :
+    False := by
+  rcases hClosed with ⟨_, _, _, _, hOCC005, _⟩
+  exact hMissingOCC005 hOCC005
+
+theorem occ006_paper8_bypass_attempt_not_closed
+    (c : OCC006Paper8RegimeConsistencyContract)
+    (hClosed : c.closed)
+    (hPaper8Bypass : c.paper8BypassAttempt) :
+    False := by
+  rcases hClosed with
+    ⟨_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, hNoPaper8Bypass, _⟩
+  exact hNoPaper8Bypass hPaper8Bypass
+
+theorem occ006_unapproved_paper8_revision_not_closed
+    (c : OCC006Paper8RegimeConsistencyContract)
+    (hClosed : c.closed)
+    (hUnapprovedPaper8 : c.unapprovedPaper8Revision) :
+    False := by
+  rcases hClosed with
+    ⟨_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _,
+      hNoUnapprovedPaper8, _⟩
+  exact hNoUnapprovedPaper8 hUnapprovedPaper8
+
+def occ006CanonicalPaper8RegimeConsistencyContract :
+    OCC006Paper8RegimeConsistencyContract :=
+  { occ001UpstreamBindingClosed := True,
+    occ002FiniteExternalCatalogDescriptorClosed := True,
+    occ003FiniteCandidateToCatalogComparisonMapClosed := True,
+    occ004StandardModelCandidateCompatibilityClosed := True,
+    occ005ComparisonCoarseGrainingStabilityClosed := True,
+    recordedPaper1CommitMatched := True,
+    recordedPaper2CommitMatched := True,
+    recordedPaper3CommitMatched := True,
+    recordedPaper4CommitMatched := True,
+    recordedPaper5CommitMatched := True,
+    recordedPaper6CommitMatched := True,
+    recordedPaper7CommitMatched := True,
+    recordedPaper8CommitMatched := True,
+    paper8FinalCertificateMatched := True,
+    paper8FinalCertificateConsumed := True,
+    paper8ConditionalStandardModelCandidateTheoremClosed := True,
+    paper8RegimeAssumptionsNotBypassed := True,
+    upstreamPaperChainNotBypassed := True,
+    upstreamMutationAttempt := False,
+    paper8BypassAttempt := False,
+    upstreamChainBypassAttempt := False,
+    unapprovedPaper8Revision := False,
+    unrecordedUpstreamRevision := False,
+    observedCatalogRecoveryImport := False,
+    observedParticleCatalogRecoveryImport := False,
+    physicalStandardModelContentImport := False,
+    physicalParticleExcitationImport := False,
+    externalMatterFieldImport := False,
+    externalGaugeFieldImport := False,
+    physicalQuantumDynamicsImport := False,
+    continuumQFTImport := False,
+    backgroundHilbertBundleImport := False,
+    simulationOnlyPromotion := False,
+    fitOnlyCalibration := False,
+    physicalPromotion := False,
+    unifiedFieldPromotion := False }
+
+theorem occ006_canonical_paper8_regime_consistency_closed :
+    occ006CanonicalPaper8RegimeConsistencyContract.closed := by
+  unfold OCC006Paper8RegimeConsistencyContract.closed
+  unfold occ006CanonicalPaper8RegimeConsistencyContract
+  simp
+
 structure Paper9ObservedCatalogComparisonObservablesTheoremContract where
   occ001UpstreamBindingClosed : Prop
   occ002FiniteExternalCatalogDescriptorClosed : Prop

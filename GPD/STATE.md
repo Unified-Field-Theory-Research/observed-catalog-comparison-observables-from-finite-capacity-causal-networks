@@ -2,14 +2,15 @@
 
 ## Current Position
 
-**Current Phase:** 6
-**Current Phase Name:** Bind To Paper 8 Regime
+**Current Phase:** 7
+**Current Phase Name:** Close No-Hidden-Observed-Recovery/Fit Import Audit
 **Status:** `OCC-001` upstream binding and claim-boundary scaffold closed;
 `OCC-002` finite external-catalog descriptor observable closed; `OCC-003`
 finite candidate-to-catalog comparison map closed; `OCC-004`
 Standard-Model-candidate compatibility closed; `OCC-005` comparison stability
 and coarse-graining stability closed; `OCC-006` Paper 8 regime consistency
-is open; physical promotion remains false
+closed; `OCC-007` no-hidden-observed-recovery/fit-only import audit is open;
+physical promotion remains false
 
 Closed rung summary: `OCC-001` records the upstream binding through the
 closed Paper 8 conditional Standard-Model-candidate observables theorem at
@@ -77,12 +78,17 @@ finite capacity; locality; and bounded transfer without external
 conservation laws, continuum currents, continuum-limit oracles,
 observed-catalog recovery imports, fit-only calibration, physical promotion,
 or unified-field promotion.
+`OCC-006` binds all closed Paper 9 rows to the recorded Paper 8 regime,
+including the frozen Paper 1 through Paper 8 commit chain and Paper 8 final
+Standard-Model-candidate certificate. It rejects upstream mutation, Paper 8
+bypass, upstream-chain bypass, unapproved Paper 8 revisions, unrecorded
+upstream revisions, observed-catalog recovery imports, fit-only calibration,
+physical promotion, and unified-field promotion.
 
-Next stable target phrase: `OCC-006`: bind the closed descriptor,
-comparison-map, compatibility, and stability rows to the recorded Paper 8
-regime while rejecting upstream bypasses, unapproved revisions,
-observed-catalog recovery imports, fit-only calibration, and physical
-promotion.
+Next stable target phrase: `OCC-007`: close the no-hidden-observed-recovery
+and fit-only import audit across docs, state, manifests, Lean, Rust, and
+publication artifacts while preserving Rust-only tooling and all nonpromotion
+guards.
 
 Stable nonpromotion tokens: observed particle catalog recovery; physical
 Standard Model content; physical particle excitations; physical matter fields;
@@ -115,18 +121,22 @@ promotion.
 - `OCC-005` rows prove finite stability and intrinsic coarse-graining
   stability with non-growing coarse bounds and no continuum-limit or external
   conservation imports.
+- `OCC-006` rows bind the closed local Paper 9 structures to the recorded
+  Paper 8 commit, final certificate, and upstream chain while rejecting
+  upstream bypasses and unapproved revisions.
 
 ## Open Questions
 
-- `OCC-006`: Which regime-consistency witnesses are needed to bind all closed
-  Paper 9 rows to the recorded Paper 8 commit and final certificate without
-  upstream bypass or unapproved revisions?
+- `OCC-007`: Which audit rows are needed to demonstrate that docs, state,
+  manifests, Lean, Rust, publication metadata, and Rust-only runtime gates do
+  not hide observed recovery, fit-only calibration, physical promotion, or
+  unified-field imports?
 
 ## Pending Todos
 
-- Define Paper 8 regime-consistency rows for `OCC-006`.
-- Add Rust and Lean fail-closed checks for `OCC-006`.
-- Update theorem docs, proof log, and publication skeleton after `OCC-006`
+- Define no-hidden import audit rows for `OCC-007`.
+- Add Rust and Lean fail-closed checks for `OCC-007`.
+- Update theorem docs, proof log, and publication skeleton after `OCC-007`
   closes.
 
 ## Blockers/Concerns
@@ -140,6 +150,9 @@ promotion.
   the final observed-catalog comparison observable certificate.
 - `OCC-005` proves stability only; it does not close Paper 8 regime
   consistency or the final observed-catalog comparison observable certificate.
+- `OCC-006` proves Paper 8 regime consistency only; it does not close the
+  no-hidden import audit or the final observed-catalog comparison observable
+  certificate.
 - Observed-catalog comparison observable recovery remains open.
 - Observed particle catalog recovery, physical Standard Model content,
   physical particle excitations, physical matter fields, physical gauge

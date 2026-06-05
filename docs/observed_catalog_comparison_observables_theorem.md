@@ -23,7 +23,8 @@ claim-boundary scaffold. `OCC-002` closes finite external-catalog descriptor
 rows. `OCC-003` closes finite candidate-to-catalog comparison-map rows.
 `OCC-004` closes compatibility with the closed Paper 8
 Standard-Model-candidate rows. `OCC-005` closes finite comparison stability
-and intrinsic coarse-graining stability. This is not observed-catalog
+and intrinsic coarse-graining stability. `OCC-006` closes Paper 8 regime
+consistency and no-upstream-bypass checks. This is not observed-catalog
 comparison observable recovery, not observed particle catalog recovery, not
 physical Standard Model recovery, not a physical particle-excitation claim,
 not a physical matter-field claim, not a physical gauge-field claim, not
@@ -260,11 +261,44 @@ unified-field promotion.
 
 ### OCC-006: Paper 8 Regime Consistency
 
-Status: open.
+Status: closed.
+
+Target: bind the closed descriptor, comparison-map, compatibility, and
+stability rows to the recorded Paper 8 regime by matching the frozen Paper 1
+through Paper 8 commit chain, consuming the Paper 8 final
+Standard-Model-candidate certificate, preserving Paper 8 regime assumptions,
+and rejecting upstream mutation, Paper 8 bypass, upstream-chain bypass,
+unapproved Paper 8 revisions, unrecorded upstream revisions,
+observed-catalog recovery imports, fit-only calibration, physical promotion,
+and unified-field promotion.
+
+Rust anchors:
+
+- `Paper8RegimeConsistency`
+- `Paper8RegimeConsistency::canonical_occ006`
+- `Paper8RegimeConsistency::closes_occ006`
+- `Paper9SkeletonCertificate::with_occ006_paper8_regime_consistency_closed`
+- `occ006_paper8_regime_consistency_marker`
+
+Lean anchors:
+
+- `OCC006Paper8RegimeConsistencyContract`
+- `OCC006Paper8RegimeConsistencyContract.closed`
+- `occ006_paper8_regime_consistency_closed_from_fields`
+- `occ006_missing_occ005_stability_not_closed`
+- `occ006_paper8_bypass_attempt_not_closed`
+- `occ006_unapproved_paper8_revision_not_closed`
+- `occ006_canonical_paper8_regime_consistency_closed`
+
+Boundary: `OCC-006` proves regime consistency only. It does not close the
+no-hidden observed-recovery/fit-only import audit, the final observed-catalog
+comparison observables theorem, observed particle catalog recovery, physical
+Standard Model content, physical particle excitations, physical quantum
+dynamics, continuum QFT, physical promotion, or unified-field promotion.
 
 ### OCC-007: No-Hidden-Observed-Recovery/Fit Import Audit
 
-Status: planned.
+Status: open.
 
 ### OCC-008: Final Conditional Observed-Catalog Comparison Observables Certificate
 

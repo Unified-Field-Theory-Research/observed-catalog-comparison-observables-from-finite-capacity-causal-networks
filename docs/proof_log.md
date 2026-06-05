@@ -282,9 +282,64 @@ fields, physical quantum dynamics, continuum quantum field theory,
 simulation-only promotion, fit-only calibration, physical promotion, and
 unified-field promotion.
 
+## OCC-006: Paper 8 Regime Consistency
+
+Status: closed as a Paper 8 regime-consistency and no-upstream-bypass
+contract.
+
+Artifacts:
+
+- `README.md`
+- `UPSTREAM-PAPERS.json`
+- `GPD/PROJECT.md`
+- `GPD/ROADMAP.md`
+- `GPD/STATE.md`
+- `GPD/state.json`
+- `docs/observed_catalog_comparison_observables_theorem.md`
+- `docs/open_proof_obligations.md`
+- `docs/proof_log.md`
+- `GPD/formal/FiniteCapacity/ObservedCatalogComparisonObservables.lean`
+- `rust/cclab_accel/src/lib.rs`
+- `rust/cclab_accel/tests/observed_catalog_comparison_observables_gate.rs`
+
+Rust anchors:
+
+- `Paper8RegimeConsistency`
+- `Paper8RegimeConsistency::canonical_occ006`
+- `Paper8RegimeConsistency::closes_occ006`
+- `Paper9SkeletonCertificate::with_occ006_paper8_regime_consistency_closed`
+- `occ006_paper8_regime_consistency_marker`
+
+Lean anchors:
+
+- `OCC006Paper8RegimeConsistencyContract`
+- `OCC006Paper8RegimeConsistencyContract.closed`
+- `occ006_paper8_regime_consistency_closed_from_fields`
+- `occ006_missing_occ005_stability_not_closed`
+- `occ006_paper8_bypass_attempt_not_closed`
+- `occ006_unapproved_paper8_revision_not_closed`
+- `occ006_canonical_paper8_regime_consistency_closed`
+
+Verification:
+
+- `make test-fast`
+- `make lean-build`
+
+Boundary:
+
+`OCC-006` binds the closed descriptor, comparison-map, compatibility, and
+stability rows to the recorded Paper 8 regime. It verifies the Paper 1
+through Paper 8 commit chain, consumes the Paper 8 final
+Standard-Model-candidate certificate, and rejects upstream mutation, Paper 8
+bypass, upstream-chain bypass, unapproved Paper 8 revisions, unrecorded
+upstream revisions, observed-catalog recovery imports, observed particle
+catalog recovery, physical Standard Model content, physical particle
+excitations, physical matter fields, physical gauge fields, physical quantum
+dynamics, continuum quantum field theory, simulation-only promotion,
+fit-only calibration, physical promotion, and unified-field promotion.
+
 ## Active Next Obligation
 
-`OCC-006`: bind the closed descriptor, comparison-map, compatibility, and
-stability rows to the recorded Paper 8 regime while rejecting upstream
-bypasses, unapproved revisions, observed-catalog recovery imports,
-fit-only calibration, and physical promotion.
+`OCC-007`: close the no-hidden-observed-recovery/fit-only import audit across
+docs, state, manifests, Lean, Rust, and publication artifacts while
+preserving Rust-only tooling and all nonpromotion guards.

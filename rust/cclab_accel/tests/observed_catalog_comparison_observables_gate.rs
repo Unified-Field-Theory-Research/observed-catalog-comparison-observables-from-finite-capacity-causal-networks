@@ -4,10 +4,10 @@ use cclab_accel::{
     occ004_standard_model_candidate_compatibility_marker,
     occ005_comparison_coarse_graining_stability_marker, paper9_skeleton_marker,
     ComparisonCoarseGrainingStability, FiniteCandidateToCatalogComparisonMap,
-    FiniteExternalCatalogDescriptorObservable, Paper9SkeletonCertificate, Paper9UpstreamBinding,
-    StandardModelCandidateCompatibility, PAPER1_FROZEN_COMMIT, PAPER2_FROZEN_COMMIT,
-    PAPER3_FROZEN_COMMIT, PAPER4_FROZEN_COMMIT, PAPER5_FROZEN_COMMIT, PAPER6_FROZEN_COMMIT,
-    PAPER7_FROZEN_COMMIT, PAPER8_FINAL_CERTIFICATE, PAPER8_FROZEN_COMMIT,
+    FiniteExternalCatalogDescriptorObservable, Paper8RegimeConsistency, Paper9SkeletonCertificate,
+    Paper9UpstreamBinding, StandardModelCandidateCompatibility, PAPER1_FROZEN_COMMIT,
+    PAPER2_FROZEN_COMMIT, PAPER3_FROZEN_COMMIT, PAPER4_FROZEN_COMMIT, PAPER5_FROZEN_COMMIT,
+    PAPER6_FROZEN_COMMIT, PAPER7_FROZEN_COMMIT, PAPER8_FINAL_CERTIFICATE, PAPER8_FROZEN_COMMIT,
 };
 use std::fs;
 use std::path::{Path, PathBuf};
@@ -558,6 +558,109 @@ fn occ005_stability_fails_closed_on_growth_or_imports() {
 }
 
 #[test]
+fn occ006_paper8_regime_consistency_closes_only_regime_rung() {
+    let regime = Paper8RegimeConsistency::canonical_occ006();
+
+    assert!(regime.occ001_upstream_binding_closed);
+    assert!(regime.occ002_finite_external_catalog_descriptor_closed);
+    assert!(regime.occ003_finite_candidate_to_catalog_comparison_map_closed);
+    assert!(regime.occ004_standard_model_candidate_compatibility_closed);
+    assert!(regime.occ005_comparison_coarse_graining_stability_closed);
+    assert_eq!(regime.paper1_commit, PAPER1_FROZEN_COMMIT);
+    assert_eq!(regime.paper2_commit, PAPER2_FROZEN_COMMIT);
+    assert_eq!(regime.paper3_commit, PAPER3_FROZEN_COMMIT);
+    assert_eq!(regime.paper4_commit, PAPER4_FROZEN_COMMIT);
+    assert_eq!(regime.paper5_commit, PAPER5_FROZEN_COMMIT);
+    assert_eq!(regime.paper6_commit, PAPER6_FROZEN_COMMIT);
+    assert_eq!(regime.paper7_commit, PAPER7_FROZEN_COMMIT);
+    assert_eq!(regime.paper8_commit, PAPER8_FROZEN_COMMIT);
+    assert_eq!(regime.paper8_final_certificate, PAPER8_FINAL_CERTIFICATE);
+    assert!(regime.paper8_final_certificate_consumed);
+    assert!(regime.paper8_standard_model_candidate_observables_closed);
+    assert!(regime.closes_occ006());
+    assert!(!regime.upstream_mutation_attempt);
+    assert!(!regime.paper8_bypass_attempt);
+    assert!(!regime.upstream_chain_bypass_attempt);
+    assert!(!regime.unapproved_paper8_revision);
+    assert!(!regime.unrecorded_upstream_revision);
+    assert_eq!(
+        cclab_accel::occ006_paper8_regime_consistency_marker(),
+        "occ006-paper8-regime-consistency-no-upstream-bypass-closed"
+    );
+
+    let certificate = Paper9SkeletonCertificate::with_occ006_paper8_regime_consistency_closed();
+    assert!(certificate.occ001_upstream_binding_closed);
+    assert!(certificate.occ002_finite_external_catalog_descriptor_closed);
+    assert!(certificate.occ003_finite_candidate_to_catalog_comparison_map_closed);
+    assert!(certificate.occ004_standard_model_candidate_compatibility_closed);
+    assert!(certificate.occ005_comparison_coarse_graining_stability_closed);
+    assert!(certificate.occ006_paper8_regime_consistency_closed);
+    assert!(!certificate.occ007_no_hidden_observed_recovery_fit_audit_closed);
+    assert!(!certificate.occ008_final_conditional_certificate_closed);
+    assert!(!certificate.paper9_theorem_closed);
+    assert!(!certificate.closes_paper9_theorem());
+}
+
+#[test]
+fn occ006_regime_consistency_fails_closed_on_bypass_or_revision() {
+    let regime = Paper8RegimeConsistency::canonical_occ006();
+
+    let missing_occ005 = Paper8RegimeConsistency {
+        occ005_comparison_coarse_graining_stability_closed: false,
+        ..regime
+    };
+    assert!(!missing_occ005.closes_occ006());
+
+    let wrong_paper8_commit = Paper8RegimeConsistency {
+        paper8_commit: "unapproved-paper8-revision",
+        ..regime
+    };
+    assert!(!wrong_paper8_commit.closes_occ006());
+
+    let missing_certificate = Paper8RegimeConsistency {
+        paper8_final_certificate_consumed: false,
+        ..regime
+    };
+    assert!(!missing_certificate.closes_occ006());
+
+    let upstream_mutation = Paper8RegimeConsistency {
+        upstream_mutation_attempt: true,
+        ..regime
+    };
+    assert!(!upstream_mutation.closes_occ006());
+
+    let paper8_bypass = Paper8RegimeConsistency {
+        paper8_bypass_attempt: true,
+        ..regime
+    };
+    assert!(!paper8_bypass.closes_occ006());
+
+    let upstream_chain_bypass = Paper8RegimeConsistency {
+        upstream_chain_bypass_attempt: true,
+        ..regime
+    };
+    assert!(!upstream_chain_bypass.closes_occ006());
+
+    let unapproved_revision = Paper8RegimeConsistency {
+        unapproved_paper8_revision: true,
+        ..regime
+    };
+    assert!(!unapproved_revision.closes_occ006());
+
+    let hidden_observed_catalog = Paper8RegimeConsistency {
+        observed_catalog_recovery_import: true,
+        ..regime
+    };
+    assert!(!hidden_observed_catalog.closes_occ006());
+
+    let fit_only = Paper8RegimeConsistency {
+        fit_only_calibration: true,
+        ..regime
+    };
+    assert!(!fit_only.closes_occ006());
+}
+
+#[test]
 fn upstream_json_records_paper8_certificate_and_nonpromotion() {
     let root = project_root();
     let upstream = read(&root, "UPSTREAM-PAPERS.json");
@@ -589,6 +692,11 @@ fn upstream_json_records_paper8_certificate_and_nonpromotion() {
     assert_contains(
         &upstream,
         "\"occ005_comparison_coarse_graining_stability_closed\": true",
+        "UPSTREAM-PAPERS.json",
+    );
+    assert_contains(
+        &upstream,
+        "\"occ006_paper8_regime_consistency_closed\": true",
         "UPSTREAM-PAPERS.json",
     );
     assert_contains(
@@ -634,6 +742,7 @@ fn docs_keep_occ002_active_and_physical_claims_false() {
         assert_contains(artifact.1, "OCC-004", artifact.0);
         assert_contains(artifact.1, "OCC-005", artifact.0);
         assert_contains(artifact.1, "OCC-006", artifact.0);
+        assert_contains(artifact.1, "OCC-007", artifact.0);
         assert_contains(artifact.1, "observed particle catalog recovery", artifact.0);
         assert_contains(artifact.1, "physical Standard Model", artifact.0);
         assert_contains(artifact.1, "fit-only", artifact.0);

@@ -164,9 +164,9 @@ observable recovery, observed particle catalog recovery, physical Standard
 Model content, physical particle excitations, continuum QFT, physical
 quantum dynamics, physical nature promotion, or unified-field promotion.
 
-## Active Obligation
+## Closed Dependencies: OCC-006
 
-`OCC-006` is open.
+`OCC-006` closes the Paper 8 regime-consistency and no-upstream-bypass rung.
 
 Required row shape:
 
@@ -196,9 +196,50 @@ Required row shape:
 - no physical promotion;
 - no unified-field promotion.
 
+The rung proves regime consistency only. It does not prove the no-hidden
+import audit, observed-catalog comparison observable recovery, observed
+particle catalog recovery, physical Standard Model content, physical particle
+excitations, continuum QFT, physical quantum dynamics, physical nature
+promotion, or unified-field promotion.
+
+## Active Obligation
+
+`OCC-007` is open.
+
+Required row shape:
+
+- closed `OCC-001` upstream binding;
+- closed `OCC-002` finite external-catalog descriptor observable;
+- closed `OCC-003` finite candidate-to-catalog comparison map;
+- closed `OCC-004` Standard-Model-candidate compatibility;
+- closed `OCC-005` comparison/coarse-graining stability;
+- closed `OCC-006` Paper 8 regime consistency;
+- all required Paper 9 rungs audited;
+- theorem docs audited;
+- proof log audited;
+- state files audited;
+- upstream manifest audited;
+- Lean gate audited;
+- Rust gate audited;
+- publication skeleton audited;
+- Rust-only runtime verified;
+- fail-closed audit certificate emitted;
+- no observed-catalog recovery import;
+- no observed particle catalog recovery;
+- no physical Standard Model content;
+- no physical particle-excitation import;
+- no external matter field;
+- no external gauge field;
+- no physical quantum dynamics import;
+- no continuum QFT import;
+- no background Hilbert bundle import;
+- no simulation-only promotion;
+- no fit-only calibration;
+- no physical promotion;
+- no unified-field promotion.
+
 ## Future Obligations
 
-- `OCC-007`: no-hidden-observed-recovery/fit-only import audit.
 - `OCC-008`: final internal conditional certificate, if all prior obligations
   close.
 

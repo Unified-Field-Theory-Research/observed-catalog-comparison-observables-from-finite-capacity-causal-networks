@@ -1,15 +1,16 @@
 {
   "schema_version": 1,
   "paper": 9,
-  "current_phase": 6,
-  "current_phase_name": "Bind To Paper 8 Regime",
-  "active_obligation": "OCC-006",
+  "current_phase": 7,
+  "current_phase_name": "Close No-Hidden-Observed-Recovery/Fit Import Audit",
+  "active_obligation": "OCC-007",
   "closed_obligations": [
     "OCC-001",
     "OCC-002",
     "OCC-003",
     "OCC-004",
-    "OCC-005"
+    "OCC-005",
+    "OCC-006"
   ],
   "upstream_binding": {
     "paper1_commit": "3a9637c65f783ca35e77118f83560290f42f3085",
@@ -29,7 +30,7 @@
     "occ003_finite_candidate_to_catalog_comparison_map_closed": true,
     "occ004_standard_model_candidate_compatibility_closed": true,
     "occ005_comparison_coarse_graining_stability_closed": true,
-    "occ006_paper8_regime_consistency_closed": false,
+    "occ006_paper8_regime_consistency_closed": true,
     "occ007_no_hidden_observed_recovery_fit_audit_closed": false,
     "occ008_final_conditional_certificate_closed": false,
     "observed_catalog_comparison_observables_theorem_closed": false,
@@ -45,5 +46,5 @@
     "fit_only_calibration_claim": false,
     "unified_field_theory_claim": false
   },
-  "next_research_move": "OCC-006: bind the closed descriptor, comparison-map, compatibility, and stability rows to the recorded Paper 8 regime while rejecting upstream bypasses, unapproved revisions, observed-catalog recovery imports, fit-only calibration, and physical promotion"
+  "next_research_move": "OCC-007: close the no-hidden-observed-recovery/fit-only import audit across docs, state, manifests, Lean, Rust, and publication artifacts while preserving Rust-only tooling and all nonpromotion guards"
 }

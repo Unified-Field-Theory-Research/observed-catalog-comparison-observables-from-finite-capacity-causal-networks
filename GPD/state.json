@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "paper": 9,
+  "current_phase": 2,
+  "current_phase_name": "Define Finite External-Catalog Descriptor Observable",
+  "active_obligation": "OCC-002",
+  "closed_obligations": [
+    "OCC-001"
+  ],
+  "upstream_binding": {
+    "paper1_commit": "3a9637c65f783ca35e77118f83560290f42f3085",
+    "paper2_commit": "053842ef5e1a50282df9d884266e87428ee07f60",
+    "paper3_commit": "6067360758108f799fa604855f5513545019492e",
+    "paper4_commit": "5a1ac95700786b697a0f25ddecb393fdeaaa166e",
+    "paper5_commit": "8db1a334b0c0ca934ccd3628add72c6e3f1ebfcb",
+    "paper6_commit": "20df751a0ceb2b4eb33a80dd15dd2795a1ea529a",
+    "paper7_commit": "4f52d9980f62977016ef5ee5da9e88a32dce70e5",
+    "paper8_commit": "d3c58356cdbe89d9a8b7a79784c7b6eaf4023b33",
+    "paper8_final_certificate_consumed": true,
+    "may_modify_upstreams": false
+  },
+  "claims": {
+    "occ001_upstream_binding_closed": true,
+    "occ002_finite_external_catalog_descriptor_closed": false,
+    "occ003_finite_candidate_to_catalog_comparison_map_closed": false,
+    "occ004_standard_model_candidate_compatibility_closed": false,
+    "occ005_comparison_coarse_graining_stability_closed": false,
+    "occ006_paper8_regime_consistency_closed": false,
+    "occ007_no_hidden_observed_recovery_fit_audit_closed": false,
+    "occ008_final_conditional_certificate_closed": false,
+    "observed_catalog_comparison_observables_theorem_closed": false,
+    "physical_nature_claim": false,
+    "observed_particle_catalog_recovery_claim": false,
+    "physical_standard_model_claim": false,
+    "physical_particle_excitation_claim": false,
+    "physical_matter_fields_claim": false,
+    "physical_gauge_fields_claim": false,
+    "physical_quantum_dynamics_claim": false,
+    "continuum_quantum_field_theory_claim": false,
+    "simulation_only_promotion": false,
+    "fit_only_calibration_claim": false,
+    "unified_field_theory_claim": false
+  },
+  "next_research_move": "OCC-002: define a finite external-catalog descriptor observable without importing observed particle catalog recovery, physical Standard Model content, physical particle excitations, continuum QFT, simulation-only promotion, fit-only calibration, physical quantum dynamics, or unified-field promotion"
+}

@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "verification_commands": [
+    "make test-fast",
+    "make lean-build"
+  ],
+  "upstream_commits": {
+    "paper1": "3a9637c65f783ca35e77118f83560290f42f3085",
+    "paper2": "053842ef5e1a50282df9d884266e87428ee07f60",
+    "paper3": "6067360758108f799fa604855f5513545019492e",
+    "paper4": "5a1ac95700786b697a0f25ddecb393fdeaaa166e",
+    "paper5": "8db1a334b0c0ca934ccd3628add72c6e3f1ebfcb",
+    "paper6": "20df751a0ceb2b4eb33a80dd15dd2795a1ea529a",
+    "paper7": "4f52d9980f62977016ef5ee5da9e88a32dce70e5",
+    "paper8": "d3c58356cdbe89d9a8b7a79784c7b6eaf4023b33"
+  }
+}

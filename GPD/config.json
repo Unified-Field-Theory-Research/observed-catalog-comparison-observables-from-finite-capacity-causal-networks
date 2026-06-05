@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "project": "observed-catalog-comparison-observables-from-finite-capacity-causal-networks",
+  "paper": 9,
+  "active_obligation": "OCC-002",
+  "rust_only_runtime_policy": true,
+  "lean_lane": "GPD/formal",
+  "physical_promotion_allowed": false
+}

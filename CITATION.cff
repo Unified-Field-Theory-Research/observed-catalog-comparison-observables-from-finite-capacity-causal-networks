@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this repository, cite it as a Paper 9 research scaffold."
+title: "Observed-Catalog Comparison Observables From Finite-Capacity Causal Networks"
+authors:
+  - family-names: "Greenman"
+    given-names: "Abraham"
+license: "MIT AND CC-BY-4.0"
+repository-code: "https://github.com/Unified-Field-Theory-Research/observed-catalog-comparison-observables-from-finite-capacity-causal-networks"
+version: "0.1.0"

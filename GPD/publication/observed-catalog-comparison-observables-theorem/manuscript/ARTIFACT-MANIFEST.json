@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "artifacts": [
+    "AGENTS.md",
+    "README.md",
+    "UPSTREAM-PAPERS.json",
+    "GPD/STATE.md",
+    "GPD/ROADMAP.md",
+    "docs/observed_catalog_comparison_observables_theorem.md",
+    "docs/open_proof_obligations.md",
+    "docs/proof_log.md",
+    "GPD/formal/FiniteCapacity/ObservedCatalogComparisonObservables.lean",
+    "rust/cclab_accel/tests/observed_catalog_comparison_observables_gate.rs"
+  ]
+}

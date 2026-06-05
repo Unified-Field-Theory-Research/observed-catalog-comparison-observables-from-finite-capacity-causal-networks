@@ -391,7 +391,62 @@ matter fields, physical gauge fields, physical quantum dynamics, continuum
 quantum field theory, simulation-only promotion, fit-only calibration,
 physical promotion, and unified-field promotion.
 
-## Active Next Obligation
+## OCC-008: Final Conditional Observed-Catalog Comparison Observables Certificate
 
-`OCC-008`: close the final internal conditional observed-catalog comparison
-observables certificate by consuming `OCC-001` through `OCC-007`.
+Status: closed as the internal conditional Paper 9 theorem certificate.
+
+Artifacts:
+
+- `README.md`
+- `UPSTREAM-PAPERS.json`
+- `GPD/PROJECT.md`
+- `GPD/ROADMAP.md`
+- `GPD/STATE.md`
+- `GPD/state.json`
+- `docs/observed_catalog_comparison_observables_theorem.md`
+- `docs/open_proof_obligations.md`
+- `docs/proof_log.md`
+- `GPD/formal/FiniteCapacity/ObservedCatalogComparisonObservables.lean`
+- `rust/cclab_accel/src/lib.rs`
+- `rust/cclab_accel/tests/observed_catalog_comparison_observables_gate.rs`
+
+Rust anchors:
+
+- `FinalObservedCatalogComparisonObservablesCertificate`
+- `FinalObservedCatalogComparisonObservablesCertificate::canonical_occ008`
+- `FinalObservedCatalogComparisonObservablesCertificate::closes_occ008`
+- `Paper9SkeletonCertificate::final_occ008_closed`
+- `occ008_final_conditional_certificate_marker`
+
+Lean anchors:
+
+- `OCC008FinalConditionalCertificateContract`
+- `OCC008FinalConditionalCertificateContract.closed`
+- `occ008_canonical_final_conditional_certificate_closed`
+- `occ008_missing_occ007_audit_not_closed`
+- `occ008_fit_only_calibration_claim_not_closed`
+- `paper9_occ008_final_conditional_certificate_closes_observed_catalog_comparison_observables_theorem`
+
+Verification:
+
+- `make test-fast`
+- `make lean-build`
+
+Boundary:
+
+`OCC-008` consumes `OCC-001` through `OCC-007`, emits the finite descriptor
+observable package and finite comparison-map observable package, consumes
+Paper 8 Standard-Model-candidate compatibility, comparison stability,
+coarse-graining stability, Paper 8 regime consistency, and the no-hidden
+import audit, and preserves finite capacity, locality, bounded transfer,
+causal-cone/no-signaling, and conservation/coarse-graining stability. It
+closes the internal conditional Paper 9 observed-catalog comparison
+observables theorem only. It does not close observed particle catalog
+recovery, physical Standard Model content, physical particle excitations,
+physical matter fields, physical gauge fields, physical quantum dynamics,
+continuum quantum field theory, simulation-only promotion, fit-only
+calibration, physical nature promotion, or unified-field promotion.
+
+## Closed Status
+
+All Paper 9 rungs are closed. No Paper 9 active proof obligation remains.

@@ -35,7 +35,7 @@ This repo is intentionally separate from the upstream theorem repositories:
   `../standard-model-candidate-observables-from-finite-capacity-causal-networks`
 - Upstream binding file: `UPSTREAM-PAPERS.json`
 
-The current theorem package has closed `OCC-001` and `OCC-002`. `OCC-001`
+The current theorem package has closed `OCC-001` through `OCC-008`. `OCC-001`
 records the upstream binding and claim boundary through the closed Paper 8
 result. `OCC-002` defines finite external-catalog descriptor observables with
 bounded labels, observable keys, tolerance metadata, provenance tags, local
@@ -52,14 +52,13 @@ non-growing intrinsic coarse-graining for descriptor and comparison-map rows.
 `OCC-006` binds the closed rows to the recorded Paper 8 regime and rejects
 upstream bypasses or unapproved revisions. `OCC-007` closes the no-hidden
 observed-recovery/fit-only import audit across docs, state, manifests, Lean,
-Rust, publication metadata, and Rust-only runtime gates. The next active
-obligation is `OCC-008`: close the final internal conditional certificate.
-This does not prove observed-catalog comparison
-observable recovery, observed particle catalog recovery, physical Standard
-Model content, physical particle excitations, physical matter fields,
-physical gauge fields, physical quantum dynamics, continuum quantum field
-theory, simulation-only promotion, fit-only calibration, physical nature
-realization, or a unified field theory.
+Rust, publication metadata, and Rust-only runtime gates. `OCC-008` closes the
+final internal conditional Paper 9 observed-catalog comparison observables
+theorem. This does not prove observed particle catalog recovery, physical
+Standard Model content, physical particle
+excitations, physical matter fields, physical gauge fields, physical quantum
+dynamics, continuum quantum field theory, simulation-only promotion, fit-only
+calibration, physical nature realization, or a unified field theory.
 
 Persistent boundary tokens: observed particle catalog recovery; physical Standard Model
 content; physical particle excitations; physical matter fields;

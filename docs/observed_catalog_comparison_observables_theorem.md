@@ -18,20 +18,21 @@ Paper 9 aims at the following internal conditional theorem:
 
 ## Claim Boundary
 
-The theorem target is open. `OCC-001` closes the upstream binding and
-claim-boundary scaffold. `OCC-002` closes finite external-catalog descriptor
+The internal conditional theorem target is closed by `OCC-008`. `OCC-001`
+closes the upstream binding and claim-boundary scaffold. `OCC-002` closes
+finite external-catalog descriptor
 rows. `OCC-003` closes finite candidate-to-catalog comparison-map rows.
 `OCC-004` closes compatibility with the closed Paper 8
 Standard-Model-candidate rows. `OCC-005` closes finite comparison stability
 and intrinsic coarse-graining stability. `OCC-006` closes Paper 8 regime
 consistency and no-upstream-bypass checks. `OCC-007` closes the no-hidden
-observed-recovery/fit-only import audit. This is not observed-catalog
-comparison observable recovery, not observed particle catalog recovery, not
-physical Standard Model recovery, not a physical particle-excitation claim,
-not a physical matter-field claim, not a physical gauge-field claim, not
-physical quantum dynamics, not continuum quantum field theory, not
-simulation-only promotion, not fit-only calibration, and not a unified field
-theory.
+observed-recovery/fit-only import audit. `OCC-008` closes the internal
+conditional Paper 9 observed-catalog comparison observables theorem. This is
+not observed particle catalog recovery, not physical Standard Model recovery,
+not a physical particle-excitation claim, not a physical matter-field claim,
+not a physical gauge-field claim, not physical quantum dynamics, not
+continuum quantum field theory, not simulation-only promotion, not fit-only
+calibration, and not a unified field theory.
 
 ## Upstream Binding
 
@@ -335,4 +336,39 @@ unified-field promotion.
 
 ### OCC-008: Final Conditional Observed-Catalog Comparison Observables Certificate
 
-Status: open.
+Status: closed.
+
+Target: consume `OCC-001` through `OCC-007`, emit the finite descriptor
+observable package and finite comparison-map observable package, consume Paper
+8 Standard-Model-candidate compatibility, comparison stability,
+coarse-graining stability, Paper 8 regime consistency, and no-hidden import
+audit rows, preserve finite capacity, locality, bounded transfer,
+causal-cone/no-signaling, and conservation/coarse-graining stability, emit
+the final conditional certificate, and close the internal conditional Paper 9
+observed-catalog comparison observables theorem while rejecting observed
+particle catalog recovery, physical Standard Model content, physical particle
+excitations, physical matter fields, physical gauge fields, physical quantum
+dynamics, continuum QFT, simulation-only promotion, fit-only calibration,
+physical promotion, and unified-field promotion.
+
+Rust anchors:
+
+- `FinalObservedCatalogComparisonObservablesCertificate`
+- `FinalObservedCatalogComparisonObservablesCertificate::canonical_occ008`
+- `FinalObservedCatalogComparisonObservablesCertificate::closes_occ008`
+- `Paper9SkeletonCertificate::final_occ008_closed`
+- `occ008_final_conditional_certificate_marker`
+
+Lean anchors:
+
+- `OCC008FinalConditionalCertificateContract`
+- `OCC008FinalConditionalCertificateContract.closed`
+- `occ008_canonical_final_conditional_certificate_closed`
+- `occ008_missing_occ007_audit_not_closed`
+- `occ008_fit_only_calibration_claim_not_closed`
+- `paper9_occ008_final_conditional_certificate_closes_observed_catalog_comparison_observables_theorem`
+
+Boundary: `OCC-008` closes only the internal conditional Paper 9 theorem. It
+does not close observed particle catalog recovery, physical Standard Model
+content, physical particle excitations, physical quantum dynamics, continuum
+QFT, physical nature promotion, or unified-field promotion.

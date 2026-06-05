@@ -244,9 +244,10 @@ recovery, physical Standard Model content, physical particle excitations,
 continuum QFT, physical quantum dynamics, physical nature promotion, or
 unified-field promotion.
 
-## Active Obligation
+## Closed Dependencies: OCC-008
 
-`OCC-008` is open.
+`OCC-008` closes the final internal conditional observed-catalog comparison
+observables certificate.
 
 Required row shape:
 
@@ -284,8 +285,8 @@ Required row shape:
 
 ## Future Obligations
 
-No Paper 9 rung remains after `OCC-008`; any physical promotion would require
-a separate external track.
+No Paper 9 rung remains open. Any physical promotion would require a separate
+external track.
 
 Observed particle catalog recovery, physical Standard Model content, physical
 particle excitations, physical matter fields, physical gauge fields, physical

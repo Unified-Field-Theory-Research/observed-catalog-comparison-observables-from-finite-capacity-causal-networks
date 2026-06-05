@@ -2,8 +2,8 @@
   "schema_version": 1,
   "paper": 9,
   "current_phase": 8,
-  "current_phase_name": "Final Conditional Observed-Catalog Comparison Observables Certificate",
-  "active_obligation": "OCC-008",
+  "current_phase_name": "Closed Internal Conditional Observed-Catalog Comparison Observables Certificate",
+  "active_obligation": "none",
   "closed_obligations": [
     "OCC-001",
     "OCC-002",
@@ -11,7 +11,8 @@
     "OCC-004",
     "OCC-005",
     "OCC-006",
-    "OCC-007"
+    "OCC-007",
+    "OCC-008"
   ],
   "upstream_binding": {
     "paper1_commit": "3a9637c65f783ca35e77118f83560290f42f3085",
@@ -33,8 +34,8 @@
     "occ005_comparison_coarse_graining_stability_closed": true,
     "occ006_paper8_regime_consistency_closed": true,
     "occ007_no_hidden_observed_recovery_fit_audit_closed": true,
-    "occ008_final_conditional_certificate_closed": false,
-    "observed_catalog_comparison_observables_theorem_closed": false,
+    "occ008_final_conditional_certificate_closed": true,
+    "observed_catalog_comparison_observables_theorem_closed": true,
     "physical_nature_claim": false,
     "observed_particle_catalog_recovery_claim": false,
     "physical_standard_model_claim": false,
@@ -47,5 +48,5 @@
     "fit_only_calibration_claim": false,
     "unified_field_theory_claim": false
   },
-  "next_research_move": "OCC-008: close the final internal conditional observed-catalog comparison observables certificate by consuming OCC-001 through OCC-007, preserving finite capacity, locality, bounded transfer, causal-cone/no-signaling, conservation/coarse-graining stability, and all nonpromotion guards"
+  "next_research_move": "Paper 9 internal conditional observed-catalog comparison observables theorem is closed. Physical nature, observed particle catalog recovery, physical Standard Model content, physical particle excitations, physical quantum dynamics, continuum QFT, simulation-only promotion, fit-only calibration, and unified-field promotion remain false and would require a separate external promotion track."
 }

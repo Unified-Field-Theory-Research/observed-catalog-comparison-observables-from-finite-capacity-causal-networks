@@ -3,12 +3,12 @@ use cclab_accel::{
     occ003_finite_candidate_to_catalog_comparison_map_marker,
     occ004_standard_model_candidate_compatibility_marker,
     occ005_comparison_coarse_graining_stability_marker, paper9_skeleton_marker,
-    ComparisonCoarseGrainingStability, FiniteCandidateToCatalogComparisonMap,
-    FiniteExternalCatalogDescriptorObservable, NoHiddenObservedRecoveryFitAudit,
-    Paper8RegimeConsistency, Paper9SkeletonCertificate, Paper9UpstreamBinding,
-    StandardModelCandidateCompatibility, PAPER1_FROZEN_COMMIT, PAPER2_FROZEN_COMMIT,
-    PAPER3_FROZEN_COMMIT, PAPER4_FROZEN_COMMIT, PAPER5_FROZEN_COMMIT, PAPER6_FROZEN_COMMIT,
-    PAPER7_FROZEN_COMMIT, PAPER8_FINAL_CERTIFICATE, PAPER8_FROZEN_COMMIT,
+    ComparisonCoarseGrainingStability, FinalObservedCatalogComparisonObservablesCertificate,
+    FiniteCandidateToCatalogComparisonMap, FiniteExternalCatalogDescriptorObservable,
+    NoHiddenObservedRecoveryFitAudit, Paper8RegimeConsistency, Paper9SkeletonCertificate,
+    Paper9UpstreamBinding, StandardModelCandidateCompatibility, PAPER1_FROZEN_COMMIT,
+    PAPER2_FROZEN_COMMIT, PAPER3_FROZEN_COMMIT, PAPER4_FROZEN_COMMIT, PAPER5_FROZEN_COMMIT,
+    PAPER6_FROZEN_COMMIT, PAPER7_FROZEN_COMMIT, PAPER8_FINAL_CERTIFICATE, PAPER8_FROZEN_COMMIT,
 };
 use std::fs;
 use std::path::{Path, PathBuf};
@@ -761,6 +761,122 @@ fn occ007_audit_fails_closed_on_missing_coverage_or_imports() {
 }
 
 #[test]
+fn occ008_final_certificate_closes_internal_paper9_theorem_only() {
+    let final_certificate =
+        FinalObservedCatalogComparisonObservablesCertificate::canonical_occ008();
+
+    assert!(final_certificate.occ001_upstream_binding_closed);
+    assert!(final_certificate.occ002_finite_external_catalog_descriptor_closed);
+    assert!(final_certificate.occ003_finite_candidate_to_catalog_comparison_map_closed);
+    assert!(final_certificate.occ004_standard_model_candidate_compatibility_closed);
+    assert!(final_certificate.occ005_comparison_coarse_graining_stability_closed);
+    assert!(final_certificate.occ006_paper8_regime_consistency_closed);
+    assert!(final_certificate.occ007_no_hidden_observed_recovery_fit_audit_closed);
+    assert!(final_certificate.finite_descriptor_observable_package_emitted);
+    assert!(final_certificate.finite_comparison_map_observable_package_emitted);
+    assert!(final_certificate.paper8_standard_model_candidate_compatibility_consumed);
+    assert!(final_certificate.comparison_stability_coarse_graining_consumed);
+    assert!(final_certificate.paper8_regime_consistency_consumed);
+    assert!(final_certificate.no_hidden_import_audit_consumed);
+    assert!(final_certificate.finite_capacity_preserved);
+    assert!(final_certificate.locality_preserved);
+    assert!(final_certificate.bounded_transfer_preserved);
+    assert!(final_certificate.causal_cone_no_signaling_preserved);
+    assert!(final_certificate.conservation_coarse_graining_stability_preserved);
+    assert!(final_certificate.final_conditional_certificate_emitted);
+    assert!(final_certificate.paper9_theorem_closed);
+    assert!(final_certificate.closes_occ008());
+    assert!(!final_certificate.observed_particle_catalog_recovery_claim);
+    assert!(!final_certificate.physical_standard_model_claim);
+    assert!(!final_certificate.physical_particle_excitation_claim);
+    assert!(!final_certificate.physical_quantum_dynamics_claim);
+    assert!(!final_certificate.continuum_qft_claim);
+    assert!(!final_certificate.physical_nature_claim);
+    assert!(!final_certificate.unified_field_theory_claim);
+    assert_eq!(
+        cclab_accel::occ008_final_conditional_certificate_marker(),
+        "occ008-final-conditional-observed-catalog-comparison-observables-certificate-closed"
+    );
+
+    let certificate = Paper9SkeletonCertificate::final_occ008_closed();
+    assert!(certificate.occ001_upstream_binding_closed);
+    assert!(certificate.occ002_finite_external_catalog_descriptor_closed);
+    assert!(certificate.occ003_finite_candidate_to_catalog_comparison_map_closed);
+    assert!(certificate.occ004_standard_model_candidate_compatibility_closed);
+    assert!(certificate.occ005_comparison_coarse_graining_stability_closed);
+    assert!(certificate.occ006_paper8_regime_consistency_closed);
+    assert!(certificate.occ007_no_hidden_observed_recovery_fit_audit_closed);
+    assert!(certificate.occ008_final_conditional_certificate_closed);
+    assert!(certificate.paper9_theorem_closed);
+    assert!(certificate.closes_paper9_theorem());
+    assert!(!certificate.observed_particle_catalog_recovery_claim);
+    assert!(!certificate.physical_standard_model_claim);
+    assert!(!certificate.continuum_qft_claim);
+    assert!(!certificate.fit_only_calibration_claim);
+    assert!(!certificate.unified_field_theory_claim);
+}
+
+#[test]
+fn occ008_final_certificate_fails_closed_on_missing_rungs_or_promotions() {
+    let final_certificate =
+        FinalObservedCatalogComparisonObservablesCertificate::canonical_occ008();
+
+    let missing_audit = FinalObservedCatalogComparisonObservablesCertificate {
+        occ007_no_hidden_observed_recovery_fit_audit_closed: false,
+        ..final_certificate
+    };
+    assert!(!missing_audit.closes_occ008());
+
+    let missing_final_certificate = FinalObservedCatalogComparisonObservablesCertificate {
+        final_conditional_certificate_emitted: false,
+        ..final_certificate
+    };
+    assert!(!missing_final_certificate.closes_occ008());
+
+    let theorem_flag_missing = FinalObservedCatalogComparisonObservablesCertificate {
+        paper9_theorem_closed: false,
+        ..final_certificate
+    };
+    assert!(!theorem_flag_missing.closes_occ008());
+
+    let observed_particle_recovery = FinalObservedCatalogComparisonObservablesCertificate {
+        observed_particle_catalog_recovery_claim: true,
+        ..final_certificate
+    };
+    assert!(!observed_particle_recovery.closes_occ008());
+
+    let physical_standard_model = FinalObservedCatalogComparisonObservablesCertificate {
+        physical_standard_model_claim: true,
+        ..final_certificate
+    };
+    assert!(!physical_standard_model.closes_occ008());
+
+    let physical_quantum_dynamics = FinalObservedCatalogComparisonObservablesCertificate {
+        physical_quantum_dynamics_claim: true,
+        ..final_certificate
+    };
+    assert!(!physical_quantum_dynamics.closes_occ008());
+
+    let continuum_qft = FinalObservedCatalogComparisonObservablesCertificate {
+        continuum_qft_claim: true,
+        ..final_certificate
+    };
+    assert!(!continuum_qft.closes_occ008());
+
+    let fit_only = FinalObservedCatalogComparisonObservablesCertificate {
+        fit_only_calibration_claim: true,
+        ..final_certificate
+    };
+    assert!(!fit_only.closes_occ008());
+
+    let unified = FinalObservedCatalogComparisonObservablesCertificate {
+        unified_field_theory_claim: true,
+        ..final_certificate
+    };
+    assert!(!unified.closes_occ008());
+}
+
+#[test]
 fn upstream_json_records_paper8_certificate_and_nonpromotion() {
     let root = project_root();
     let upstream = read(&root, "UPSTREAM-PAPERS.json");
@@ -806,7 +922,12 @@ fn upstream_json_records_paper8_certificate_and_nonpromotion() {
     );
     assert_contains(
         &upstream,
-        "\"observed_catalog_comparison_observables_theorem_closed\": false",
+        "\"occ008_final_conditional_certificate_closed\": true",
+        "UPSTREAM-PAPERS.json",
+    );
+    assert_contains(
+        &upstream,
+        "\"observed_catalog_comparison_observables_theorem_closed\": true",
         "UPSTREAM-PAPERS.json",
     );
     assert_contains(

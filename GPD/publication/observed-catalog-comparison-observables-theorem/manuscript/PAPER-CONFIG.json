@@ -2,9 +2,16 @@
   "schema_version": 1,
   "paper": 9,
   "title": "Observed-Catalog Comparison Observables From Finite-Capacity Causal Networks",
-  "active_rung": "OCC-002",
+  "active_rung": "none",
   "closed_rungs": [
-    "OCC-001"
+    "OCC-001",
+    "OCC-002",
+    "OCC-003",
+    "OCC-004",
+    "OCC-005",
+    "OCC-006",
+    "OCC-007",
+    "OCC-008"
   ],
-  "claim_boundary": "Initial upstream-binding scaffold only; no observed-catalog comparison observable recovery, observed particle catalog recovery, physical Standard Model, fit-only, continuum QFT, or unified-field promotion."
+  "claim_boundary": "Closed internal conditional Paper 9 observed-catalog comparison observables theorem only; no observed particle catalog recovery, physical Standard Model, physical particle excitations, physical quantum dynamics, physical nature, fit-only, continuum QFT, or unified-field promotion."
 }

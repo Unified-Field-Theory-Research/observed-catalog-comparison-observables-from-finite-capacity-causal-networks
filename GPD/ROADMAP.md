@@ -48,7 +48,7 @@ paper-specific certificate explicitly closes them.
   QFT, background Hilbert bundles, external matter or gauge fields,
   simulation-only promotion, fit-only calibration, physical nature promotion,
   or unified-field promotion.
-- [ ] **Phase 8: Final Conditional Observed-Catalog Comparison Observables
+- [x] **Phase 8: Final Conditional Observed-Catalog Comparison Observables
   Certificate** - `OCC-008` may promote only a closed internal conditional
   Paper 9 theorem under explicit hypotheses and no nature-level,
   observed-recovery, physical Standard Model, physical-particle, fit-only, or

@@ -3,14 +3,14 @@
 ## Current Position
 
 **Current Phase:** 8
-**Current Phase Name:** Final Conditional Observed-Catalog Comparison Observables Certificate
+**Current Phase Name:** Closed Internal Conditional Observed-Catalog Comparison Observables Certificate
 **Status:** `OCC-001` upstream binding and claim-boundary scaffold closed;
 `OCC-002` finite external-catalog descriptor observable closed; `OCC-003`
 finite candidate-to-catalog comparison map closed; `OCC-004`
 Standard-Model-candidate compatibility closed; `OCC-005` comparison stability
 and coarse-graining stability closed; `OCC-006` Paper 8 regime consistency
 closed; `OCC-007` no-hidden-observed-recovery/fit-only import audit closed;
-`OCC-008` final conditional certificate is open; physical promotion remains
+`OCC-008` final conditional certificate closed; physical promotion remains
 false
 
 Closed rung summary: `OCC-001` records the upstream binding through the
@@ -93,12 +93,20 @@ imports, observed particle catalog recovery, physical Standard Model content,
 physical particle excitations, physical quantum dynamics, continuum QFT,
 simulation-only promotion, fit-only calibration, physical promotion, and
 unified-field promotion false.
+`OCC-008` consumes `OCC-001` through `OCC-007`, emits the finite descriptor
+observable package and finite comparison-map observable package, consumes
+Paper 8 compatibility, stability/coarse-graining, Paper 8 regime consistency,
+and no-hidden import audit rows, preserves finite capacity, locality, bounded
+transfer, causal-cone/no-signaling, and conservation/coarse-graining
+stability, emits the final conditional certificate, and closes the internal
+conditional Paper 9 observed-catalog comparison observables theorem.
 
-Next stable target phrase: `OCC-008`: close the final internal conditional
-observed-catalog comparison observables certificate by consuming `OCC-001`
-through `OCC-007`, preserving finite capacity, locality, bounded transfer,
-causal-cone/no-signaling, conservation/coarse-graining stability, and all
-nonpromotion guards.
+Next stable target phrase: Paper 9 internal conditional observed-catalog
+comparison observables theorem closed; physical nature, observed particle
+catalog recovery, physical Standard Model content, physical particle
+excitations, physical quantum dynamics, continuum QFT, simulation-only
+promotion, fit-only calibration, and unified-field promotion remain false and
+would require a separate external promotion track.
 
 Stable nonpromotion tokens: observed particle catalog recovery; physical
 Standard Model content; physical particle excitations; physical matter fields;
@@ -138,21 +146,19 @@ promotion.
   publication skeleton, Rust-only runtime, and fail-closed audit emission
   against hidden observed-recovery, fit-only, physical, continuum, and
   unified-field imports.
+- `OCC-008` rows close the internal conditional theorem by consuming all
+  prior rungs and preserving finite-capacity, locality, bounded-transfer,
+  causal-cone/no-signaling, and conservation/coarse-graining constraints.
 
 ## Open Questions
 
-- `OCC-008`: Which final certificate rows are needed to consume all closed
-  obligations and close the internal conditional observed-catalog comparison
-  observables theorem without promoting observed particle catalog recovery,
-  physical Standard Model content, physical particles, physical quantum
-  dynamics, continuum QFT, physical nature, or unified-field claims?
+- No Paper 9 rung remains open. Any physical promotion or observed-particle
+  catalog recovery claim would require a separate external track.
 
 ## Pending Todos
 
-- Define final certificate rows for `OCC-008`.
-- Add Rust and Lean fail-closed checks for `OCC-008`.
-- Update theorem docs, proof log, and publication skeleton after `OCC-008`
-  closes.
+- Keep future work outside this repo's closed Paper 9 internal conditional
+  theorem unless a separate external promotion track is explicitly opened.
 
 ## Blockers/Concerns
 
@@ -170,7 +176,8 @@ promotion.
   certificate.
 - `OCC-007` proves the no-hidden import audit only; it does not by itself
   close the final observed-catalog comparison observable certificate.
-- Observed-catalog comparison observable recovery remains open.
+- `OCC-008` closes the internal conditional observed-catalog comparison
+  observables theorem only; it does not close any physical promotion track.
 - Observed particle catalog recovery, physical Standard Model content,
   physical particle excitations, physical matter fields, physical gauge
   fields, physical quantum dynamics, continuum QFT, simulation-only

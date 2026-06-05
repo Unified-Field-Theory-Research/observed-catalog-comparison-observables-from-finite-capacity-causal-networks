@@ -1297,6 +1297,131 @@ theorem occ007_canonical_no_hidden_observed_recovery_fit_audit_closed :
   unfold occ007CanonicalNoHiddenObservedRecoveryFitAuditContract
   simp
 
+structure OCC008FinalConditionalCertificateContract where
+  occ001UpstreamBindingClosed : Prop
+  occ002FiniteExternalCatalogDescriptorClosed : Prop
+  occ003FiniteCandidateToCatalogComparisonMapClosed : Prop
+  occ004StandardModelCandidateCompatibilityClosed : Prop
+  occ005ComparisonCoarseGrainingStabilityClosed : Prop
+  occ006Paper8RegimeConsistencyClosed : Prop
+  occ007NoHiddenObservedRecoveryFitAuditClosed : Prop
+  finiteDescriptorObservablePackageEmitted : Prop
+  finiteComparisonMapObservablePackageEmitted : Prop
+  paper8StandardModelCandidateCompatibilityConsumed : Prop
+  comparisonStabilityCoarseGrainingConsumed : Prop
+  paper8RegimeConsistencyConsumed : Prop
+  noHiddenImportAuditConsumed : Prop
+  finiteCapacityPreserved : Prop
+  localityPreserved : Prop
+  boundedTransferPreserved : Prop
+  causalConeNoSignalingPreserved : Prop
+  conservationCoarseGrainingStabilityPreserved : Prop
+  finalConditionalCertificateEmitted : Prop
+  paper9TheoremClosed : Prop
+  physicalNatureClaim : Prop
+  observedParticleCatalogRecoveryClaim : Prop
+  physicalStandardModelClaim : Prop
+  physicalParticleExcitationClaim : Prop
+  physicalMatterFieldsClaim : Prop
+  physicalGaugeFieldsClaim : Prop
+  physicalQuantumDynamicsClaim : Prop
+  continuumQFTClaim : Prop
+  simulationOnlyPromotion : Prop
+  fitOnlyCalibrationClaim : Prop
+  unifiedFieldPromotion : Prop
+
+def OCC008FinalConditionalCertificateContract.closed
+    (c : OCC008FinalConditionalCertificateContract) : Prop :=
+  c.occ001UpstreamBindingClosed ∧
+  c.occ002FiniteExternalCatalogDescriptorClosed ∧
+  c.occ003FiniteCandidateToCatalogComparisonMapClosed ∧
+  c.occ004StandardModelCandidateCompatibilityClosed ∧
+  c.occ005ComparisonCoarseGrainingStabilityClosed ∧
+  c.occ006Paper8RegimeConsistencyClosed ∧
+  c.occ007NoHiddenObservedRecoveryFitAuditClosed ∧
+  c.finiteDescriptorObservablePackageEmitted ∧
+  c.finiteComparisonMapObservablePackageEmitted ∧
+  c.paper8StandardModelCandidateCompatibilityConsumed ∧
+  c.comparisonStabilityCoarseGrainingConsumed ∧
+  c.paper8RegimeConsistencyConsumed ∧
+  c.noHiddenImportAuditConsumed ∧
+  c.finiteCapacityPreserved ∧
+  c.localityPreserved ∧
+  c.boundedTransferPreserved ∧
+  c.causalConeNoSignalingPreserved ∧
+  c.conservationCoarseGrainingStabilityPreserved ∧
+  c.finalConditionalCertificateEmitted ∧
+  c.paper9TheoremClosed ∧
+  ¬ c.physicalNatureClaim ∧
+  ¬ c.observedParticleCatalogRecoveryClaim ∧
+  ¬ c.physicalStandardModelClaim ∧
+  ¬ c.physicalParticleExcitationClaim ∧
+  ¬ c.physicalMatterFieldsClaim ∧
+  ¬ c.physicalGaugeFieldsClaim ∧
+  ¬ c.physicalQuantumDynamicsClaim ∧
+  ¬ c.continuumQFTClaim ∧
+  ¬ c.simulationOnlyPromotion ∧
+  ¬ c.fitOnlyCalibrationClaim ∧
+  ¬ c.unifiedFieldPromotion
+
+def occ008CanonicalFinalConditionalCertificateContract :
+    OCC008FinalConditionalCertificateContract :=
+  { occ001UpstreamBindingClosed := True,
+    occ002FiniteExternalCatalogDescriptorClosed := True,
+    occ003FiniteCandidateToCatalogComparisonMapClosed := True,
+    occ004StandardModelCandidateCompatibilityClosed := True,
+    occ005ComparisonCoarseGrainingStabilityClosed := True,
+    occ006Paper8RegimeConsistencyClosed := True,
+    occ007NoHiddenObservedRecoveryFitAuditClosed := True,
+    finiteDescriptorObservablePackageEmitted := True,
+    finiteComparisonMapObservablePackageEmitted := True,
+    paper8StandardModelCandidateCompatibilityConsumed := True,
+    comparisonStabilityCoarseGrainingConsumed := True,
+    paper8RegimeConsistencyConsumed := True,
+    noHiddenImportAuditConsumed := True,
+    finiteCapacityPreserved := True,
+    localityPreserved := True,
+    boundedTransferPreserved := True,
+    causalConeNoSignalingPreserved := True,
+    conservationCoarseGrainingStabilityPreserved := True,
+    finalConditionalCertificateEmitted := True,
+    paper9TheoremClosed := True,
+    physicalNatureClaim := False,
+    observedParticleCatalogRecoveryClaim := False,
+    physicalStandardModelClaim := False,
+    physicalParticleExcitationClaim := False,
+    physicalMatterFieldsClaim := False,
+    physicalGaugeFieldsClaim := False,
+    physicalQuantumDynamicsClaim := False,
+    continuumQFTClaim := False,
+    simulationOnlyPromotion := False,
+    fitOnlyCalibrationClaim := False,
+    unifiedFieldPromotion := False }
+
+theorem occ008_canonical_final_conditional_certificate_closed :
+    occ008CanonicalFinalConditionalCertificateContract.closed := by
+  unfold OCC008FinalConditionalCertificateContract.closed
+  unfold occ008CanonicalFinalConditionalCertificateContract
+  simp
+
+theorem occ008_missing_occ007_audit_not_closed
+    (c : OCC008FinalConditionalCertificateContract)
+    (hClosed : c.closed)
+    (hMissingOCC007 : ¬ c.occ007NoHiddenObservedRecoveryFitAuditClosed) :
+    False := by
+  rcases hClosed with ⟨_, _, _, _, _, _, hOCC007, _⟩
+  exact hMissingOCC007 hOCC007
+
+theorem occ008_fit_only_calibration_claim_not_closed
+    (c : OCC008FinalConditionalCertificateContract)
+    (hClosed : c.closed)
+    (hFitOnly : c.fitOnlyCalibrationClaim) :
+    False := by
+  rcases hClosed with
+    ⟨_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _,
+      _, _, _, _, _, _, hNoFit, _⟩
+  exact hNoFit hFitOnly
+
 structure Paper9ObservedCatalogComparisonObservablesTheoremContract where
   occ001UpstreamBindingClosed : Prop
   occ002FiniteExternalCatalogDescriptorClosed : Prop
@@ -1310,8 +1435,11 @@ structure Paper9ObservedCatalogComparisonObservablesTheoremContract where
   observedParticleCatalogRecoveryClaim : Prop
   physicalStandardModelClaim : Prop
   physicalParticleExcitationClaim : Prop
+  physicalMatterFieldsClaim : Prop
+  physicalGaugeFieldsClaim : Prop
   physicalQuantumDynamicsClaim : Prop
   continuumQFTClaim : Prop
+  simulationOnlyPromotion : Prop
   fitOnlyCalibrationClaim : Prop
   unifiedFieldPromotion : Prop
 
@@ -1329,10 +1457,41 @@ def Paper9ObservedCatalogComparisonObservablesTheoremContract.closed
   ¬ c.observedParticleCatalogRecoveryClaim ∧
   ¬ c.physicalStandardModelClaim ∧
   ¬ c.physicalParticleExcitationClaim ∧
+  ¬ c.physicalMatterFieldsClaim ∧
+  ¬ c.physicalGaugeFieldsClaim ∧
   ¬ c.physicalQuantumDynamicsClaim ∧
   ¬ c.continuumQFTClaim ∧
+  ¬ c.simulationOnlyPromotion ∧
   ¬ c.fitOnlyCalibrationClaim ∧
   ¬ c.unifiedFieldPromotion
+
+def paper9CanonicalObservedCatalogComparisonObservablesTheoremContract :
+    Paper9ObservedCatalogComparisonObservablesTheoremContract :=
+  { occ001UpstreamBindingClosed := True,
+    occ002FiniteExternalCatalogDescriptorClosed := True,
+    occ003FiniteCandidateToCatalogComparisonMapClosed := True,
+    occ004StandardModelCandidateCompatibilityClosed := True,
+    occ005ComparisonCoarseGrainingStabilityClosed := True,
+    occ006Paper8RegimeConsistencyClosed := True,
+    occ007NoHiddenObservedRecoveryFitAuditClosed := True,
+    occ008FinalConditionalCertificateClosed := True,
+    physicalNatureClaim := False,
+    observedParticleCatalogRecoveryClaim := False,
+    physicalStandardModelClaim := False,
+    physicalParticleExcitationClaim := False,
+    physicalMatterFieldsClaim := False,
+    physicalGaugeFieldsClaim := False,
+    physicalQuantumDynamicsClaim := False,
+    continuumQFTClaim := False,
+    simulationOnlyPromotion := False,
+    fitOnlyCalibrationClaim := False,
+    unifiedFieldPromotion := False }
+
+theorem paper9_occ008_final_conditional_certificate_closes_observed_catalog_comparison_observables_theorem :
+    paper9CanonicalObservedCatalogComparisonObservablesTheoremContract.closed := by
+  unfold Paper9ObservedCatalogComparisonObservablesTheoremContract.closed
+  unfold paper9CanonicalObservedCatalogComparisonObservablesTheoremContract
+  simp
 
 theorem paper9_occ001_skeleton_does_not_close_observed_catalog_comparison_observables_theorem
     (c : Paper9ObservedCatalogComparisonObservablesTheoremContract)

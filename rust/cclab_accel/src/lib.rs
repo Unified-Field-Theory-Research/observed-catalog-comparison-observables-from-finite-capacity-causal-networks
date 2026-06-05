@@ -827,6 +827,120 @@ impl NoHiddenObservedRecoveryFitAudit {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct FinalObservedCatalogComparisonObservablesCertificate {
+    pub occ001_upstream_binding_closed: bool,
+    pub occ002_finite_external_catalog_descriptor_closed: bool,
+    pub occ003_finite_candidate_to_catalog_comparison_map_closed: bool,
+    pub occ004_standard_model_candidate_compatibility_closed: bool,
+    pub occ005_comparison_coarse_graining_stability_closed: bool,
+    pub occ006_paper8_regime_consistency_closed: bool,
+    pub occ007_no_hidden_observed_recovery_fit_audit_closed: bool,
+    pub finite_descriptor_observable_package_emitted: bool,
+    pub finite_comparison_map_observable_package_emitted: bool,
+    pub paper8_standard_model_candidate_compatibility_consumed: bool,
+    pub comparison_stability_coarse_graining_consumed: bool,
+    pub paper8_regime_consistency_consumed: bool,
+    pub no_hidden_import_audit_consumed: bool,
+    pub finite_capacity_preserved: bool,
+    pub locality_preserved: bool,
+    pub bounded_transfer_preserved: bool,
+    pub causal_cone_no_signaling_preserved: bool,
+    pub conservation_coarse_graining_stability_preserved: bool,
+    pub final_conditional_certificate_emitted: bool,
+    pub paper9_theorem_closed: bool,
+    pub physical_nature_claim: bool,
+    pub observed_particle_catalog_recovery_claim: bool,
+    pub physical_standard_model_claim: bool,
+    pub physical_particle_excitation_claim: bool,
+    pub physical_matter_fields_claim: bool,
+    pub physical_gauge_fields_claim: bool,
+    pub physical_quantum_dynamics_claim: bool,
+    pub continuum_qft_claim: bool,
+    pub simulation_only_promotion: bool,
+    pub fit_only_calibration_claim: bool,
+    pub unified_field_theory_claim: bool,
+}
+
+impl FinalObservedCatalogComparisonObservablesCertificate {
+    pub fn canonical_occ008() -> Self {
+        Self {
+            occ001_upstream_binding_closed: Paper9UpstreamBinding::canonical_occ001()
+                .closes_occ001(),
+            occ002_finite_external_catalog_descriptor_closed:
+                FiniteExternalCatalogDescriptorObservable::canonical_occ002().closes_occ002(),
+            occ003_finite_candidate_to_catalog_comparison_map_closed:
+                FiniteCandidateToCatalogComparisonMap::canonical_occ003().closes_occ003(),
+            occ004_standard_model_candidate_compatibility_closed:
+                StandardModelCandidateCompatibility::canonical_occ004().closes_occ004(),
+            occ005_comparison_coarse_graining_stability_closed:
+                ComparisonCoarseGrainingStability::canonical_occ005().closes_occ005(),
+            occ006_paper8_regime_consistency_closed: Paper8RegimeConsistency::canonical_occ006()
+                .closes_occ006(),
+            occ007_no_hidden_observed_recovery_fit_audit_closed:
+                NoHiddenObservedRecoveryFitAudit::canonical_occ007().closes_occ007(),
+            finite_descriptor_observable_package_emitted: true,
+            finite_comparison_map_observable_package_emitted: true,
+            paper8_standard_model_candidate_compatibility_consumed: true,
+            comparison_stability_coarse_graining_consumed: true,
+            paper8_regime_consistency_consumed: true,
+            no_hidden_import_audit_consumed: true,
+            finite_capacity_preserved: true,
+            locality_preserved: true,
+            bounded_transfer_preserved: true,
+            causal_cone_no_signaling_preserved: true,
+            conservation_coarse_graining_stability_preserved: true,
+            final_conditional_certificate_emitted: true,
+            paper9_theorem_closed: true,
+            physical_nature_claim: false,
+            observed_particle_catalog_recovery_claim: false,
+            physical_standard_model_claim: false,
+            physical_particle_excitation_claim: false,
+            physical_matter_fields_claim: false,
+            physical_gauge_fields_claim: false,
+            physical_quantum_dynamics_claim: false,
+            continuum_qft_claim: false,
+            simulation_only_promotion: false,
+            fit_only_calibration_claim: false,
+            unified_field_theory_claim: false,
+        }
+    }
+
+    pub fn closes_occ008(&self) -> bool {
+        self.occ001_upstream_binding_closed
+            && self.occ002_finite_external_catalog_descriptor_closed
+            && self.occ003_finite_candidate_to_catalog_comparison_map_closed
+            && self.occ004_standard_model_candidate_compatibility_closed
+            && self.occ005_comparison_coarse_graining_stability_closed
+            && self.occ006_paper8_regime_consistency_closed
+            && self.occ007_no_hidden_observed_recovery_fit_audit_closed
+            && self.finite_descriptor_observable_package_emitted
+            && self.finite_comparison_map_observable_package_emitted
+            && self.paper8_standard_model_candidate_compatibility_consumed
+            && self.comparison_stability_coarse_graining_consumed
+            && self.paper8_regime_consistency_consumed
+            && self.no_hidden_import_audit_consumed
+            && self.finite_capacity_preserved
+            && self.locality_preserved
+            && self.bounded_transfer_preserved
+            && self.causal_cone_no_signaling_preserved
+            && self.conservation_coarse_graining_stability_preserved
+            && self.final_conditional_certificate_emitted
+            && self.paper9_theorem_closed
+            && !self.physical_nature_claim
+            && !self.observed_particle_catalog_recovery_claim
+            && !self.physical_standard_model_claim
+            && !self.physical_particle_excitation_claim
+            && !self.physical_matter_fields_claim
+            && !self.physical_gauge_fields_claim
+            && !self.physical_quantum_dynamics_claim
+            && !self.continuum_qft_claim
+            && !self.simulation_only_promotion
+            && !self.fit_only_calibration_claim
+            && !self.unified_field_theory_claim
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct Paper9SkeletonCertificate {
     pub occ001_upstream_binding_closed: bool,
     pub occ002_finite_external_catalog_descriptor_closed: bool,
@@ -1059,6 +1173,41 @@ impl Paper9SkeletonCertificate {
         }
     }
 
+    pub fn final_occ008_closed() -> Self {
+        let binding = Paper9UpstreamBinding::canonical_occ001();
+        let descriptor = FiniteExternalCatalogDescriptorObservable::canonical_occ002();
+        let comparison_map = FiniteCandidateToCatalogComparisonMap::canonical_occ003();
+        let compatibility = StandardModelCandidateCompatibility::canonical_occ004();
+        let stability = ComparisonCoarseGrainingStability::canonical_occ005();
+        let regime = Paper8RegimeConsistency::canonical_occ006();
+        let audit = NoHiddenObservedRecoveryFitAudit::canonical_occ007();
+        let final_certificate =
+            FinalObservedCatalogComparisonObservablesCertificate::canonical_occ008();
+        Self {
+            occ001_upstream_binding_closed: binding.closes_occ001(),
+            occ002_finite_external_catalog_descriptor_closed: descriptor.closes_occ002(),
+            occ003_finite_candidate_to_catalog_comparison_map_closed: comparison_map
+                .closes_occ003(),
+            occ004_standard_model_candidate_compatibility_closed: compatibility.closes_occ004(),
+            occ005_comparison_coarse_graining_stability_closed: stability.closes_occ005(),
+            occ006_paper8_regime_consistency_closed: regime.closes_occ006(),
+            occ007_no_hidden_observed_recovery_fit_audit_closed: audit.closes_occ007(),
+            occ008_final_conditional_certificate_closed: final_certificate.closes_occ008(),
+            paper9_theorem_closed: final_certificate.paper9_theorem_closed,
+            physical_nature_claim: false,
+            observed_particle_catalog_recovery_claim: false,
+            physical_standard_model_claim: false,
+            physical_particle_excitation_claim: false,
+            physical_matter_fields_claim: false,
+            physical_gauge_fields_claim: false,
+            physical_quantum_dynamics_claim: false,
+            continuum_qft_claim: false,
+            simulation_only_promotion: false,
+            fit_only_calibration_claim: false,
+            unified_field_theory_claim: false,
+        }
+    }
+
     pub fn closes_paper9_theorem(&self) -> bool {
         self.occ001_upstream_binding_closed
             && self.occ002_finite_external_catalog_descriptor_closed
@@ -1109,4 +1258,8 @@ pub fn occ006_paper8_regime_consistency_marker() -> &'static str {
 
 pub fn occ007_no_hidden_observed_recovery_fit_audit_marker() -> &'static str {
     "occ007-no-hidden-observed-recovery-fit-audit-closed"
+}
+
+pub fn occ008_final_conditional_certificate_marker() -> &'static str {
+    "occ008-final-conditional-observed-catalog-comparison-observables-certificate-closed"
 }

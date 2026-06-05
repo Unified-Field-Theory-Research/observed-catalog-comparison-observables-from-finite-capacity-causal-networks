@@ -337,6 +337,107 @@ impl FiniteCandidateToCatalogComparisonMap {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct StandardModelCandidateCompatibility {
+    pub occ001_upstream_binding_closed: bool,
+    pub occ002_finite_external_catalog_descriptor_closed: bool,
+    pub occ003_finite_candidate_to_catalog_comparison_map_closed: bool,
+    pub paper8_standard_model_candidate_observables_closed: bool,
+    pub paper8_final_certificate_consumed: bool,
+    pub paper8_candidate_sector_family_rows_preserved: bool,
+    pub paper8_candidate_interaction_family_rows_preserved: bool,
+    pub paper8_conservation_coarse_graining_rows_preserved: bool,
+    pub paper8_finite_capacity_preserved: bool,
+    pub paper8_locality_preserved: bool,
+    pub paper8_bounded_transfer_preserved: bool,
+    pub paper8_causal_cone_no_signaling_preserved: bool,
+    pub descriptor_rows_compatible_with_paper8_candidates: bool,
+    pub comparison_map_rows_compatible_with_paper8_candidates: bool,
+    pub finite_comparison_interface_native: bool,
+    pub bounded_descriptor_readout_preserved: bool,
+    pub observed_catalog_recovery_import: bool,
+    pub observed_particle_catalog_recovery_import: bool,
+    pub physical_standard_model_content_import: bool,
+    pub physical_particle_excitation_import: bool,
+    pub external_matter_field_import: bool,
+    pub external_gauge_field_import: bool,
+    pub continuum_qft_import: bool,
+    pub background_hilbert_bundle_import: bool,
+    pub simulation_only_promotion: bool,
+    pub fit_only_calibration: bool,
+    pub physical_promotion: bool,
+    pub unified_field_promotion: bool,
+}
+
+impl StandardModelCandidateCompatibility {
+    pub fn canonical_occ004() -> Self {
+        Self {
+            occ001_upstream_binding_closed: Paper9UpstreamBinding::canonical_occ001()
+                .closes_occ001(),
+            occ002_finite_external_catalog_descriptor_closed:
+                FiniteExternalCatalogDescriptorObservable::canonical_occ002().closes_occ002(),
+            occ003_finite_candidate_to_catalog_comparison_map_closed:
+                FiniteCandidateToCatalogComparisonMap::canonical_occ003().closes_occ003(),
+            paper8_standard_model_candidate_observables_closed: true,
+            paper8_final_certificate_consumed: true,
+            paper8_candidate_sector_family_rows_preserved: true,
+            paper8_candidate_interaction_family_rows_preserved: true,
+            paper8_conservation_coarse_graining_rows_preserved: true,
+            paper8_finite_capacity_preserved: true,
+            paper8_locality_preserved: true,
+            paper8_bounded_transfer_preserved: true,
+            paper8_causal_cone_no_signaling_preserved: true,
+            descriptor_rows_compatible_with_paper8_candidates: true,
+            comparison_map_rows_compatible_with_paper8_candidates: true,
+            finite_comparison_interface_native: true,
+            bounded_descriptor_readout_preserved: true,
+            observed_catalog_recovery_import: false,
+            observed_particle_catalog_recovery_import: false,
+            physical_standard_model_content_import: false,
+            physical_particle_excitation_import: false,
+            external_matter_field_import: false,
+            external_gauge_field_import: false,
+            continuum_qft_import: false,
+            background_hilbert_bundle_import: false,
+            simulation_only_promotion: false,
+            fit_only_calibration: false,
+            physical_promotion: false,
+            unified_field_promotion: false,
+        }
+    }
+
+    pub fn closes_occ004(&self) -> bool {
+        self.occ001_upstream_binding_closed
+            && self.occ002_finite_external_catalog_descriptor_closed
+            && self.occ003_finite_candidate_to_catalog_comparison_map_closed
+            && self.paper8_standard_model_candidate_observables_closed
+            && self.paper8_final_certificate_consumed
+            && self.paper8_candidate_sector_family_rows_preserved
+            && self.paper8_candidate_interaction_family_rows_preserved
+            && self.paper8_conservation_coarse_graining_rows_preserved
+            && self.paper8_finite_capacity_preserved
+            && self.paper8_locality_preserved
+            && self.paper8_bounded_transfer_preserved
+            && self.paper8_causal_cone_no_signaling_preserved
+            && self.descriptor_rows_compatible_with_paper8_candidates
+            && self.comparison_map_rows_compatible_with_paper8_candidates
+            && self.finite_comparison_interface_native
+            && self.bounded_descriptor_readout_preserved
+            && !self.observed_catalog_recovery_import
+            && !self.observed_particle_catalog_recovery_import
+            && !self.physical_standard_model_content_import
+            && !self.physical_particle_excitation_import
+            && !self.external_matter_field_import
+            && !self.external_gauge_field_import
+            && !self.continuum_qft_import
+            && !self.background_hilbert_bundle_import
+            && !self.simulation_only_promotion
+            && !self.fit_only_calibration
+            && !self.physical_promotion
+            && !self.unified_field_promotion
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct Paper9SkeletonCertificate {
     pub occ001_upstream_binding_closed: bool,
     pub occ002_finite_external_catalog_descriptor_closed: bool,
@@ -443,6 +544,36 @@ impl Paper9SkeletonCertificate {
         }
     }
 
+    pub fn with_occ004_standard_model_candidate_compatibility_closed() -> Self {
+        let binding = Paper9UpstreamBinding::canonical_occ001();
+        let descriptor = FiniteExternalCatalogDescriptorObservable::canonical_occ002();
+        let comparison_map = FiniteCandidateToCatalogComparisonMap::canonical_occ003();
+        let compatibility = StandardModelCandidateCompatibility::canonical_occ004();
+        Self {
+            occ001_upstream_binding_closed: binding.closes_occ001(),
+            occ002_finite_external_catalog_descriptor_closed: descriptor.closes_occ002(),
+            occ003_finite_candidate_to_catalog_comparison_map_closed: comparison_map
+                .closes_occ003(),
+            occ004_standard_model_candidate_compatibility_closed: compatibility.closes_occ004(),
+            occ005_comparison_coarse_graining_stability_closed: false,
+            occ006_paper8_regime_consistency_closed: false,
+            occ007_no_hidden_observed_recovery_fit_audit_closed: false,
+            occ008_final_conditional_certificate_closed: false,
+            paper9_theorem_closed: false,
+            physical_nature_claim: false,
+            observed_particle_catalog_recovery_claim: false,
+            physical_standard_model_claim: false,
+            physical_particle_excitation_claim: false,
+            physical_matter_fields_claim: false,
+            physical_gauge_fields_claim: false,
+            physical_quantum_dynamics_claim: false,
+            continuum_qft_claim: false,
+            simulation_only_promotion: false,
+            fit_only_calibration_claim: false,
+            unified_field_theory_claim: false,
+        }
+    }
+
     pub fn closes_paper9_theorem(&self) -> bool {
         self.occ001_upstream_binding_closed
             && self.occ002_finite_external_catalog_descriptor_closed
@@ -477,4 +608,8 @@ pub fn occ002_finite_external_catalog_descriptor_marker() -> &'static str {
 
 pub fn occ003_finite_candidate_to_catalog_comparison_map_marker() -> &'static str {
     "occ003-finite-candidate-to-catalog-comparison-map-closed"
+}
+
+pub fn occ004_standard_model_candidate_compatibility_marker() -> &'static str {
+    "occ004-standard-model-candidate-compatibility-closed"
 }

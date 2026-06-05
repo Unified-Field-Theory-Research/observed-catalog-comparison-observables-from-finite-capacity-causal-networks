@@ -546,6 +546,167 @@ theorem occ003_canonical_finite_candidate_to_catalog_comparison_map_closed :
   unfold occ003CanonicalFiniteCandidateToCatalogComparisonMapContract
   simp
 
+structure OCC004StandardModelCandidateCompatibilityContract where
+  occ001UpstreamBindingClosed : Prop
+  occ002FiniteExternalCatalogDescriptorClosed : Prop
+  occ003FiniteCandidateToCatalogComparisonMapClosed : Prop
+  paper8StandardModelCandidateObservablesClosed : Prop
+  paper8FinalCertificateConsumed : Prop
+  paper8CandidateSectorFamilyRowsPreserved : Prop
+  paper8CandidateInteractionFamilyRowsPreserved : Prop
+  paper8ConservationCoarseGrainingRowsPreserved : Prop
+  paper8FiniteCapacityPreserved : Prop
+  paper8LocalityPreserved : Prop
+  paper8BoundedTransferPreserved : Prop
+  paper8CausalConeNoSignalingPreserved : Prop
+  descriptorRowsCompatibleWithPaper8Candidates : Prop
+  comparisonMapRowsCompatibleWithPaper8Candidates : Prop
+  finiteComparisonInterfaceNative : Prop
+  boundedDescriptorReadoutPreserved : Prop
+  observedCatalogRecoveryImport : Prop
+  observedParticleCatalogRecoveryImport : Prop
+  physicalStandardModelContentImport : Prop
+  physicalParticleExcitationImport : Prop
+  externalMatterFieldImport : Prop
+  externalGaugeFieldImport : Prop
+  continuumQFTImport : Prop
+  backgroundHilbertBundleImport : Prop
+  simulationOnlyPromotion : Prop
+  fitOnlyCalibration : Prop
+  physicalPromotion : Prop
+  unifiedFieldPromotion : Prop
+
+def OCC004StandardModelCandidateCompatibilityContract.closed
+    (c : OCC004StandardModelCandidateCompatibilityContract) : Prop :=
+  c.occ001UpstreamBindingClosed ∧
+  c.occ002FiniteExternalCatalogDescriptorClosed ∧
+  c.occ003FiniteCandidateToCatalogComparisonMapClosed ∧
+  c.paper8StandardModelCandidateObservablesClosed ∧
+  c.paper8FinalCertificateConsumed ∧
+  c.paper8CandidateSectorFamilyRowsPreserved ∧
+  c.paper8CandidateInteractionFamilyRowsPreserved ∧
+  c.paper8ConservationCoarseGrainingRowsPreserved ∧
+  c.paper8FiniteCapacityPreserved ∧
+  c.paper8LocalityPreserved ∧
+  c.paper8BoundedTransferPreserved ∧
+  c.paper8CausalConeNoSignalingPreserved ∧
+  c.descriptorRowsCompatibleWithPaper8Candidates ∧
+  c.comparisonMapRowsCompatibleWithPaper8Candidates ∧
+  c.finiteComparisonInterfaceNative ∧
+  c.boundedDescriptorReadoutPreserved ∧
+  ¬ c.observedCatalogRecoveryImport ∧
+  ¬ c.observedParticleCatalogRecoveryImport ∧
+  ¬ c.physicalStandardModelContentImport ∧
+  ¬ c.physicalParticleExcitationImport ∧
+  ¬ c.externalMatterFieldImport ∧
+  ¬ c.externalGaugeFieldImport ∧
+  ¬ c.continuumQFTImport ∧
+  ¬ c.backgroundHilbertBundleImport ∧
+  ¬ c.simulationOnlyPromotion ∧
+  ¬ c.fitOnlyCalibration ∧
+  ¬ c.physicalPromotion ∧
+  ¬ c.unifiedFieldPromotion
+
+theorem occ004_standard_model_candidate_compatibility_closed_from_fields
+    (c : OCC004StandardModelCandidateCompatibilityContract)
+    (hOCC001 : c.occ001UpstreamBindingClosed)
+    (hOCC002 : c.occ002FiniteExternalCatalogDescriptorClosed)
+    (hOCC003 : c.occ003FiniteCandidateToCatalogComparisonMapClosed)
+    (hPaper8 : c.paper8StandardModelCandidateObservablesClosed)
+    (hPaper8Cert : c.paper8FinalCertificateConsumed)
+    (hSector : c.paper8CandidateSectorFamilyRowsPreserved)
+    (hInteraction : c.paper8CandidateInteractionFamilyRowsPreserved)
+    (hConservation : c.paper8ConservationCoarseGrainingRowsPreserved)
+    (hCapacity : c.paper8FiniteCapacityPreserved)
+    (hLocality : c.paper8LocalityPreserved)
+    (hTransfer : c.paper8BoundedTransferPreserved)
+    (hNoSignaling : c.paper8CausalConeNoSignalingPreserved)
+    (hDescriptorCompat : c.descriptorRowsCompatibleWithPaper8Candidates)
+    (hMapCompat : c.comparisonMapRowsCompatibleWithPaper8Candidates)
+    (hNative : c.finiteComparisonInterfaceNative)
+    (hReadout : c.boundedDescriptorReadoutPreserved)
+    (hNoObservedCatalogRecovery : ¬ c.observedCatalogRecoveryImport)
+    (hNoObservedParticleRecovery : ¬ c.observedParticleCatalogRecoveryImport)
+    (hNoPhysicalSM : ¬ c.physicalStandardModelContentImport)
+    (hNoPhysicalParticle : ¬ c.physicalParticleExcitationImport)
+    (hNoMatter : ¬ c.externalMatterFieldImport)
+    (hNoGauge : ¬ c.externalGaugeFieldImport)
+    (hNoQFT : ¬ c.continuumQFTImport)
+    (hNoHilbert : ¬ c.backgroundHilbertBundleImport)
+    (hNoSimulation : ¬ c.simulationOnlyPromotion)
+    (hNoFit : ¬ c.fitOnlyCalibration)
+    (hNoPhysicalPromotion : ¬ c.physicalPromotion)
+    (hNoUnified : ¬ c.unifiedFieldPromotion) :
+    c.closed := by
+  exact ⟨hOCC001, hOCC002, hOCC003, hPaper8, hPaper8Cert, hSector,
+    hInteraction, hConservation, hCapacity, hLocality, hTransfer,
+    hNoSignaling, hDescriptorCompat, hMapCompat, hNative, hReadout,
+    hNoObservedCatalogRecovery, hNoObservedParticleRecovery, hNoPhysicalSM,
+    hNoPhysicalParticle, hNoMatter, hNoGauge, hNoQFT, hNoHilbert,
+    hNoSimulation, hNoFit, hNoPhysicalPromotion, hNoUnified⟩
+
+theorem occ004_missing_paper8_certificate_not_closed
+    (c : OCC004StandardModelCandidateCompatibilityContract)
+    (hClosed : c.closed)
+    (hMissingPaper8Certificate : ¬ c.paper8FinalCertificateConsumed) :
+    False := by
+  rcases hClosed with ⟨_, _, _, _, hPaper8Cert, _⟩
+  exact hMissingPaper8Certificate hPaper8Cert
+
+theorem occ004_missing_no_signaling_not_closed
+    (c : OCC004StandardModelCandidateCompatibilityContract)
+    (hClosed : c.closed)
+    (hMissingNoSignaling : ¬ c.paper8CausalConeNoSignalingPreserved) :
+    False := by
+  rcases hClosed with ⟨_, _, _, _, _, _, _, _, _, _, _, hNoSignaling, _⟩
+  exact hMissingNoSignaling hNoSignaling
+
+theorem occ004_physical_standard_model_content_import_not_closed
+    (c : OCC004StandardModelCandidateCompatibilityContract)
+    (hClosed : c.closed)
+    (hPhysicalSM : c.physicalStandardModelContentImport) :
+    False := by
+  rcases hClosed with
+    ⟨_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, hNoPhysicalSM, _⟩
+  exact hNoPhysicalSM hPhysicalSM
+
+def occ004CanonicalStandardModelCandidateCompatibilityContract :
+    OCC004StandardModelCandidateCompatibilityContract :=
+  { occ001UpstreamBindingClosed := True,
+    occ002FiniteExternalCatalogDescriptorClosed := True,
+    occ003FiniteCandidateToCatalogComparisonMapClosed := True,
+    paper8StandardModelCandidateObservablesClosed := True,
+    paper8FinalCertificateConsumed := True,
+    paper8CandidateSectorFamilyRowsPreserved := True,
+    paper8CandidateInteractionFamilyRowsPreserved := True,
+    paper8ConservationCoarseGrainingRowsPreserved := True,
+    paper8FiniteCapacityPreserved := True,
+    paper8LocalityPreserved := True,
+    paper8BoundedTransferPreserved := True,
+    paper8CausalConeNoSignalingPreserved := True,
+    descriptorRowsCompatibleWithPaper8Candidates := True,
+    comparisonMapRowsCompatibleWithPaper8Candidates := True,
+    finiteComparisonInterfaceNative := True,
+    boundedDescriptorReadoutPreserved := True,
+    observedCatalogRecoveryImport := False,
+    observedParticleCatalogRecoveryImport := False,
+    physicalStandardModelContentImport := False,
+    physicalParticleExcitationImport := False,
+    externalMatterFieldImport := False,
+    externalGaugeFieldImport := False,
+    continuumQFTImport := False,
+    backgroundHilbertBundleImport := False,
+    simulationOnlyPromotion := False,
+    fitOnlyCalibration := False,
+    physicalPromotion := False,
+    unifiedFieldPromotion := False }
+
+theorem occ004_canonical_standard_model_candidate_compatibility_closed :
+    occ004CanonicalStandardModelCandidateCompatibilityContract.closed := by
+  unfold OCC004StandardModelCandidateCompatibilityContract.closed
+  unfold occ004CanonicalStandardModelCandidateCompatibilityContract
+  simp
+
 structure Paper9ObservedCatalogComparisonObservablesTheoremContract where
   occ001UpstreamBindingClosed : Prop
   occ002FiniteExternalCatalogDescriptorClosed : Prop

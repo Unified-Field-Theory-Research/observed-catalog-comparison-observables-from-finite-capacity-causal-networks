@@ -20,13 +20,14 @@ Paper 9 aims at the following internal conditional theorem:
 
 The theorem target is open. `OCC-001` closes the upstream binding and
 claim-boundary scaffold. `OCC-002` closes finite external-catalog descriptor
-rows. `OCC-003` closes finite candidate-to-catalog comparison-map rows. This
-is not observed-catalog comparison observable recovery, not observed particle
-catalog recovery, not physical Standard Model recovery, not a physical
-particle-excitation claim, not a physical matter-field claim, not a physical
-gauge-field claim, not physical quantum dynamics, not continuum quantum field
-theory, not simulation-only promotion, not fit-only calibration, and not a
-unified field theory.
+rows. `OCC-003` closes finite candidate-to-catalog comparison-map rows.
+`OCC-004` closes compatibility with the closed Paper 8
+Standard-Model-candidate rows. This is not observed-catalog comparison
+observable recovery, not observed particle catalog recovery, not physical
+Standard Model recovery, not a physical particle-excitation claim, not a
+physical matter-field claim, not a physical gauge-field claim, not physical
+quantum dynamics, not continuum quantum field theory, not simulation-only
+promotion, not fit-only calibration, and not a unified field theory.
 
 ## Upstream Binding
 
@@ -180,11 +181,45 @@ unified-field promotion.
 
 ### OCC-004: Standard-Model-Candidate Compatibility
 
-Status: open.
+Status: closed.
+
+Target: prove compatibility with the closed Paper 8
+Standard-Model-candidate package by preserving candidate sector-family rows,
+candidate interaction-family rows, conservation/coarse-graining rows, finite
+capacity, locality, bounded transfer, causal-cone/no-signaling constraints,
+descriptor rows, and comparison-map rows, while rejecting observed-catalog
+recovery imports, physical Standard Model content, continuum QFT,
+simulation-only promotion, fit-only calibration, physical promotion, and
+unified-field promotion.
+
+Rust anchors:
+
+- `StandardModelCandidateCompatibility`
+- `StandardModelCandidateCompatibility::canonical_occ004`
+- `StandardModelCandidateCompatibility::closes_occ004`
+- `Paper9SkeletonCertificate::with_occ004_standard_model_candidate_compatibility_closed`
+- `occ004_standard_model_candidate_compatibility_marker`
+
+Lean anchors:
+
+- `OCC004StandardModelCandidateCompatibilityContract`
+- `OCC004StandardModelCandidateCompatibilityContract.closed`
+- `occ004_standard_model_candidate_compatibility_closed_from_fields`
+- `occ004_missing_paper8_certificate_not_closed`
+- `occ004_missing_no_signaling_not_closed`
+- `occ004_physical_standard_model_content_import_not_closed`
+- `occ004_canonical_standard_model_candidate_compatibility_closed`
+
+Boundary: `OCC-004` proves Paper 8 compatibility only. It does not prove
+comparison stability, coarse-graining stability, Paper 8 regime consistency,
+observed-catalog comparison observable recovery, observed particle catalog
+recovery, physical Standard Model content, physical particle excitations,
+physical quantum dynamics, continuum QFT, simulation-only promotion, fit-only
+calibration, physical promotion, or unified-field promotion.
 
 ### OCC-005: Comparison Stability And Coarse-Graining Stability
 
-Status: planned.
+Status: open.
 
 ### OCC-006: Paper 8 Regime Consistency
 

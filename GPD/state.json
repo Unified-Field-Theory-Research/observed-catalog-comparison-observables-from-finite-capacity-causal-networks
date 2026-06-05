@@ -1,13 +1,14 @@
 {
   "schema_version": 1,
   "paper": 9,
-  "current_phase": 4,
-  "current_phase_name": "Prove Standard-Model-Candidate Compatibility",
-  "active_obligation": "OCC-004",
+  "current_phase": 5,
+  "current_phase_name": "Prove Comparison Stability And Coarse-Graining Stability",
+  "active_obligation": "OCC-005",
   "closed_obligations": [
     "OCC-001",
     "OCC-002",
-    "OCC-003"
+    "OCC-003",
+    "OCC-004"
   ],
   "upstream_binding": {
     "paper1_commit": "3a9637c65f783ca35e77118f83560290f42f3085",
@@ -25,7 +26,7 @@
     "occ001_upstream_binding_closed": true,
     "occ002_finite_external_catalog_descriptor_closed": true,
     "occ003_finite_candidate_to_catalog_comparison_map_closed": true,
-    "occ004_standard_model_candidate_compatibility_closed": false,
+    "occ004_standard_model_candidate_compatibility_closed": true,
     "occ005_comparison_coarse_graining_stability_closed": false,
     "occ006_paper8_regime_consistency_closed": false,
     "occ007_no_hidden_observed_recovery_fit_audit_closed": false,
@@ -43,5 +44,5 @@
     "fit_only_calibration_claim": false,
     "unified_field_theory_claim": false
   },
-  "next_research_move": "OCC-004: prove compatibility with the closed Paper 8 Standard-Model-candidate candidate-sector rows, interaction-family rows, conservation/coarse-graining rows, finite capacity, locality, bounded transfer, and causal-cone/no-signaling constraints without observed-catalog recovery or physical-promotion imports"
+  "next_research_move": "OCC-005: prove finite comparison stability and intrinsic coarse-graining stability for descriptor and comparison-map rows while preserving conservation, finite capacity, locality, bounded transfer, and causal-cone/no-signaling constraints without continuum limits or physical-promotion imports"
 }

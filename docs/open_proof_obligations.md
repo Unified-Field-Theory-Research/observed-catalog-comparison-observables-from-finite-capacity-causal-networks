@@ -80,9 +80,9 @@ observable recovery, observed particle catalog recovery, physical Standard
 Model content, physical particle excitations, continuum QFT, physical
 quantum dynamics, physical nature promotion, or unified-field promotion.
 
-## Active Obligation
+## Closed Dependencies: OCC-004
 
-`OCC-004` is open.
+`OCC-004` closes the Paper 8 Standard-Model-candidate compatibility rung.
 
 Required row shape:
 
@@ -112,9 +112,53 @@ Required row shape:
 - no physical promotion;
 - no unified-field promotion.
 
+The rung proves compatibility only. It does not prove comparison stability,
+coarse-graining stability, Paper 8 regime consistency, observed-catalog
+comparison observable recovery, observed particle catalog recovery, physical
+Standard Model content, physical particle excitations, continuum QFT,
+physical quantum dynamics, physical nature promotion, or unified-field
+promotion.
+
+## Active Obligation
+
+`OCC-005` is open.
+
+Required row shape:
+
+- closed `OCC-001` upstream binding;
+- closed `OCC-002` finite external-catalog descriptor observable;
+- closed `OCC-003` finite candidate-to-catalog comparison map;
+- closed `OCC-004` Standard-Model-candidate compatibility;
+- finite descriptor stability witness;
+- finite comparison-map stability witness;
+- finite comparison-score stability witness;
+- intrinsic coarse-graining map;
+- finite descriptor-label bound and coarse descriptor-label bound;
+- finite comparison-edge bound and coarse comparison-edge bound;
+- finite local comparison-neighborhood bound and coarse neighborhood bound;
+- finite transfer bound and coarse transfer bound;
+- conservation/coarse-graining rows compatible with Paper 8;
+- descriptor rows stable under coarse-graining;
+- comparison-map rows stable under coarse-graining;
+- causal-cone/no-signaling stability preserved;
+- no external conservation law import;
+- no continuum current import;
+- no continuum-limit oracle import;
+- no observed-catalog recovery import;
+- no observed particle catalog recovery;
+- no physical Standard Model content;
+- no physical particle-excitation import;
+- no external matter field;
+- no external gauge field;
+- no continuum QFT import;
+- no background Hilbert bundle import;
+- no simulation-only promotion;
+- no fit-only calibration;
+- no physical promotion;
+- no unified-field promotion.
+
 ## Future Obligations
 
-- `OCC-005`: comparison stability and intrinsic coarse-graining stability.
 - `OCC-006`: Paper 8 regime consistency and no upstream bypass.
 - `OCC-007`: no-hidden-observed-recovery/fit-only import audit.
 - `OCC-008`: final internal conditional certificate, if all prior obligations

@@ -44,8 +44,12 @@ compatibility, finite local capacity, and bounded transfer. `OCC-003` defines
 finite candidate-to-catalog comparison-map rows with bounded candidate keys,
 descriptor keys, comparison edges, score/tolerance channels, local
 neighborhoods, readout boundaries, and no physical-identification or fit-only
-shortcuts. The next active obligation is `OCC-004`: prove Paper 8
-Standard-Model-candidate compatibility. This does not prove observed-catalog
+shortcuts. `OCC-004` records compatibility with the closed Paper 8
+Standard-Model-candidate candidate-sector, interaction-family,
+conservation/coarse-graining, finite-capacity, locality, bounded-transfer,
+and causal-cone/no-signaling rows. The next active obligation is `OCC-005`:
+prove comparison stability and coarse-graining stability. This does not prove
+observed-catalog
 comparison
 observable recovery, observed particle catalog recovery, physical Standard
 Model content, physical particle excitations, physical matter fields,

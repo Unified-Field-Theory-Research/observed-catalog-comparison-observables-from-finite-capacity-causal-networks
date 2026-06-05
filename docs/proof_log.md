@@ -169,9 +169,64 @@ matter fields, physical gauge fields, physical quantum dynamics, continuum
 quantum field theory, simulation-only promotion, physical promotion, and
 unified-field promotion.
 
+## OCC-004: Standard-Model-Candidate Compatibility
+
+Status: closed as a Paper 8 compatibility contract.
+
+Artifacts:
+
+- `README.md`
+- `UPSTREAM-PAPERS.json`
+- `GPD/PROJECT.md`
+- `GPD/ROADMAP.md`
+- `GPD/STATE.md`
+- `GPD/state.json`
+- `docs/observed_catalog_comparison_observables_theorem.md`
+- `docs/open_proof_obligations.md`
+- `docs/proof_log.md`
+- `GPD/formal/FiniteCapacity/ObservedCatalogComparisonObservables.lean`
+- `rust/cclab_accel/src/lib.rs`
+- `rust/cclab_accel/tests/observed_catalog_comparison_observables_gate.rs`
+
+Rust anchors:
+
+- `StandardModelCandidateCompatibility`
+- `StandardModelCandidateCompatibility::canonical_occ004`
+- `StandardModelCandidateCompatibility::closes_occ004`
+- `Paper9SkeletonCertificate::with_occ004_standard_model_candidate_compatibility_closed`
+- `occ004_standard_model_candidate_compatibility_marker`
+
+Lean anchors:
+
+- `OCC004StandardModelCandidateCompatibilityContract`
+- `OCC004StandardModelCandidateCompatibilityContract.closed`
+- `occ004_standard_model_candidate_compatibility_closed_from_fields`
+- `occ004_missing_paper8_certificate_not_closed`
+- `occ004_missing_no_signaling_not_closed`
+- `occ004_physical_standard_model_content_import_not_closed`
+- `occ004_canonical_standard_model_candidate_compatibility_closed`
+
+Verification:
+
+- `make test-fast`
+- `make lean-build`
+
+Boundary:
+
+`OCC-004` consumes the closed Paper 8 final Standard-Model-candidate
+certificate and records that the `OCC-002` descriptor rows and `OCC-003`
+comparison-map rows are compatible with Paper 8 candidate sector-family rows,
+candidate interaction-family rows, conservation/coarse-graining rows, finite
+capacity, locality, bounded transfer, and causal-cone/no-signaling
+constraints. It rejects observed-catalog recovery imports, observed particle
+catalog recovery, physical Standard Model content, physical particle
+excitations, physical matter fields, physical gauge fields, physical quantum
+dynamics, continuum quantum field theory, simulation-only promotion,
+fit-only calibration, physical promotion, and unified-field promotion.
+
 ## Active Next Obligation
 
-`OCC-004`: prove compatibility with the closed Paper 8
-Standard-Model-candidate rows, including candidate sector-family rows,
-interaction-family rows, conservation/coarse-graining rows, finite capacity,
-locality, bounded transfer, and causal-cone/no-signaling constraints.
+`OCC-005`: prove finite comparison stability and intrinsic coarse-graining
+stability for descriptor and comparison-map rows while preserving
+conservation, finite capacity, locality, bounded transfer, and
+causal-cone/no-signaling constraints.

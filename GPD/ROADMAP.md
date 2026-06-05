@@ -31,7 +31,7 @@ paper-specific certificate explicitly closes them.
   families to finite external descriptor rows without using fit-only
   calibration, physical identification, observed-catalog recovery, or
   continuum-QFT assumptions.
-- [ ] **Phase 4: Prove Standard-Model-Candidate Compatibility** - `OCC-004`
+- [x] **Phase 4: Prove Standard-Model-Candidate Compatibility** - `OCC-004`
   should show compatibility with the closed Paper 8 candidate catalog,
   interaction signature, Paper 7 compatibility, conservation, and
   coarse-graining rows.

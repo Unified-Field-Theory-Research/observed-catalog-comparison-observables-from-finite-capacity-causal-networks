@@ -202,9 +202,9 @@ particle catalog recovery, physical Standard Model content, physical particle
 excitations, continuum QFT, physical quantum dynamics, physical nature
 promotion, or unified-field promotion.
 
-## Active Obligation
+## Closed Dependencies: OCC-007
 
-`OCC-007` is open.
+`OCC-007` closes the no-hidden-observed-recovery/fit-only import audit rung.
 
 Required row shape:
 
@@ -238,10 +238,54 @@ Required row shape:
 - no physical promotion;
 - no unified-field promotion.
 
+The rung proves audit coverage only. It does not itself close the final
+observed-catalog comparison observables theorem, observed particle catalog
+recovery, physical Standard Model content, physical particle excitations,
+continuum QFT, physical quantum dynamics, physical nature promotion, or
+unified-field promotion.
+
+## Active Obligation
+
+`OCC-008` is open.
+
+Required row shape:
+
+- closed `OCC-001` upstream binding;
+- closed `OCC-002` finite external-catalog descriptor observable;
+- closed `OCC-003` finite candidate-to-catalog comparison map;
+- closed `OCC-004` Standard-Model-candidate compatibility;
+- closed `OCC-005` comparison/coarse-graining stability;
+- closed `OCC-006` Paper 8 regime consistency;
+- closed `OCC-007` no-hidden-observed-recovery/fit-only import audit;
+- finite descriptor observable package emitted;
+- finite comparison-map observable package emitted;
+- Paper 8 Standard-Model-candidate compatibility consumed;
+- comparison stability and coarse-graining stability consumed;
+- Paper 8 regime consistency consumed;
+- no-hidden import audit consumed;
+- finite capacity preserved;
+- locality preserved;
+- bounded transfer preserved;
+- causal-cone/no-signaling preserved;
+- conservation/coarse-graining stability preserved;
+- final conditional certificate emitted;
+- observed-catalog comparison observables theorem closed internally;
+- no observed particle catalog recovery claim;
+- no physical Standard Model claim;
+- no physical particle-excitation claim;
+- no physical matter-field claim;
+- no physical gauge-field claim;
+- no physical quantum-dynamics claim;
+- no continuum QFT claim;
+- no simulation-only promotion;
+- no fit-only calibration;
+- no physical nature claim;
+- no unified-field theory claim.
+
 ## Future Obligations
 
-- `OCC-008`: final internal conditional certificate, if all prior obligations
-  close.
+No Paper 9 rung remains after `OCC-008`; any physical promotion would require
+a separate external track.
 
 Observed particle catalog recovery, physical Standard Model content, physical
 particle excitations, physical matter fields, physical gauge fields, physical

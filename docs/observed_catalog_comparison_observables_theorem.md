@@ -24,7 +24,8 @@ rows. `OCC-003` closes finite candidate-to-catalog comparison-map rows.
 `OCC-004` closes compatibility with the closed Paper 8
 Standard-Model-candidate rows. `OCC-005` closes finite comparison stability
 and intrinsic coarse-graining stability. `OCC-006` closes Paper 8 regime
-consistency and no-upstream-bypass checks. This is not observed-catalog
+consistency and no-upstream-bypass checks. `OCC-007` closes the no-hidden
+observed-recovery/fit-only import audit. This is not observed-catalog
 comparison observable recovery, not observed particle catalog recovery, not
 physical Standard Model recovery, not a physical particle-excitation claim,
 not a physical matter-field claim, not a physical gauge-field claim, not
@@ -298,8 +299,40 @@ dynamics, continuum QFT, physical promotion, or unified-field promotion.
 
 ### OCC-007: No-Hidden-Observed-Recovery/Fit Import Audit
 
-Status: open.
+Status: closed.
+
+Target: audit theorem docs, proof log, state files, upstream manifest, Lean
+gate, Rust gate, publication skeleton, Rust-only runtime verification, and
+fail-closed audit certificate emission so hidden observed-catalog recovery,
+observed particle catalog recovery, physical Standard Model content, physical
+particle excitations, physical quantum dynamics, continuum QFT,
+simulation-only promotion, fit-only calibration, physical promotion, and
+unified-field imports fail closed.
+
+Rust anchors:
+
+- `NoHiddenObservedRecoveryFitAudit`
+- `NoHiddenObservedRecoveryFitAudit::canonical_occ007`
+- `NoHiddenObservedRecoveryFitAudit::closes_occ007`
+- `Paper9SkeletonCertificate::with_occ007_no_hidden_observed_recovery_fit_audit_closed`
+- `occ007_no_hidden_observed_recovery_fit_audit_marker`
+
+Lean anchors:
+
+- `OCC007NoHiddenObservedRecoveryFitAuditContract`
+- `OCC007NoHiddenObservedRecoveryFitAuditContract.closed`
+- `occ007_no_hidden_observed_recovery_fit_audit_closed_from_fields`
+- `occ007_missing_occ006_regime_not_closed`
+- `occ007_missing_rust_only_runtime_not_closed`
+- `occ007_fit_only_calibration_not_closed`
+- `occ007_canonical_no_hidden_observed_recovery_fit_audit_closed`
+
+Boundary: `OCC-007` proves audit coverage only. It does not close the final
+observed-catalog comparison observables theorem, observed particle catalog
+recovery, physical Standard Model content, physical particle excitations,
+physical quantum dynamics, continuum QFT, physical promotion, or
+unified-field promotion.
 
 ### OCC-008: Final Conditional Observed-Catalog Comparison Observables Certificate
 
-Status: planned.
+Status: open.

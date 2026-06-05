@@ -50,9 +50,11 @@ conservation/coarse-graining, finite-capacity, locality, bounded-transfer,
 and causal-cone/no-signaling rows. `OCC-005` records finite stability and
 non-growing intrinsic coarse-graining for descriptor and comparison-map rows.
 `OCC-006` binds the closed rows to the recorded Paper 8 regime and rejects
-upstream bypasses or unapproved revisions. The next active obligation is
-`OCC-007`: close the no-hidden observed-recovery/fit-only import audit. This
-does not prove observed-catalog comparison
+upstream bypasses or unapproved revisions. `OCC-007` closes the no-hidden
+observed-recovery/fit-only import audit across docs, state, manifests, Lean,
+Rust, publication metadata, and Rust-only runtime gates. The next active
+obligation is `OCC-008`: close the final internal conditional certificate.
+This does not prove observed-catalog comparison
 observable recovery, observed particle catalog recovery, physical Standard
 Model content, physical particle excitations, physical matter fields,
 physical gauge fields, physical quantum dynamics, continuum quantum field

@@ -338,8 +338,60 @@ excitations, physical matter fields, physical gauge fields, physical quantum
 dynamics, continuum quantum field theory, simulation-only promotion,
 fit-only calibration, physical promotion, and unified-field promotion.
 
+## OCC-007: No-Hidden-Observed-Recovery/Fit Import Audit
+
+Status: closed as a no-hidden-import and fail-closed audit contract.
+
+Artifacts:
+
+- `README.md`
+- `UPSTREAM-PAPERS.json`
+- `GPD/PROJECT.md`
+- `GPD/ROADMAP.md`
+- `GPD/STATE.md`
+- `GPD/state.json`
+- `docs/observed_catalog_comparison_observables_theorem.md`
+- `docs/open_proof_obligations.md`
+- `docs/proof_log.md`
+- `GPD/formal/FiniteCapacity/ObservedCatalogComparisonObservables.lean`
+- `rust/cclab_accel/src/lib.rs`
+- `rust/cclab_accel/tests/observed_catalog_comparison_observables_gate.rs`
+
+Rust anchors:
+
+- `NoHiddenObservedRecoveryFitAudit`
+- `NoHiddenObservedRecoveryFitAudit::canonical_occ007`
+- `NoHiddenObservedRecoveryFitAudit::closes_occ007`
+- `Paper9SkeletonCertificate::with_occ007_no_hidden_observed_recovery_fit_audit_closed`
+- `occ007_no_hidden_observed_recovery_fit_audit_marker`
+
+Lean anchors:
+
+- `OCC007NoHiddenObservedRecoveryFitAuditContract`
+- `OCC007NoHiddenObservedRecoveryFitAuditContract.closed`
+- `occ007_no_hidden_observed_recovery_fit_audit_closed_from_fields`
+- `occ007_missing_occ006_regime_not_closed`
+- `occ007_missing_rust_only_runtime_not_closed`
+- `occ007_fit_only_calibration_not_closed`
+- `occ007_canonical_no_hidden_observed_recovery_fit_audit_closed`
+
+Verification:
+
+- `make test-fast`
+- `make lean-build`
+
+Boundary:
+
+`OCC-007` audits theorem docs, proof log, state files, upstream manifest,
+Lean gate, Rust gate, publication skeleton, Rust-only runtime verification,
+and fail-closed audit certificate emission. It rejects hidden
+observed-catalog recovery imports, observed particle catalog recovery,
+physical Standard Model content, physical particle excitations, physical
+matter fields, physical gauge fields, physical quantum dynamics, continuum
+quantum field theory, simulation-only promotion, fit-only calibration,
+physical promotion, and unified-field promotion.
+
 ## Active Next Obligation
 
-`OCC-007`: close the no-hidden-observed-recovery/fit-only import audit across
-docs, state, manifests, Lean, Rust, and publication artifacts while
-preserving Rust-only tooling and all nonpromotion guards.
+`OCC-008`: close the final internal conditional observed-catalog comparison
+observables certificate by consuming `OCC-001` through `OCC-007`.

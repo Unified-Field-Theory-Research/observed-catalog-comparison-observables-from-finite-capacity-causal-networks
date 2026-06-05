@@ -1126,6 +1126,177 @@ theorem occ006_canonical_paper8_regime_consistency_closed :
   unfold occ006CanonicalPaper8RegimeConsistencyContract
   simp
 
+structure OCC007NoHiddenObservedRecoveryFitAuditContract where
+  occ001UpstreamBindingClosed : Prop
+  occ002FiniteExternalCatalogDescriptorClosed : Prop
+  occ003FiniteCandidateToCatalogComparisonMapClosed : Prop
+  occ004StandardModelCandidateCompatibilityClosed : Prop
+  occ005ComparisonCoarseGrainingStabilityClosed : Prop
+  occ006Paper8RegimeConsistencyClosed : Prop
+  auditedOccRungCount : Nat
+  requiredOccRungCount : Nat
+  theoremDocsAudited : Prop
+  proofLogAudited : Prop
+  stateFilesAudited : Prop
+  upstreamManifestAudited : Prop
+  leanGateAudited : Prop
+  rustGateAudited : Prop
+  publicationSkeletonAudited : Prop
+  rustOnlyRuntimeVerified : Prop
+  failClosedAuditCertificateEmitted : Prop
+  observedCatalogRecoveryImport : Prop
+  observedParticleCatalogRecoveryImport : Prop
+  physicalStandardModelContentImport : Prop
+  physicalParticleExcitationImport : Prop
+  externalMatterFieldImport : Prop
+  externalGaugeFieldImport : Prop
+  physicalQuantumDynamicsImport : Prop
+  continuumQFTImport : Prop
+  backgroundHilbertBundleImport : Prop
+  simulationOnlyPromotion : Prop
+  fitOnlyCalibration : Prop
+  physicalPromotion : Prop
+  unifiedFieldPromotion : Prop
+
+def OCC007NoHiddenObservedRecoveryFitAuditContract.closed
+    (c : OCC007NoHiddenObservedRecoveryFitAuditContract) : Prop :=
+  c.occ001UpstreamBindingClosed ∧
+  c.occ002FiniteExternalCatalogDescriptorClosed ∧
+  c.occ003FiniteCandidateToCatalogComparisonMapClosed ∧
+  c.occ004StandardModelCandidateCompatibilityClosed ∧
+  c.occ005ComparisonCoarseGrainingStabilityClosed ∧
+  c.occ006Paper8RegimeConsistencyClosed ∧
+  6 ≤ c.requiredOccRungCount ∧
+  c.requiredOccRungCount ≤ c.auditedOccRungCount ∧
+  c.theoremDocsAudited ∧
+  c.proofLogAudited ∧
+  c.stateFilesAudited ∧
+  c.upstreamManifestAudited ∧
+  c.leanGateAudited ∧
+  c.rustGateAudited ∧
+  c.publicationSkeletonAudited ∧
+  c.rustOnlyRuntimeVerified ∧
+  c.failClosedAuditCertificateEmitted ∧
+  ¬ c.observedCatalogRecoveryImport ∧
+  ¬ c.observedParticleCatalogRecoveryImport ∧
+  ¬ c.physicalStandardModelContentImport ∧
+  ¬ c.physicalParticleExcitationImport ∧
+  ¬ c.externalMatterFieldImport ∧
+  ¬ c.externalGaugeFieldImport ∧
+  ¬ c.physicalQuantumDynamicsImport ∧
+  ¬ c.continuumQFTImport ∧
+  ¬ c.backgroundHilbertBundleImport ∧
+  ¬ c.simulationOnlyPromotion ∧
+  ¬ c.fitOnlyCalibration ∧
+  ¬ c.physicalPromotion ∧
+  ¬ c.unifiedFieldPromotion
+
+theorem occ007_no_hidden_observed_recovery_fit_audit_closed_from_fields
+    (c : OCC007NoHiddenObservedRecoveryFitAuditContract)
+    (hOCC001 : c.occ001UpstreamBindingClosed)
+    (hOCC002 : c.occ002FiniteExternalCatalogDescriptorClosed)
+    (hOCC003 : c.occ003FiniteCandidateToCatalogComparisonMapClosed)
+    (hOCC004 : c.occ004StandardModelCandidateCompatibilityClosed)
+    (hOCC005 : c.occ005ComparisonCoarseGrainingStabilityClosed)
+    (hOCC006 : c.occ006Paper8RegimeConsistencyClosed)
+    (hRequiredRungs : 6 ≤ c.requiredOccRungCount)
+    (hAuditedRungs : c.requiredOccRungCount ≤ c.auditedOccRungCount)
+    (hDocs : c.theoremDocsAudited)
+    (hProofLog : c.proofLogAudited)
+    (hState : c.stateFilesAudited)
+    (hManifest : c.upstreamManifestAudited)
+    (hLean : c.leanGateAudited)
+    (hRust : c.rustGateAudited)
+    (hPublication : c.publicationSkeletonAudited)
+    (hRustOnly : c.rustOnlyRuntimeVerified)
+    (hCertificate : c.failClosedAuditCertificateEmitted)
+    (hNoObservedCatalogRecovery : ¬ c.observedCatalogRecoveryImport)
+    (hNoObservedParticleRecovery : ¬ c.observedParticleCatalogRecoveryImport)
+    (hNoPhysicalSM : ¬ c.physicalStandardModelContentImport)
+    (hNoPhysicalParticle : ¬ c.physicalParticleExcitationImport)
+    (hNoMatter : ¬ c.externalMatterFieldImport)
+    (hNoGauge : ¬ c.externalGaugeFieldImport)
+    (hNoPhysicalQuantum : ¬ c.physicalQuantumDynamicsImport)
+    (hNoQFT : ¬ c.continuumQFTImport)
+    (hNoHilbert : ¬ c.backgroundHilbertBundleImport)
+    (hNoSimulation : ¬ c.simulationOnlyPromotion)
+    (hNoFit : ¬ c.fitOnlyCalibration)
+    (hNoPhysicalPromotion : ¬ c.physicalPromotion)
+    (hNoUnified : ¬ c.unifiedFieldPromotion) :
+    c.closed := by
+  exact ⟨hOCC001, hOCC002, hOCC003, hOCC004, hOCC005, hOCC006,
+    hRequiredRungs, hAuditedRungs, hDocs, hProofLog, hState, hManifest,
+    hLean, hRust, hPublication, hRustOnly, hCertificate,
+    hNoObservedCatalogRecovery, hNoObservedParticleRecovery, hNoPhysicalSM,
+    hNoPhysicalParticle, hNoMatter, hNoGauge, hNoPhysicalQuantum, hNoQFT,
+    hNoHilbert, hNoSimulation, hNoFit, hNoPhysicalPromotion, hNoUnified⟩
+
+theorem occ007_missing_occ006_regime_not_closed
+    (c : OCC007NoHiddenObservedRecoveryFitAuditContract)
+    (hClosed : c.closed)
+    (hMissingOCC006 : ¬ c.occ006Paper8RegimeConsistencyClosed) :
+    False := by
+  rcases hClosed with ⟨_, _, _, _, _, hOCC006, _⟩
+  exact hMissingOCC006 hOCC006
+
+theorem occ007_missing_rust_only_runtime_not_closed
+    (c : OCC007NoHiddenObservedRecoveryFitAuditContract)
+    (hClosed : c.closed)
+    (hMissingRustOnly : ¬ c.rustOnlyRuntimeVerified) :
+    False := by
+  rcases hClosed with
+    ⟨_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, hRustOnly, _⟩
+  exact hMissingRustOnly hRustOnly
+
+theorem occ007_fit_only_calibration_not_closed
+    (c : OCC007NoHiddenObservedRecoveryFitAuditContract)
+    (hClosed : c.closed)
+    (hFitOnly : c.fitOnlyCalibration) :
+    False := by
+  rcases hClosed with
+    ⟨_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _,
+      _, _, _, hNoFit, _⟩
+  exact hNoFit hFitOnly
+
+def occ007CanonicalNoHiddenObservedRecoveryFitAuditContract :
+    OCC007NoHiddenObservedRecoveryFitAuditContract :=
+  { occ001UpstreamBindingClosed := True,
+    occ002FiniteExternalCatalogDescriptorClosed := True,
+    occ003FiniteCandidateToCatalogComparisonMapClosed := True,
+    occ004StandardModelCandidateCompatibilityClosed := True,
+    occ005ComparisonCoarseGrainingStabilityClosed := True,
+    occ006Paper8RegimeConsistencyClosed := True,
+    auditedOccRungCount := 6,
+    requiredOccRungCount := 6,
+    theoremDocsAudited := True,
+    proofLogAudited := True,
+    stateFilesAudited := True,
+    upstreamManifestAudited := True,
+    leanGateAudited := True,
+    rustGateAudited := True,
+    publicationSkeletonAudited := True,
+    rustOnlyRuntimeVerified := True,
+    failClosedAuditCertificateEmitted := True,
+    observedCatalogRecoveryImport := False,
+    observedParticleCatalogRecoveryImport := False,
+    physicalStandardModelContentImport := False,
+    physicalParticleExcitationImport := False,
+    externalMatterFieldImport := False,
+    externalGaugeFieldImport := False,
+    physicalQuantumDynamicsImport := False,
+    continuumQFTImport := False,
+    backgroundHilbertBundleImport := False,
+    simulationOnlyPromotion := False,
+    fitOnlyCalibration := False,
+    physicalPromotion := False,
+    unifiedFieldPromotion := False }
+
+theorem occ007_canonical_no_hidden_observed_recovery_fit_audit_closed :
+    occ007CanonicalNoHiddenObservedRecoveryFitAuditContract.closed := by
+  unfold OCC007NoHiddenObservedRecoveryFitAuditContract.closed
+  unfold occ007CanonicalNoHiddenObservedRecoveryFitAuditContract
+  simp
+
 structure Paper9ObservedCatalogComparisonObservablesTheoremContract where
   occ001UpstreamBindingClosed : Prop
   occ002FiniteExternalCatalogDescriptorClosed : Prop

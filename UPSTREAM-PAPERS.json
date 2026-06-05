@@ -147,7 +147,7 @@
     "occ004_standard_model_candidate_compatibility_closed": true,
     "occ005_comparison_coarse_graining_stability_closed": true,
     "occ006_paper8_regime_consistency_closed": true,
-    "occ007_no_hidden_observed_recovery_fit_audit_closed": false,
+    "occ007_no_hidden_observed_recovery_fit_audit_closed": true,
     "occ008_final_conditional_certificate_closed": false,
     "observed_catalog_comparison_observables_theorem_closed": false,
     "physical_nature_claim": false,

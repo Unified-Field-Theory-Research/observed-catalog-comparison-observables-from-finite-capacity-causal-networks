@@ -4,10 +4,11 @@ use cclab_accel::{
     occ004_standard_model_candidate_compatibility_marker,
     occ005_comparison_coarse_graining_stability_marker, paper9_skeleton_marker,
     ComparisonCoarseGrainingStability, FiniteCandidateToCatalogComparisonMap,
-    FiniteExternalCatalogDescriptorObservable, Paper8RegimeConsistency, Paper9SkeletonCertificate,
-    Paper9UpstreamBinding, StandardModelCandidateCompatibility, PAPER1_FROZEN_COMMIT,
-    PAPER2_FROZEN_COMMIT, PAPER3_FROZEN_COMMIT, PAPER4_FROZEN_COMMIT, PAPER5_FROZEN_COMMIT,
-    PAPER6_FROZEN_COMMIT, PAPER7_FROZEN_COMMIT, PAPER8_FINAL_CERTIFICATE, PAPER8_FROZEN_COMMIT,
+    FiniteExternalCatalogDescriptorObservable, NoHiddenObservedRecoveryFitAudit,
+    Paper8RegimeConsistency, Paper9SkeletonCertificate, Paper9UpstreamBinding,
+    StandardModelCandidateCompatibility, PAPER1_FROZEN_COMMIT, PAPER2_FROZEN_COMMIT,
+    PAPER3_FROZEN_COMMIT, PAPER4_FROZEN_COMMIT, PAPER5_FROZEN_COMMIT, PAPER6_FROZEN_COMMIT,
+    PAPER7_FROZEN_COMMIT, PAPER8_FINAL_CERTIFICATE, PAPER8_FROZEN_COMMIT,
 };
 use std::fs;
 use std::path::{Path, PathBuf};
@@ -661,6 +662,105 @@ fn occ006_regime_consistency_fails_closed_on_bypass_or_revision() {
 }
 
 #[test]
+fn occ007_no_hidden_observed_recovery_fit_audit_closes_only_audit_rung() {
+    let audit = NoHiddenObservedRecoveryFitAudit::canonical_occ007();
+
+    assert!(audit.occ001_upstream_binding_closed);
+    assert!(audit.occ002_finite_external_catalog_descriptor_closed);
+    assert!(audit.occ003_finite_candidate_to_catalog_comparison_map_closed);
+    assert!(audit.occ004_standard_model_candidate_compatibility_closed);
+    assert!(audit.occ005_comparison_coarse_graining_stability_closed);
+    assert!(audit.occ006_paper8_regime_consistency_closed);
+    assert!(audit.audited_occ_rung_count >= audit.required_occ_rung_count);
+    assert!(audit.theorem_docs_audited);
+    assert!(audit.proof_log_audited);
+    assert!(audit.state_files_audited);
+    assert!(audit.upstream_manifest_audited);
+    assert!(audit.lean_gate_audited);
+    assert!(audit.rust_gate_audited);
+    assert!(audit.publication_skeleton_audited);
+    assert!(audit.rust_only_runtime_verified);
+    assert!(audit.fail_closed_audit_certificate_emitted);
+    assert!(audit.closes_occ007());
+    assert!(!audit.observed_catalog_recovery_import);
+    assert!(!audit.observed_particle_catalog_recovery_import);
+    assert!(!audit.physical_standard_model_content_import);
+    assert!(!audit.physical_quantum_dynamics_import);
+    assert!(!audit.continuum_qft_import);
+    assert!(!audit.fit_only_calibration);
+    assert_eq!(
+        cclab_accel::occ007_no_hidden_observed_recovery_fit_audit_marker(),
+        "occ007-no-hidden-observed-recovery-fit-audit-closed"
+    );
+
+    let certificate =
+        Paper9SkeletonCertificate::with_occ007_no_hidden_observed_recovery_fit_audit_closed();
+    assert!(certificate.occ001_upstream_binding_closed);
+    assert!(certificate.occ002_finite_external_catalog_descriptor_closed);
+    assert!(certificate.occ003_finite_candidate_to_catalog_comparison_map_closed);
+    assert!(certificate.occ004_standard_model_candidate_compatibility_closed);
+    assert!(certificate.occ005_comparison_coarse_graining_stability_closed);
+    assert!(certificate.occ006_paper8_regime_consistency_closed);
+    assert!(certificate.occ007_no_hidden_observed_recovery_fit_audit_closed);
+    assert!(!certificate.occ008_final_conditional_certificate_closed);
+    assert!(!certificate.paper9_theorem_closed);
+    assert!(!certificate.closes_paper9_theorem());
+}
+
+#[test]
+fn occ007_audit_fails_closed_on_missing_coverage_or_imports() {
+    let audit = NoHiddenObservedRecoveryFitAudit::canonical_occ007();
+
+    let missing_occ006 = NoHiddenObservedRecoveryFitAudit {
+        occ006_paper8_regime_consistency_closed: false,
+        ..audit
+    };
+    assert!(!missing_occ006.closes_occ007());
+
+    let too_few_rungs = NoHiddenObservedRecoveryFitAudit {
+        audited_occ_rung_count: audit.required_occ_rung_count - 1,
+        ..audit
+    };
+    assert!(!too_few_rungs.closes_occ007());
+
+    let missing_rust_gate = NoHiddenObservedRecoveryFitAudit {
+        rust_gate_audited: false,
+        ..audit
+    };
+    assert!(!missing_rust_gate.closes_occ007());
+
+    let missing_rust_only = NoHiddenObservedRecoveryFitAudit {
+        rust_only_runtime_verified: false,
+        ..audit
+    };
+    assert!(!missing_rust_only.closes_occ007());
+
+    let missing_fail_closed_certificate = NoHiddenObservedRecoveryFitAudit {
+        fail_closed_audit_certificate_emitted: false,
+        ..audit
+    };
+    assert!(!missing_fail_closed_certificate.closes_occ007());
+
+    let hidden_observed_recovery = NoHiddenObservedRecoveryFitAudit {
+        observed_catalog_recovery_import: true,
+        ..audit
+    };
+    assert!(!hidden_observed_recovery.closes_occ007());
+
+    let hidden_physical_standard_model = NoHiddenObservedRecoveryFitAudit {
+        physical_standard_model_content_import: true,
+        ..audit
+    };
+    assert!(!hidden_physical_standard_model.closes_occ007());
+
+    let fit_only = NoHiddenObservedRecoveryFitAudit {
+        fit_only_calibration: true,
+        ..audit
+    };
+    assert!(!fit_only.closes_occ007());
+}
+
+#[test]
 fn upstream_json_records_paper8_certificate_and_nonpromotion() {
     let root = project_root();
     let upstream = read(&root, "UPSTREAM-PAPERS.json");
@@ -697,6 +797,11 @@ fn upstream_json_records_paper8_certificate_and_nonpromotion() {
     assert_contains(
         &upstream,
         "\"occ006_paper8_regime_consistency_closed\": true",
+        "UPSTREAM-PAPERS.json",
+    );
+    assert_contains(
+        &upstream,
+        "\"occ007_no_hidden_observed_recovery_fit_audit_closed\": true",
         "UPSTREAM-PAPERS.json",
     );
     assert_contains(
@@ -743,6 +848,7 @@ fn docs_keep_occ002_active_and_physical_claims_false() {
         assert_contains(artifact.1, "OCC-005", artifact.0);
         assert_contains(artifact.1, "OCC-006", artifact.0);
         assert_contains(artifact.1, "OCC-007", artifact.0);
+        assert_contains(artifact.1, "OCC-008", artifact.0);
         assert_contains(artifact.1, "observed particle catalog recovery", artifact.0);
         assert_contains(artifact.1, "physical Standard Model", artifact.0);
         assert_contains(artifact.1, "fit-only", artifact.0);

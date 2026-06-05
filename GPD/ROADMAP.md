@@ -42,7 +42,7 @@ paper-specific certificate explicitly closes them.
   recorded Paper 8 final conditional certificate and reject bypasses of Paper
   8, Paper 7, Paper 6, Paper 5, Paper 4, Paper 3, Paper 2, or Paper 1
   assumptions.
-- [ ] **Phase 7: Close No-Hidden-Observed-Recovery/Fit Import Audit** -
+- [x] **Phase 7: Close No-Hidden-Observed-Recovery/Fit Import Audit** -
   `OCC-007` should fail closed when the construction assumes observed catalog
   recovery, physical Standard Model content, physical particles, continuum
   QFT, background Hilbert bundles, external matter or gauge fields,

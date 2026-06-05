@@ -14,5 +14,6 @@ The current closed rungs are `OCC-001`: upstream binding and claim boundary,
 finite candidate-to-catalog comparison map, and `OCC-004`:
 Standard-Model-candidate compatibility, and `OCC-005`: comparison stability
 and coarse-graining stability, and `OCC-006`: Paper 8 regime consistency.
-The current active obligation is `OCC-007`: close the no-hidden
-observed-recovery/fit-only import audit.
+and `OCC-007`: no-hidden observed-recovery/fit-only import audit. The
+current active obligation is `OCC-008`: close the final internal conditional
+observed-catalog comparison observables certificate.

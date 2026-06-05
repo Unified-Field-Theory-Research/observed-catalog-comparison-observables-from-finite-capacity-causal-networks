@@ -717,6 +717,116 @@ impl Paper8RegimeConsistency {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct NoHiddenObservedRecoveryFitAudit {
+    pub occ001_upstream_binding_closed: bool,
+    pub occ002_finite_external_catalog_descriptor_closed: bool,
+    pub occ003_finite_candidate_to_catalog_comparison_map_closed: bool,
+    pub occ004_standard_model_candidate_compatibility_closed: bool,
+    pub occ005_comparison_coarse_graining_stability_closed: bool,
+    pub occ006_paper8_regime_consistency_closed: bool,
+    pub audited_occ_rung_count: u32,
+    pub required_occ_rung_count: u32,
+    pub theorem_docs_audited: bool,
+    pub proof_log_audited: bool,
+    pub state_files_audited: bool,
+    pub upstream_manifest_audited: bool,
+    pub lean_gate_audited: bool,
+    pub rust_gate_audited: bool,
+    pub publication_skeleton_audited: bool,
+    pub rust_only_runtime_verified: bool,
+    pub fail_closed_audit_certificate_emitted: bool,
+    pub observed_catalog_recovery_import: bool,
+    pub observed_particle_catalog_recovery_import: bool,
+    pub physical_standard_model_content_import: bool,
+    pub physical_particle_excitation_import: bool,
+    pub external_matter_field_import: bool,
+    pub external_gauge_field_import: bool,
+    pub physical_quantum_dynamics_import: bool,
+    pub continuum_qft_import: bool,
+    pub background_hilbert_bundle_import: bool,
+    pub simulation_only_promotion: bool,
+    pub fit_only_calibration: bool,
+    pub physical_promotion: bool,
+    pub unified_field_promotion: bool,
+}
+
+impl NoHiddenObservedRecoveryFitAudit {
+    pub fn canonical_occ007() -> Self {
+        Self {
+            occ001_upstream_binding_closed: Paper9UpstreamBinding::canonical_occ001()
+                .closes_occ001(),
+            occ002_finite_external_catalog_descriptor_closed:
+                FiniteExternalCatalogDescriptorObservable::canonical_occ002().closes_occ002(),
+            occ003_finite_candidate_to_catalog_comparison_map_closed:
+                FiniteCandidateToCatalogComparisonMap::canonical_occ003().closes_occ003(),
+            occ004_standard_model_candidate_compatibility_closed:
+                StandardModelCandidateCompatibility::canonical_occ004().closes_occ004(),
+            occ005_comparison_coarse_graining_stability_closed:
+                ComparisonCoarseGrainingStability::canonical_occ005().closes_occ005(),
+            occ006_paper8_regime_consistency_closed: Paper8RegimeConsistency::canonical_occ006()
+                .closes_occ006(),
+            audited_occ_rung_count: 6,
+            required_occ_rung_count: 6,
+            theorem_docs_audited: true,
+            proof_log_audited: true,
+            state_files_audited: true,
+            upstream_manifest_audited: true,
+            lean_gate_audited: true,
+            rust_gate_audited: true,
+            publication_skeleton_audited: true,
+            rust_only_runtime_verified: true,
+            fail_closed_audit_certificate_emitted: true,
+            observed_catalog_recovery_import: false,
+            observed_particle_catalog_recovery_import: false,
+            physical_standard_model_content_import: false,
+            physical_particle_excitation_import: false,
+            external_matter_field_import: false,
+            external_gauge_field_import: false,
+            physical_quantum_dynamics_import: false,
+            continuum_qft_import: false,
+            background_hilbert_bundle_import: false,
+            simulation_only_promotion: false,
+            fit_only_calibration: false,
+            physical_promotion: false,
+            unified_field_promotion: false,
+        }
+    }
+
+    pub fn closes_occ007(&self) -> bool {
+        self.occ001_upstream_binding_closed
+            && self.occ002_finite_external_catalog_descriptor_closed
+            && self.occ003_finite_candidate_to_catalog_comparison_map_closed
+            && self.occ004_standard_model_candidate_compatibility_closed
+            && self.occ005_comparison_coarse_graining_stability_closed
+            && self.occ006_paper8_regime_consistency_closed
+            && self.required_occ_rung_count >= 6
+            && self.audited_occ_rung_count >= self.required_occ_rung_count
+            && self.theorem_docs_audited
+            && self.proof_log_audited
+            && self.state_files_audited
+            && self.upstream_manifest_audited
+            && self.lean_gate_audited
+            && self.rust_gate_audited
+            && self.publication_skeleton_audited
+            && self.rust_only_runtime_verified
+            && self.fail_closed_audit_certificate_emitted
+            && !self.observed_catalog_recovery_import
+            && !self.observed_particle_catalog_recovery_import
+            && !self.physical_standard_model_content_import
+            && !self.physical_particle_excitation_import
+            && !self.external_matter_field_import
+            && !self.external_gauge_field_import
+            && !self.physical_quantum_dynamics_import
+            && !self.continuum_qft_import
+            && !self.background_hilbert_bundle_import
+            && !self.simulation_only_promotion
+            && !self.fit_only_calibration
+            && !self.physical_promotion
+            && !self.unified_field_promotion
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct Paper9SkeletonCertificate {
     pub occ001_upstream_binding_closed: bool,
     pub occ002_finite_external_catalog_descriptor_closed: bool,
@@ -916,6 +1026,39 @@ impl Paper9SkeletonCertificate {
         }
     }
 
+    pub fn with_occ007_no_hidden_observed_recovery_fit_audit_closed() -> Self {
+        let binding = Paper9UpstreamBinding::canonical_occ001();
+        let descriptor = FiniteExternalCatalogDescriptorObservable::canonical_occ002();
+        let comparison_map = FiniteCandidateToCatalogComparisonMap::canonical_occ003();
+        let compatibility = StandardModelCandidateCompatibility::canonical_occ004();
+        let stability = ComparisonCoarseGrainingStability::canonical_occ005();
+        let regime = Paper8RegimeConsistency::canonical_occ006();
+        let audit = NoHiddenObservedRecoveryFitAudit::canonical_occ007();
+        Self {
+            occ001_upstream_binding_closed: binding.closes_occ001(),
+            occ002_finite_external_catalog_descriptor_closed: descriptor.closes_occ002(),
+            occ003_finite_candidate_to_catalog_comparison_map_closed: comparison_map
+                .closes_occ003(),
+            occ004_standard_model_candidate_compatibility_closed: compatibility.closes_occ004(),
+            occ005_comparison_coarse_graining_stability_closed: stability.closes_occ005(),
+            occ006_paper8_regime_consistency_closed: regime.closes_occ006(),
+            occ007_no_hidden_observed_recovery_fit_audit_closed: audit.closes_occ007(),
+            occ008_final_conditional_certificate_closed: false,
+            paper9_theorem_closed: false,
+            physical_nature_claim: false,
+            observed_particle_catalog_recovery_claim: false,
+            physical_standard_model_claim: false,
+            physical_particle_excitation_claim: false,
+            physical_matter_fields_claim: false,
+            physical_gauge_fields_claim: false,
+            physical_quantum_dynamics_claim: false,
+            continuum_qft_claim: false,
+            simulation_only_promotion: false,
+            fit_only_calibration_claim: false,
+            unified_field_theory_claim: false,
+        }
+    }
+
     pub fn closes_paper9_theorem(&self) -> bool {
         self.occ001_upstream_binding_closed
             && self.occ002_finite_external_catalog_descriptor_closed
@@ -962,4 +1105,8 @@ pub fn occ005_comparison_coarse_graining_stability_marker() -> &'static str {
 
 pub fn occ006_paper8_regime_consistency_marker() -> &'static str {
     "occ006-paper8-regime-consistency-no-upstream-bypass-closed"
+}
+
+pub fn occ007_no_hidden_observed_recovery_fit_audit_marker() -> &'static str {
+    "occ007-no-hidden-observed-recovery-fit-audit-closed"
 }

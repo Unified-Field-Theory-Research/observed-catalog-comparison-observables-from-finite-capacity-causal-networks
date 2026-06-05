@@ -2,15 +2,16 @@
 
 ## Current Position
 
-**Current Phase:** 7
-**Current Phase Name:** Close No-Hidden-Observed-Recovery/Fit Import Audit
+**Current Phase:** 8
+**Current Phase Name:** Final Conditional Observed-Catalog Comparison Observables Certificate
 **Status:** `OCC-001` upstream binding and claim-boundary scaffold closed;
 `OCC-002` finite external-catalog descriptor observable closed; `OCC-003`
 finite candidate-to-catalog comparison map closed; `OCC-004`
 Standard-Model-candidate compatibility closed; `OCC-005` comparison stability
 and coarse-graining stability closed; `OCC-006` Paper 8 regime consistency
-closed; `OCC-007` no-hidden-observed-recovery/fit-only import audit is open;
-physical promotion remains false
+closed; `OCC-007` no-hidden-observed-recovery/fit-only import audit closed;
+`OCC-008` final conditional certificate is open; physical promotion remains
+false
 
 Closed rung summary: `OCC-001` records the upstream binding through the
 closed Paper 8 conditional Standard-Model-candidate observables theorem at
@@ -84,11 +85,20 @@ Standard-Model-candidate certificate. It rejects upstream mutation, Paper 8
 bypass, upstream-chain bypass, unapproved Paper 8 revisions, unrecorded
 upstream revisions, observed-catalog recovery imports, fit-only calibration,
 physical promotion, and unified-field promotion.
+`OCC-007` closes the no-hidden-observed-recovery and fit-only import audit
+across theorem docs, proof log, state files, upstream manifest, Lean gate,
+Rust gate, publication skeleton, and Rust-only runtime verification. It
+emits a fail-closed audit certificate while keeping observed-catalog recovery
+imports, observed particle catalog recovery, physical Standard Model content,
+physical particle excitations, physical quantum dynamics, continuum QFT,
+simulation-only promotion, fit-only calibration, physical promotion, and
+unified-field promotion false.
 
-Next stable target phrase: `OCC-007`: close the no-hidden-observed-recovery
-and fit-only import audit across docs, state, manifests, Lean, Rust, and
-publication artifacts while preserving Rust-only tooling and all nonpromotion
-guards.
+Next stable target phrase: `OCC-008`: close the final internal conditional
+observed-catalog comparison observables certificate by consuming `OCC-001`
+through `OCC-007`, preserving finite capacity, locality, bounded transfer,
+causal-cone/no-signaling, conservation/coarse-graining stability, and all
+nonpromotion guards.
 
 Stable nonpromotion tokens: observed particle catalog recovery; physical
 Standard Model content; physical particle excitations; physical matter fields;
@@ -124,19 +134,24 @@ promotion.
 - `OCC-006` rows bind the closed local Paper 9 structures to the recorded
   Paper 8 commit, final certificate, and upstream chain while rejecting
   upstream bypasses and unapproved revisions.
+- `OCC-007` rows audit docs, proof log, state, upstream manifest, Lean, Rust,
+  publication skeleton, Rust-only runtime, and fail-closed audit emission
+  against hidden observed-recovery, fit-only, physical, continuum, and
+  unified-field imports.
 
 ## Open Questions
 
-- `OCC-007`: Which audit rows are needed to demonstrate that docs, state,
-  manifests, Lean, Rust, publication metadata, and Rust-only runtime gates do
-  not hide observed recovery, fit-only calibration, physical promotion, or
-  unified-field imports?
+- `OCC-008`: Which final certificate rows are needed to consume all closed
+  obligations and close the internal conditional observed-catalog comparison
+  observables theorem without promoting observed particle catalog recovery,
+  physical Standard Model content, physical particles, physical quantum
+  dynamics, continuum QFT, physical nature, or unified-field claims?
 
 ## Pending Todos
 
-- Define no-hidden import audit rows for `OCC-007`.
-- Add Rust and Lean fail-closed checks for `OCC-007`.
-- Update theorem docs, proof log, and publication skeleton after `OCC-007`
+- Define final certificate rows for `OCC-008`.
+- Add Rust and Lean fail-closed checks for `OCC-008`.
+- Update theorem docs, proof log, and publication skeleton after `OCC-008`
   closes.
 
 ## Blockers/Concerns
@@ -153,6 +168,8 @@ promotion.
 - `OCC-006` proves Paper 8 regime consistency only; it does not close the
   no-hidden import audit or the final observed-catalog comparison observable
   certificate.
+- `OCC-007` proves the no-hidden import audit only; it does not by itself
+  close the final observed-catalog comparison observable certificate.
 - Observed-catalog comparison observable recovery remains open.
 - Observed particle catalog recovery, physical Standard Model content,
   physical particle excitations, physical matter fields, physical gauge

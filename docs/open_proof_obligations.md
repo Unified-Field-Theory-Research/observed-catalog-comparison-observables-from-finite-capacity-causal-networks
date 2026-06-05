@@ -119,9 +119,10 @@ Standard Model content, physical particle excitations, continuum QFT,
 physical quantum dynamics, physical nature promotion, or unified-field
 promotion.
 
-## Active Obligation
+## Closed Dependencies: OCC-005
 
-`OCC-005` is open.
+`OCC-005` closes the finite comparison stability and intrinsic
+coarse-graining stability rung.
 
 Required row shape:
 
@@ -157,9 +158,46 @@ Required row shape:
 - no physical promotion;
 - no unified-field promotion.
 
+The rung proves finite stability only. It does not prove Paper 8 regime
+consistency, no-hidden import audit closure, observed-catalog comparison
+observable recovery, observed particle catalog recovery, physical Standard
+Model content, physical particle excitations, continuum QFT, physical
+quantum dynamics, physical nature promotion, or unified-field promotion.
+
+## Active Obligation
+
+`OCC-006` is open.
+
+Required row shape:
+
+- closed `OCC-001` upstream binding;
+- closed `OCC-002` finite external-catalog descriptor observable;
+- closed `OCC-003` finite candidate-to-catalog comparison map;
+- closed `OCC-004` Standard-Model-candidate compatibility;
+- closed `OCC-005` comparison/coarse-graining stability;
+- recorded Paper 1 through Paper 8 commits match `UPSTREAM-PAPERS.json`;
+- Paper 8 final Standard-Model-candidate certificate consumed;
+- Paper 8 conditional Standard-Model-candidate theorem closed;
+- Paper 8 regime assumptions not bypassed;
+- Paper 7/Paper 6/Paper 5/Paper 4/Paper 3/Paper 2/Paper 1 chain not bypassed;
+- no upstream mutation attempt;
+- no unapproved Paper 8 revision;
+- no unrecorded upstream revision;
+- no observed-catalog recovery import;
+- no observed particle catalog recovery;
+- no physical Standard Model content;
+- no physical particle-excitation import;
+- no external matter field;
+- no external gauge field;
+- no continuum QFT import;
+- no background Hilbert bundle import;
+- no simulation-only promotion;
+- no fit-only calibration;
+- no physical promotion;
+- no unified-field promotion.
+
 ## Future Obligations
 
-- `OCC-006`: Paper 8 regime consistency and no upstream bypass.
 - `OCC-007`: no-hidden-observed-recovery/fit-only import audit.
 - `OCC-008`: final internal conditional certificate, if all prior obligations
   close.

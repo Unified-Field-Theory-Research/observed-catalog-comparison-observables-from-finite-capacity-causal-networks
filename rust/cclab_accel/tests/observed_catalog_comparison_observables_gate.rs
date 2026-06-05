@@ -1,12 +1,13 @@
 use cclab_accel::{
     occ002_finite_external_catalog_descriptor_marker,
     occ003_finite_candidate_to_catalog_comparison_map_marker,
-    occ004_standard_model_candidate_compatibility_marker, paper9_skeleton_marker,
-    FiniteCandidateToCatalogComparisonMap, FiniteExternalCatalogDescriptorObservable,
-    Paper9SkeletonCertificate, Paper9UpstreamBinding, StandardModelCandidateCompatibility,
-    PAPER1_FROZEN_COMMIT, PAPER2_FROZEN_COMMIT, PAPER3_FROZEN_COMMIT, PAPER4_FROZEN_COMMIT,
-    PAPER5_FROZEN_COMMIT, PAPER6_FROZEN_COMMIT, PAPER7_FROZEN_COMMIT, PAPER8_FINAL_CERTIFICATE,
-    PAPER8_FROZEN_COMMIT,
+    occ004_standard_model_candidate_compatibility_marker,
+    occ005_comparison_coarse_graining_stability_marker, paper9_skeleton_marker,
+    ComparisonCoarseGrainingStability, FiniteCandidateToCatalogComparisonMap,
+    FiniteExternalCatalogDescriptorObservable, Paper9SkeletonCertificate, Paper9UpstreamBinding,
+    StandardModelCandidateCompatibility, PAPER1_FROZEN_COMMIT, PAPER2_FROZEN_COMMIT,
+    PAPER3_FROZEN_COMMIT, PAPER4_FROZEN_COMMIT, PAPER5_FROZEN_COMMIT, PAPER6_FROZEN_COMMIT,
+    PAPER7_FROZEN_COMMIT, PAPER8_FINAL_CERTIFICATE, PAPER8_FROZEN_COMMIT,
 };
 use std::fs;
 use std::path::{Path, PathBuf};
@@ -454,6 +455,109 @@ fn occ004_compatibility_fails_closed_on_missing_rows_or_imports() {
 }
 
 #[test]
+fn occ005_comparison_coarse_graining_stability_closes_only_stability_rung() {
+    let stability = ComparisonCoarseGrainingStability::canonical_occ005();
+
+    assert!(stability.occ001_upstream_binding_closed);
+    assert!(stability.occ002_finite_external_catalog_descriptor_closed);
+    assert!(stability.occ003_finite_candidate_to_catalog_comparison_map_closed);
+    assert!(stability.occ004_standard_model_candidate_compatibility_closed);
+    assert!(stability.finite_descriptor_stability_witness);
+    assert!(stability.finite_comparison_map_stability_witness);
+    assert!(stability.finite_score_stability_witness);
+    assert!(stability.intrinsic_coarse_graining_map);
+    assert!(stability.coarse_descriptor_label_bound <= stability.descriptor_label_bound);
+    assert!(stability.coarse_comparison_edge_bound <= stability.comparison_edge_bound);
+    assert!(
+        stability.coarse_local_comparison_neighborhood_bound
+            <= stability.local_comparison_neighborhood_bound
+    );
+    assert!(stability.coarse_transfer_bound <= stability.transfer_bound);
+    assert!(stability.paper8_conservation_coarse_graining_rows_compatible);
+    assert!(stability.descriptor_rows_stable_under_coarse_graining);
+    assert!(stability.comparison_map_rows_stable_under_coarse_graining);
+    assert!(stability.causal_cone_no_signaling_stability_preserved);
+    assert!(stability.finite_capacity_preserved);
+    assert!(stability.locality_preserved);
+    assert!(stability.bounded_transfer_preserved);
+    assert!(stability.closes_occ005());
+    assert!(!stability.external_conservation_law_import);
+    assert!(!stability.continuum_current_import);
+    assert!(!stability.continuum_limit_oracle_import);
+    assert!(!stability.observed_catalog_recovery_import);
+    assert!(!stability.physical_standard_model_content_import);
+    assert_eq!(
+        occ005_comparison_coarse_graining_stability_marker(),
+        "occ005-comparison-coarse-graining-stability-closed"
+    );
+
+    let certificate =
+        Paper9SkeletonCertificate::with_occ005_comparison_coarse_graining_stability_closed();
+    assert!(certificate.occ001_upstream_binding_closed);
+    assert!(certificate.occ002_finite_external_catalog_descriptor_closed);
+    assert!(certificate.occ003_finite_candidate_to_catalog_comparison_map_closed);
+    assert!(certificate.occ004_standard_model_candidate_compatibility_closed);
+    assert!(certificate.occ005_comparison_coarse_graining_stability_closed);
+    assert!(!certificate.occ006_paper8_regime_consistency_closed);
+    assert!(!certificate.occ008_final_conditional_certificate_closed);
+    assert!(!certificate.paper9_theorem_closed);
+    assert!(!certificate.closes_paper9_theorem());
+}
+
+#[test]
+fn occ005_stability_fails_closed_on_growth_or_imports() {
+    let stability = ComparisonCoarseGrainingStability::canonical_occ005();
+
+    let missing_occ004 = ComparisonCoarseGrainingStability {
+        occ004_standard_model_candidate_compatibility_closed: false,
+        ..stability
+    };
+    assert!(!missing_occ004.closes_occ005());
+
+    let missing_stability_witness = ComparisonCoarseGrainingStability {
+        finite_comparison_map_stability_witness: false,
+        ..stability
+    };
+    assert!(!missing_stability_witness.closes_occ005());
+
+    let coarse_descriptor_growth = ComparisonCoarseGrainingStability {
+        coarse_descriptor_label_bound: stability.descriptor_label_bound + 1,
+        ..stability
+    };
+    assert!(!coarse_descriptor_growth.closes_occ005());
+
+    let coarse_transfer_growth = ComparisonCoarseGrainingStability {
+        coarse_transfer_bound: stability.transfer_bound + 1,
+        ..stability
+    };
+    assert!(!coarse_transfer_growth.closes_occ005());
+
+    let missing_no_signaling_stability = ComparisonCoarseGrainingStability {
+        causal_cone_no_signaling_stability_preserved: false,
+        ..stability
+    };
+    assert!(!missing_no_signaling_stability.closes_occ005());
+
+    let external_conservation = ComparisonCoarseGrainingStability {
+        external_conservation_law_import: true,
+        ..stability
+    };
+    assert!(!external_conservation.closes_occ005());
+
+    let continuum_limit_oracle = ComparisonCoarseGrainingStability {
+        continuum_limit_oracle_import: true,
+        ..stability
+    };
+    assert!(!continuum_limit_oracle.closes_occ005());
+
+    let hidden_physical_standard_model = ComparisonCoarseGrainingStability {
+        physical_standard_model_content_import: true,
+        ..stability
+    };
+    assert!(!hidden_physical_standard_model.closes_occ005());
+}
+
+#[test]
 fn upstream_json_records_paper8_certificate_and_nonpromotion() {
     let root = project_root();
     let upstream = read(&root, "UPSTREAM-PAPERS.json");
@@ -480,6 +584,11 @@ fn upstream_json_records_paper8_certificate_and_nonpromotion() {
     assert_contains(
         &upstream,
         "\"occ004_standard_model_candidate_compatibility_closed\": true",
+        "UPSTREAM-PAPERS.json",
+    );
+    assert_contains(
+        &upstream,
+        "\"occ005_comparison_coarse_graining_stability_closed\": true",
         "UPSTREAM-PAPERS.json",
     );
     assert_contains(
@@ -524,6 +633,7 @@ fn docs_keep_occ002_active_and_physical_claims_false() {
         assert_contains(artifact.1, "OCC-003", artifact.0);
         assert_contains(artifact.1, "OCC-004", artifact.0);
         assert_contains(artifact.1, "OCC-005", artifact.0);
+        assert_contains(artifact.1, "OCC-006", artifact.0);
         assert_contains(artifact.1, "observed particle catalog recovery", artifact.0);
         assert_contains(artifact.1, "physical Standard Model", artifact.0);
         assert_contains(artifact.1, "fit-only", artifact.0);

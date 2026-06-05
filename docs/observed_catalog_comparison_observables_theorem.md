@@ -22,12 +22,14 @@ The theorem target is open. `OCC-001` closes the upstream binding and
 claim-boundary scaffold. `OCC-002` closes finite external-catalog descriptor
 rows. `OCC-003` closes finite candidate-to-catalog comparison-map rows.
 `OCC-004` closes compatibility with the closed Paper 8
-Standard-Model-candidate rows. This is not observed-catalog comparison
-observable recovery, not observed particle catalog recovery, not physical
-Standard Model recovery, not a physical particle-excitation claim, not a
-physical matter-field claim, not a physical gauge-field claim, not physical
-quantum dynamics, not continuum quantum field theory, not simulation-only
-promotion, not fit-only calibration, and not a unified field theory.
+Standard-Model-candidate rows. `OCC-005` closes finite comparison stability
+and intrinsic coarse-graining stability. This is not observed-catalog
+comparison observable recovery, not observed particle catalog recovery, not
+physical Standard Model recovery, not a physical particle-excitation claim,
+not a physical matter-field claim, not a physical gauge-field claim, not
+physical quantum dynamics, not continuum quantum field theory, not
+simulation-only promotion, not fit-only calibration, and not a unified field
+theory.
 
 ## Upstream Binding
 
@@ -219,11 +221,46 @@ calibration, physical promotion, or unified-field promotion.
 
 ### OCC-005: Comparison Stability And Coarse-Graining Stability
 
-Status: open.
+Status: closed.
+
+Target: prove finite comparison stability and intrinsic coarse-graining
+stability for descriptor and comparison-map rows with non-growing coarse
+descriptor-label, comparison-edge, local-neighborhood, and transfer bounds,
+Paper 8 conservation/coarse-graining compatibility, descriptor stability,
+comparison-map stability, causal-cone/no-signaling stability, finite capacity,
+locality, and bounded transfer, while rejecting external conservation laws,
+continuum currents, continuum-limit oracles, observed-catalog recovery
+imports, fit-only calibration, physical promotion, and unified-field
+promotion.
+
+Rust anchors:
+
+- `ComparisonCoarseGrainingStability`
+- `ComparisonCoarseGrainingStability::canonical_occ005`
+- `ComparisonCoarseGrainingStability::closes_occ005`
+- `Paper9SkeletonCertificate::with_occ005_comparison_coarse_graining_stability_closed`
+- `occ005_comparison_coarse_graining_stability_marker`
+
+Lean anchors:
+
+- `OCC005ComparisonCoarseGrainingStabilityContract`
+- `OCC005ComparisonCoarseGrainingStabilityContract.closed`
+- `occ005_comparison_coarse_graining_stability_closed_from_fields`
+- `occ005_missing_occ004_compatibility_not_closed`
+- `occ005_coarse_descriptor_growth_not_closed`
+- `occ005_continuum_limit_oracle_import_not_closed`
+- `occ005_canonical_comparison_coarse_graining_stability_closed`
+
+Boundary: `OCC-005` proves stability only. It does not prove Paper 8 regime
+consistency, the no-hidden observed-recovery/fit-only import audit, the final
+observed-catalog comparison observables theorem, observed particle catalog
+recovery, physical Standard Model content, physical particle excitations,
+physical quantum dynamics, continuum QFT, physical promotion, or
+unified-field promotion.
 
 ### OCC-006: Paper 8 Regime Consistency
 
-Status: planned.
+Status: open.
 
 ### OCC-007: No-Hidden-Observed-Recovery/Fit Import Audit
 

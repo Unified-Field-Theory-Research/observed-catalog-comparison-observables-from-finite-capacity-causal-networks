@@ -2,13 +2,14 @@
 
 ## Current Position
 
-**Current Phase:** 5
-**Current Phase Name:** Prove Comparison Stability And Coarse-Graining Stability
+**Current Phase:** 6
+**Current Phase Name:** Bind To Paper 8 Regime
 **Status:** `OCC-001` upstream binding and claim-boundary scaffold closed;
 `OCC-002` finite external-catalog descriptor observable closed; `OCC-003`
 finite candidate-to-catalog comparison map closed; `OCC-004`
 Standard-Model-candidate compatibility closed; `OCC-005` comparison stability
-and coarse-graining stability is open; physical promotion remains false
+and coarse-graining stability closed; `OCC-006` Paper 8 regime consistency
+is open; physical promotion remains false
 
 Closed rung summary: `OCC-001` records the upstream binding through the
 closed Paper 8 conditional Standard-Model-candidate observables theorem at
@@ -67,12 +68,21 @@ constraints, descriptor rows, and comparison-map rows, without importing
 observed-catalog recovery, physical Standard Model content, physical particle
 excitations, continuum QFT, simulation-only promotion, fit-only calibration,
 physical promotion, or unified-field promotion.
+`OCC-005` proves finite comparison stability and intrinsic coarse-graining
+stability for descriptor and comparison-map rows. It records bounded
+descriptor-label, comparison-edge, local-neighborhood, and transfer
+coarse-graining; Paper 8 conservation/coarse-graining compatibility;
+descriptor and comparison-map stability; causal-cone/no-signaling stability;
+finite capacity; locality; and bounded transfer without external
+conservation laws, continuum currents, continuum-limit oracles,
+observed-catalog recovery imports, fit-only calibration, physical promotion,
+or unified-field promotion.
 
-Next stable target phrase: `OCC-005`: prove finite comparison stability and
-intrinsic coarse-graining stability for descriptor and comparison-map rows
-while preserving conservation, finite capacity, locality, bounded transfer,
-and causal-cone/no-signaling constraints without continuum-limit or
-physical-promotion imports.
+Next stable target phrase: `OCC-006`: bind the closed descriptor,
+comparison-map, compatibility, and stability rows to the recorded Paper 8
+regime while rejecting upstream bypasses, unapproved revisions,
+observed-catalog recovery imports, fit-only calibration, and physical
+promotion.
 
 Stable nonpromotion tokens: observed particle catalog recovery; physical
 Standard Model content; physical particle excitations; physical matter fields;
@@ -102,19 +112,21 @@ promotion.
   compatible with Paper 8 candidate-sector, interaction-family,
   conservation/coarse-graining, finite-capacity, locality,
   bounded-transfer, and causal-cone/no-signaling rows.
+- `OCC-005` rows prove finite stability and intrinsic coarse-graining
+  stability with non-growing coarse bounds and no continuum-limit or external
+  conservation imports.
 
 ## Open Questions
 
-- `OCC-005`: Which finite comparison-stability and intrinsic
-  coarse-graining-stability witnesses are needed to preserve descriptor and
-  comparison-map rows without importing continuum limits or physical
-  promotion?
+- `OCC-006`: Which regime-consistency witnesses are needed to bind all closed
+  Paper 9 rows to the recorded Paper 8 commit and final certificate without
+  upstream bypass or unapproved revisions?
 
 ## Pending Todos
 
-- Define stability and coarse-graining rows for `OCC-005`.
-- Add Rust and Lean fail-closed checks for `OCC-005`.
-- Update theorem docs, proof log, and publication skeleton after `OCC-005`
+- Define Paper 8 regime-consistency rows for `OCC-006`.
+- Add Rust and Lean fail-closed checks for `OCC-006`.
+- Update theorem docs, proof log, and publication skeleton after `OCC-006`
   closes.
 
 ## Blockers/Concerns
@@ -126,6 +138,8 @@ promotion.
   rows into physical identifications or observed-catalog recovery.
 - `OCC-004` proves Paper 8 compatibility only; it does not close stability or
   the final observed-catalog comparison observable certificate.
+- `OCC-005` proves stability only; it does not close Paper 8 regime
+  consistency or the final observed-catalog comparison observable certificate.
 - Observed-catalog comparison observable recovery remains open.
 - Observed particle catalog recovery, physical Standard Model content,
   physical particle excitations, physical matter fields, physical gauge

@@ -12,5 +12,6 @@ fit-only calibration, or unified-field promotion.
 The current closed rungs are `OCC-001`: upstream binding and claim boundary,
 `OCC-002`: finite external-catalog descriptor observable, and `OCC-003`:
 finite candidate-to-catalog comparison map, and `OCC-004`:
-Standard-Model-candidate compatibility. The current active obligation is
-`OCC-005`: prove comparison stability and coarse-graining stability.
+Standard-Model-candidate compatibility, and `OCC-005`: comparison stability
+and coarse-graining stability. The current active obligation is `OCC-006`:
+bind to the Paper 8 regime.

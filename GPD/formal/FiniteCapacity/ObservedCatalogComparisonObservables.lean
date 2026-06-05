@@ -707,6 +707,227 @@ theorem occ004_canonical_standard_model_candidate_compatibility_closed :
   unfold occ004CanonicalStandardModelCandidateCompatibilityContract
   simp
 
+structure OCC005ComparisonCoarseGrainingStabilityContract where
+  occ001UpstreamBindingClosed : Prop
+  occ002FiniteExternalCatalogDescriptorClosed : Prop
+  occ003FiniteCandidateToCatalogComparisonMapClosed : Prop
+  occ004StandardModelCandidateCompatibilityClosed : Prop
+  finiteDescriptorStabilityWitness : Prop
+  finiteComparisonMapStabilityWitness : Prop
+  finiteScoreStabilityWitness : Prop
+  intrinsicCoarseGrainingMap : Prop
+  descriptorLabelBound : Nat
+  coarseDescriptorLabelBound : Nat
+  comparisonEdgeBound : Nat
+  coarseComparisonEdgeBound : Nat
+  localComparisonNeighborhoodBound : Nat
+  coarseLocalComparisonNeighborhoodBound : Nat
+  transferBound : Nat
+  coarseTransferBound : Nat
+  paper8ConservationCoarseGrainingRowsCompatible : Prop
+  descriptorRowsStableUnderCoarseGraining : Prop
+  comparisonMapRowsStableUnderCoarseGraining : Prop
+  causalConeNoSignalingStabilityPreserved : Prop
+  finiteCapacityPreserved : Prop
+  localityPreserved : Prop
+  boundedTransferPreserved : Prop
+  externalConservationLawImport : Prop
+  continuumCurrentImport : Prop
+  continuumLimitOracleImport : Prop
+  observedCatalogRecoveryImport : Prop
+  observedParticleCatalogRecoveryImport : Prop
+  physicalStandardModelContentImport : Prop
+  physicalParticleExcitationImport : Prop
+  externalMatterFieldImport : Prop
+  externalGaugeFieldImport : Prop
+  continuumQFTImport : Prop
+  backgroundHilbertBundleImport : Prop
+  simulationOnlyPromotion : Prop
+  fitOnlyCalibration : Prop
+  physicalPromotion : Prop
+  unifiedFieldPromotion : Prop
+
+def OCC005ComparisonCoarseGrainingStabilityContract.closed
+    (c : OCC005ComparisonCoarseGrainingStabilityContract) : Prop :=
+  c.occ001UpstreamBindingClosed ∧
+  c.occ002FiniteExternalCatalogDescriptorClosed ∧
+  c.occ003FiniteCandidateToCatalogComparisonMapClosed ∧
+  c.occ004StandardModelCandidateCompatibilityClosed ∧
+  c.finiteDescriptorStabilityWitness ∧
+  c.finiteComparisonMapStabilityWitness ∧
+  c.finiteScoreStabilityWitness ∧
+  c.intrinsicCoarseGrainingMap ∧
+  0 < c.descriptorLabelBound ∧
+  0 < c.coarseDescriptorLabelBound ∧
+  c.coarseDescriptorLabelBound ≤ c.descriptorLabelBound ∧
+  0 < c.comparisonEdgeBound ∧
+  0 < c.coarseComparisonEdgeBound ∧
+  c.coarseComparisonEdgeBound ≤ c.comparisonEdgeBound ∧
+  0 < c.localComparisonNeighborhoodBound ∧
+  0 < c.coarseLocalComparisonNeighborhoodBound ∧
+  c.coarseLocalComparisonNeighborhoodBound ≤ c.localComparisonNeighborhoodBound ∧
+  0 < c.transferBound ∧
+  0 < c.coarseTransferBound ∧
+  c.coarseTransferBound ≤ c.transferBound ∧
+  c.paper8ConservationCoarseGrainingRowsCompatible ∧
+  c.descriptorRowsStableUnderCoarseGraining ∧
+  c.comparisonMapRowsStableUnderCoarseGraining ∧
+  c.causalConeNoSignalingStabilityPreserved ∧
+  c.finiteCapacityPreserved ∧
+  c.localityPreserved ∧
+  c.boundedTransferPreserved ∧
+  ¬ c.externalConservationLawImport ∧
+  ¬ c.continuumCurrentImport ∧
+  ¬ c.continuumLimitOracleImport ∧
+  ¬ c.observedCatalogRecoveryImport ∧
+  ¬ c.observedParticleCatalogRecoveryImport ∧
+  ¬ c.physicalStandardModelContentImport ∧
+  ¬ c.physicalParticleExcitationImport ∧
+  ¬ c.externalMatterFieldImport ∧
+  ¬ c.externalGaugeFieldImport ∧
+  ¬ c.continuumQFTImport ∧
+  ¬ c.backgroundHilbertBundleImport ∧
+  ¬ c.simulationOnlyPromotion ∧
+  ¬ c.fitOnlyCalibration ∧
+  ¬ c.physicalPromotion ∧
+  ¬ c.unifiedFieldPromotion
+
+theorem occ005_comparison_coarse_graining_stability_closed_from_fields
+    (c : OCC005ComparisonCoarseGrainingStabilityContract)
+    (hOCC001 : c.occ001UpstreamBindingClosed)
+    (hOCC002 : c.occ002FiniteExternalCatalogDescriptorClosed)
+    (hOCC003 : c.occ003FiniteCandidateToCatalogComparisonMapClosed)
+    (hOCC004 : c.occ004StandardModelCandidateCompatibilityClosed)
+    (hDescriptorStability : c.finiteDescriptorStabilityWitness)
+    (hMapStability : c.finiteComparisonMapStabilityWitness)
+    (hScoreStability : c.finiteScoreStabilityWitness)
+    (hCoarseMap : c.intrinsicCoarseGrainingMap)
+    (hDescriptorBoundPositive : 0 < c.descriptorLabelBound)
+    (hCoarseDescriptorBoundPositive : 0 < c.coarseDescriptorLabelBound)
+    (hCoarseDescriptorLeBound :
+      c.coarseDescriptorLabelBound ≤ c.descriptorLabelBound)
+    (hEdgeBoundPositive : 0 < c.comparisonEdgeBound)
+    (hCoarseEdgeBoundPositive : 0 < c.coarseComparisonEdgeBound)
+    (hCoarseEdgeLeBound : c.coarseComparisonEdgeBound ≤ c.comparisonEdgeBound)
+    (hNeighborhoodBoundPositive : 0 < c.localComparisonNeighborhoodBound)
+    (hCoarseNeighborhoodBoundPositive :
+      0 < c.coarseLocalComparisonNeighborhoodBound)
+    (hCoarseNeighborhoodLeBound :
+      c.coarseLocalComparisonNeighborhoodBound ≤
+        c.localComparisonNeighborhoodBound)
+    (hTransferBoundPositive : 0 < c.transferBound)
+    (hCoarseTransferBoundPositive : 0 < c.coarseTransferBound)
+    (hCoarseTransferLeBound : c.coarseTransferBound ≤ c.transferBound)
+    (hPaper8Conservation : c.paper8ConservationCoarseGrainingRowsCompatible)
+    (hDescriptorStable : c.descriptorRowsStableUnderCoarseGraining)
+    (hMapStable : c.comparisonMapRowsStableUnderCoarseGraining)
+    (hNoSignalingStable : c.causalConeNoSignalingStabilityPreserved)
+    (hCapacity : c.finiteCapacityPreserved)
+    (hLocality : c.localityPreserved)
+    (hTransfer : c.boundedTransferPreserved)
+    (hNoExternalConservation : ¬ c.externalConservationLawImport)
+    (hNoContinuumCurrent : ¬ c.continuumCurrentImport)
+    (hNoContinuumLimit : ¬ c.continuumLimitOracleImport)
+    (hNoObservedCatalogRecovery : ¬ c.observedCatalogRecoveryImport)
+    (hNoObservedParticleRecovery : ¬ c.observedParticleCatalogRecoveryImport)
+    (hNoPhysicalSM : ¬ c.physicalStandardModelContentImport)
+    (hNoPhysicalParticle : ¬ c.physicalParticleExcitationImport)
+    (hNoMatter : ¬ c.externalMatterFieldImport)
+    (hNoGauge : ¬ c.externalGaugeFieldImport)
+    (hNoQFT : ¬ c.continuumQFTImport)
+    (hNoHilbert : ¬ c.backgroundHilbertBundleImport)
+    (hNoSimulation : ¬ c.simulationOnlyPromotion)
+    (hNoFit : ¬ c.fitOnlyCalibration)
+    (hNoPhysicalPromotion : ¬ c.physicalPromotion)
+    (hNoUnified : ¬ c.unifiedFieldPromotion) :
+    c.closed := by
+  exact ⟨hOCC001, hOCC002, hOCC003, hOCC004, hDescriptorStability,
+    hMapStability, hScoreStability, hCoarseMap, hDescriptorBoundPositive,
+    hCoarseDescriptorBoundPositive, hCoarseDescriptorLeBound,
+    hEdgeBoundPositive, hCoarseEdgeBoundPositive, hCoarseEdgeLeBound,
+    hNeighborhoodBoundPositive, hCoarseNeighborhoodBoundPositive,
+    hCoarseNeighborhoodLeBound, hTransferBoundPositive,
+    hCoarseTransferBoundPositive, hCoarseTransferLeBound,
+    hPaper8Conservation, hDescriptorStable, hMapStable, hNoSignalingStable,
+    hCapacity, hLocality, hTransfer, hNoExternalConservation,
+    hNoContinuumCurrent, hNoContinuumLimit, hNoObservedCatalogRecovery,
+    hNoObservedParticleRecovery, hNoPhysicalSM, hNoPhysicalParticle,
+    hNoMatter, hNoGauge, hNoQFT, hNoHilbert, hNoSimulation, hNoFit,
+    hNoPhysicalPromotion, hNoUnified⟩
+
+theorem occ005_missing_occ004_compatibility_not_closed
+    (c : OCC005ComparisonCoarseGrainingStabilityContract)
+    (hClosed : c.closed)
+    (hMissingOCC004 : ¬ c.occ004StandardModelCandidateCompatibilityClosed) :
+    False := by
+  rcases hClosed with ⟨_, _, _, hOCC004, _⟩
+  exact hMissingOCC004 hOCC004
+
+theorem occ005_coarse_descriptor_growth_not_closed
+    (c : OCC005ComparisonCoarseGrainingStabilityContract)
+    (hClosed : c.closed)
+    (hCoarseGrowth : ¬ c.coarseDescriptorLabelBound ≤ c.descriptorLabelBound) :
+    False := by
+  rcases hClosed with ⟨_, _, _, _, _, _, _, _, _, _, hCoarseLe, _⟩
+  exact hCoarseGrowth hCoarseLe
+
+theorem occ005_continuum_limit_oracle_import_not_closed
+    (c : OCC005ComparisonCoarseGrainingStabilityContract)
+    (hClosed : c.closed)
+    (hContinuumLimit : c.continuumLimitOracleImport) :
+    False := by
+  rcases hClosed with
+    ⟨_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _,
+      _, _, _, _, _, hNoContinuumLimit, _⟩
+  exact hNoContinuumLimit hContinuumLimit
+
+def occ005CanonicalComparisonCoarseGrainingStabilityContract :
+    OCC005ComparisonCoarseGrainingStabilityContract :=
+  { occ001UpstreamBindingClosed := True,
+    occ002FiniteExternalCatalogDescriptorClosed := True,
+    occ003FiniteCandidateToCatalogComparisonMapClosed := True,
+    occ004StandardModelCandidateCompatibilityClosed := True,
+    finiteDescriptorStabilityWitness := True,
+    finiteComparisonMapStabilityWitness := True,
+    finiteScoreStabilityWitness := True,
+    intrinsicCoarseGrainingMap := True,
+    descriptorLabelBound := 16,
+    coarseDescriptorLabelBound := 8,
+    comparisonEdgeBound := 24,
+    coarseComparisonEdgeBound := 12,
+    localComparisonNeighborhoodBound := 7,
+    coarseLocalComparisonNeighborhoodBound := 4,
+    transferBound := 4,
+    coarseTransferBound := 2,
+    paper8ConservationCoarseGrainingRowsCompatible := True,
+    descriptorRowsStableUnderCoarseGraining := True,
+    comparisonMapRowsStableUnderCoarseGraining := True,
+    causalConeNoSignalingStabilityPreserved := True,
+    finiteCapacityPreserved := True,
+    localityPreserved := True,
+    boundedTransferPreserved := True,
+    externalConservationLawImport := False,
+    continuumCurrentImport := False,
+    continuumLimitOracleImport := False,
+    observedCatalogRecoveryImport := False,
+    observedParticleCatalogRecoveryImport := False,
+    physicalStandardModelContentImport := False,
+    physicalParticleExcitationImport := False,
+    externalMatterFieldImport := False,
+    externalGaugeFieldImport := False,
+    continuumQFTImport := False,
+    backgroundHilbertBundleImport := False,
+    simulationOnlyPromotion := False,
+    fitOnlyCalibration := False,
+    physicalPromotion := False,
+    unifiedFieldPromotion := False }
+
+theorem occ005_canonical_comparison_coarse_graining_stability_closed :
+    occ005CanonicalComparisonCoarseGrainingStabilityContract.closed := by
+  unfold OCC005ComparisonCoarseGrainingStabilityContract.closed
+  unfold occ005CanonicalComparisonCoarseGrainingStabilityContract
+  simp
+
 structure Paper9ObservedCatalogComparisonObservablesTheoremContract where
   occ001UpstreamBindingClosed : Prop
   occ002FiniteExternalCatalogDescriptorClosed : Prop

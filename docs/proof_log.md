@@ -224,9 +224,67 @@ excitations, physical matter fields, physical gauge fields, physical quantum
 dynamics, continuum quantum field theory, simulation-only promotion,
 fit-only calibration, physical promotion, and unified-field promotion.
 
+## OCC-005: Comparison Stability And Coarse-Graining Stability
+
+Status: closed as a finite stability and intrinsic coarse-graining contract.
+
+Artifacts:
+
+- `README.md`
+- `UPSTREAM-PAPERS.json`
+- `GPD/PROJECT.md`
+- `GPD/ROADMAP.md`
+- `GPD/STATE.md`
+- `GPD/state.json`
+- `docs/observed_catalog_comparison_observables_theorem.md`
+- `docs/open_proof_obligations.md`
+- `docs/proof_log.md`
+- `GPD/formal/FiniteCapacity/ObservedCatalogComparisonObservables.lean`
+- `rust/cclab_accel/src/lib.rs`
+- `rust/cclab_accel/tests/observed_catalog_comparison_observables_gate.rs`
+
+Rust anchors:
+
+- `ComparisonCoarseGrainingStability`
+- `ComparisonCoarseGrainingStability::canonical_occ005`
+- `ComparisonCoarseGrainingStability::closes_occ005`
+- `Paper9SkeletonCertificate::with_occ005_comparison_coarse_graining_stability_closed`
+- `occ005_comparison_coarse_graining_stability_marker`
+
+Lean anchors:
+
+- `OCC005ComparisonCoarseGrainingStabilityContract`
+- `OCC005ComparisonCoarseGrainingStabilityContract.closed`
+- `occ005_comparison_coarse_graining_stability_closed_from_fields`
+- `occ005_missing_occ004_compatibility_not_closed`
+- `occ005_coarse_descriptor_growth_not_closed`
+- `occ005_continuum_limit_oracle_import_not_closed`
+- `occ005_canonical_comparison_coarse_graining_stability_closed`
+
+Verification:
+
+- `make test-fast`
+- `make lean-build`
+
+Boundary:
+
+`OCC-005` proves finite comparison stability and intrinsic coarse-graining
+stability for `OCC-002` descriptor rows and `OCC-003` comparison-map rows
+under `OCC-004` Paper 8 compatibility. It requires non-growing coarse bounds
+for descriptor labels, comparison edges, local comparison neighborhoods, and
+transfer; Paper 8 conservation/coarse-graining compatibility; descriptor and
+comparison-map stability; causal-cone/no-signaling stability; finite capacity;
+locality; and bounded transfer. It rejects external conservation-law imports,
+continuum-current imports, continuum-limit oracle imports, observed-catalog
+recovery imports, observed particle catalog recovery, physical Standard Model
+content, physical particle excitations, physical matter fields, physical gauge
+fields, physical quantum dynamics, continuum quantum field theory,
+simulation-only promotion, fit-only calibration, physical promotion, and
+unified-field promotion.
+
 ## Active Next Obligation
 
-`OCC-005`: prove finite comparison stability and intrinsic coarse-graining
-stability for descriptor and comparison-map rows while preserving
-conservation, finite capacity, locality, bounded transfer, and
-causal-cone/no-signaling constraints.
+`OCC-006`: bind the closed descriptor, comparison-map, compatibility, and
+stability rows to the recorded Paper 8 regime while rejecting upstream
+bypasses, unapproved revisions, observed-catalog recovery imports,
+fit-only calibration, and physical promotion.

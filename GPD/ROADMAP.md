@@ -35,7 +35,7 @@ paper-specific certificate explicitly closes them.
   should show compatibility with the closed Paper 8 candidate catalog,
   interaction signature, Paper 7 compatibility, conservation, and
   coarse-graining rows.
-- [ ] **Phase 5: Prove Comparison Stability And Coarse-Graining Stability** -
+- [x] **Phase 5: Prove Comparison Stability And Coarse-Graining Stability** -
   `OCC-005` should state finite comparison stability rows and show coherent
   transport under finite intrinsic coarse-graining.
 - [ ] **Phase 6: Bind To Paper 8 Regime** - `OCC-006` should consume the

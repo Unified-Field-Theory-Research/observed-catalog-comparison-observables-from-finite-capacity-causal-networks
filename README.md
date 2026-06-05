@@ -47,10 +47,10 @@ neighborhoods, readout boundaries, and no physical-identification or fit-only
 shortcuts. `OCC-004` records compatibility with the closed Paper 8
 Standard-Model-candidate candidate-sector, interaction-family,
 conservation/coarse-graining, finite-capacity, locality, bounded-transfer,
-and causal-cone/no-signaling rows. The next active obligation is `OCC-005`:
-prove comparison stability and coarse-graining stability. This does not prove
-observed-catalog
-comparison
+and causal-cone/no-signaling rows. `OCC-005` records finite stability and
+non-growing intrinsic coarse-graining for descriptor and comparison-map rows.
+The next active obligation is `OCC-006`: bind the closed rows to the recorded
+Paper 8 regime. This does not prove observed-catalog comparison
 observable recovery, observed particle catalog recovery, physical Standard
 Model content, physical particle excitations, physical matter fields,
 physical gauge fields, physical quantum dynamics, continuum quantum field
